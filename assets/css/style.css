@@ -1,6 +1,11 @@
 :root{
-    --mainpadding:20px;
-    --color1:#41535b;
+    --mainpadding:2rem;
+    --color1:#454545;
+    --color2:#f60;
+    --color3:#ffa559;
+    --color4:#ffe6c7;
+    --dark:rgba(0,0,0,.3);
+    --transition:all ease-out .3s;
     @media(max-width:600px){
         --article-per-row:1fr;
     }
@@ -17,6 +22,17 @@
 }
 body{
     min-height:100vh;
+    font-family:Helvetica, sans-serif; 
+}
+h1{
+    font-size:2em;
+    text-transform: uppercase;
+}
+h1, h2, h3, h4, h5, h6{
+    font-weight:bold;
+}
+h2, h3, h4, h5, h6{
+    padding-bottom:var(--mainpadding)
 }
 header{
     background-color:var(--color1);
@@ -38,19 +54,34 @@ aside{
 aside > *{
     position:sticky;
     top:0;
+    
 }
 footer{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
+
     gap:var(--mainpadding);
     background-color: var(--color1);
     padding:var(--mainpadding) var(--mainpadding) cal(var(--mainpadding) * 3) var(--mainpadding);
     justify-items: center;
     grid-template-rows: calc(var(--mainpadding) * 1) auto calc(var(--mainpadding) * 2) ;
+    color:#fff;
 }
 footer > *{
     grid-row: 2 / 3;
+    justify-self: stretch;
+
 }
+footer > *:not(:last-child){
+    border-right:solid 1px var(--dark);
+}
+footer address{
+    padding-left:var(--mainpadding);
+}
+footer li{
+    margin-bottom:var(--mainpadding);
+}
+footer a{color:inherit;text-decoration: none;}
 header > div{
     display:flex;
     justify-content: space-between;
@@ -176,3 +207,127 @@ border-bottom:solid 1px var(--color1);
 grid-column: 2 / 3;
 grid-row: 1;
 }
+
+
+/* PRODUCT PAGE */
+main[label="Produt-page"]{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+main[label="Produt-page"] > figure{
+    grid-column: 1;
+}
+section[label="purchase form"]{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main[label="Produt-page"] > section:first-of-type{
+    grid-column: 2 / 3;
+}
+main[label="Produt-page"] > section:nth-of-type(2){
+    grid-column: 3 / 4;
+}
+main[label="Produt-page"] section:has(h1){
+    display:grid;
+}
+section[aria-label="Product details"]{
+    display:grid;
+    grid-template-columns: 200px auto;
+    gap:var(--mainpadding);
+    
+    
+}
+section[aria-label="Product details"] aside{
+    grid-column: 1/2;
+    grid-row: 1 / 5;
+}
+section[aria-label="Product details"] aside nav{
+    border:0;
+}
+section[aria-label="Product details"] aside ul{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+section[aria-label="Product details"] > section{
+    grid-column: 2/3;
+    padding-bottom: calc(var(--mainpadding) * 3);
+    padding-top: var(--mainpadding);
+    background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) calc(100% - var(--mainpadding)), rgba(238,238,238,.3) 100%);
+}
+section[aria-label="Product details"] > section > *{
+    max-width:1000px;
+    margin:auto
+}
+section[aria-labelledby="technicaldata"] dl{
+    display:flex;
+    columns: 2;
+    flex-wrap: wrap;
+    gap:var(--mainpadding)
+}
+section[aria-labelledby="technicaldata"] dl > *{
+    flex-basis:calc(50% - var(--mainpadding));
+}
+section[aria-labelledby="technicaldata"] dd{
+    font-weight: bold;;
+}
+
+/* CHECKOUT */
+body:has(main[label="Checkout"]){
+    display: grid;
+    grid-template-rows: auto;
+}
+main[label="Checkout"]{
+    grid-template-columns: 1fr;
+}
+main[label="Checkout"] form{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 300px;
+    grid-template-rows: 100px auto;
+    gap:var(--mainpadding);
+    padding:0;
+    /* min-height:80vh; */
+}
+main[label="Checkout"] form > section{
+    grid-column: 1/4;
+    grid-row:1/2;
+    /* background-color:red; */
+}
+main[label="Checkout"] form > fieldset{
+    display:grid;
+}
+main[label="Checkout"] form > fieldset:has(input[type="password"]){
+padding-left:var(--mainpadding);
+padding-right:var(--mainpadding);
+}
+main[label="Checkout"] form > fieldset:has(input:checked) legend{
+    color:green;
+}
+main[label="Checkout"] > form > section:last-of-type{
+    grid-column: 4/5;
+    grid-row: 1/3;
+    background-color: #eee;
+    padding:var(--mainpadding) calc(var(--mainpadding) / 2);
+}
+/* main[label="Checkout"] h1{
+    grid-column: 1/2;
+} */
+main[label="Checkout"] fieldset legend{padding-bottom: var(--mainpadding);}
+main[label="Checkout"] fieldset:has(input[ type="radio"]){
+    display:grid;
+    padding-bottom:calc(var(--mainpadding) * 2);
+}
+main[label="Checkout"] fieldset:has(input[ type="radio"]) label{
+    padding:10px var(--mainpadding);
+    background-color: #fff;
+    transition: var(--transition);
+}
+main[label="Checkout"] fieldset:has(input[ type="radio"]) label:hover{
+    background-color:#eee;
+    cursor:pointer;
+    transition: var(--transition);
+}
+var(--mainpadding)
