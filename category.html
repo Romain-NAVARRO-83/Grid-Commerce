@@ -5,69 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grid commerce</title>
-    <link rel="shortcut icon" href="assets/img/logo-gridcommerce.svg" type="image/x-icon">
+    <link rel="shortcut icon" sizes="any" type="image/svg+xml" href="assets/img/logo-gridcommerce-dark.svg" type="image/x-icon" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" sizes="any" type="image/svg+xml" href="assets/img/logo-gridcommerce-light.svg" type="image/x-icon" media="(prefers-color-scheme: dark)">
+
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.0/css/all.min.css"
         integrity="sha512-ykRBEJhyZ+B/BIJcBuOyUoIxh0OfdICfHPnPfBy7eIiyJv536ojTCsgX8aqrLQ9VJZHGz4tvYyzOM0lkgmQZGw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/grid-commerce.js"></script>
 </head>
 
 <body>
-    <header>
-        <div>
-            <a href="index.html" title="Retour accueil"><img src="https://placehold.co/50x50?text=Logo" alt="Logo du site" width="50" height="50"></a>
-            <ul>
-                <li> <a href="#" title="Connexion / Votre compte"><i class="fa fa-user"></i></a></li>
-                <li><a href="checkout.html" title="Votre panier"
-                    ><i class="fa fa-shopping-cart"></i
-                  ></a></li>
-            </ul>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="category.html">link</a>
-                    <ul>
-                        <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-                        <li><a href="category.html">Cupiditate ea asperiores possimus.</a></li>
-                        <li><a href="category.html">Odio quidem quod delectus!</a></li>
-                        <li><a href="category.html">Officiis aperiam suscipit laboriosam.</a></li>
-                        <li><a href="category.html">Inventore quas ex in.</a></li>
-                        <li><a href="category.html">Saepe, similique! Ut, voluptate.</a></li>
-                    </ul>
-                </li>
-                <li><a href="category.html">link</a>
-                    <ul>
-                        <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-                        <li><a href="category.html">Cupiditate ea asperiores possimus.</a></li>
-                        <li><a href="category.html">Odio quidem quod delectus!</a></li>
-                        <li><a href="category.html">Officiis aperiam suscipit laboriosam.</a></li>
-                        <li><a href="category.html">Inventore quas ex in.</a></li>
-                        <li><a href="category.html">Saepe, similique! Ut, voluptate.</a></li>
-                    </ul>
-                </li>
-                <li><a href="category.html">link</a>
-                    <ul>
-                        <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-                        <li><a href="category.html">Cupiditate ea asperiores possimus.</a></li>
-                        <li><a href="category.html">Odio quidem quod delectus!</a></li>
-                        <li><a href="category.html">Officiis aperiam suscipit laboriosam.</a></li>
-                        <li><a href="category.html">Inventore quas ex in.</a></li>
-                        <li><a href="category.html">Saepe, similique! Ut, voluptate.</a></li>
-                    </ul>
-                </li>
-                <li><a href="category.html">link</a>
-                    <ul>
-                        <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-                        <li><a href="category.html">Cupiditate ea asperiores possimus.</a></li>
-                        <li><a href="category.html">Odio quidem quod delectus!</a></li>
-                        <li><a href="category.html">Officiis aperiam suscipit laboriosam.</a></li>
-                        <li><a href="category.html">Inventore quas ex in.</a></li>
-                        <li><a href="category.html">Saepe, similique! Ut, voluptate.</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+    <header w3-include-html="partials/header.html">
+        
     </header>
     <main>
         <aside>
@@ -89,15 +40,16 @@
             </ul>
         </nav>
         <div aria-label="Liste d'articles" role="region">
-            <article>
-                <figure><img src="https://placehold.co/200x150?text=Image" alt="alt">
-                    <figcaption>caption</figcaption>
-                </figure>
-                <h2><a href="product.html">Lorem ipsum dolor sit amet.</a></h2>
-                <div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, laudantium cum explicabo maxime sit unde aliquid nemo voluptatem eaque magni facere nostrum ipsum nobis qui repudiandae nulla dicta cumque dolorum?</p>
-                </div>
-            </article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article.html"></article>
         </div>
         <nav>
             <ul>
@@ -108,29 +60,7 @@
             </ul>
         </nav>
     </main>
-    <footer>
-        <address>
-            <img src="assets/img/logo-gridcommerce.svg" alt="Grid Commerce Logo" width="75" height="75">
-            Name<br>
-            Baseline<br>
-            Address<br>
-            <a href="mailto:@contact@gridcommerce.com" title="send us an email">email</a><br>
-            Phone
-        </address>
-        <ul>
-            <li><a href="">Lorem, ipsum dolor.</a></li>
-            <li><a href="">Enim, sunt fuga.</a></li>
-            <li><a href="">Ipsam, fugit aliquam?</a></li>
-            <li><a href="">Est, numquam praesentium!</a></li>
-        </ul>
-        <ul>
-            <li><a href="">Lorem, ipsum dolor.</a></li>
-            <li><a href="">Aspernatur, expedita pariatur?</a></li>
-            <li><a href="">Validation W3C</a></li>
-            <li><a href="">Accessibilité</a></li>
-        </ul>
-
-    </footer>
+    <footer w3-include-html="partials/footer.html"></footer>
 </body>
-
+<script>includeHTML();</script>
 </html>

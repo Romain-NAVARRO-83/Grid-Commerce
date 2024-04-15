@@ -26,16 +26,37 @@ body{
 }
 h1{
     font-size:2em;
-    text-transform: uppercase;
 }
 h1, h2, h3, h4, h5, h6{
     font-weight:bold;
+    text-transform: uppercase;
+    color: var(--color1);
 }
 h2, h3, h4, h5, h6{
     padding-bottom:var(--mainpadding)
 }
+h1 span{
+    color:var(--color2);
+    font-weight: 100;
+    font-size:1rem;
+}
+footer a{
+    color:var(--color4);
+}
 header{
     background-color:var(--color1);
+}
+header a[href="index.html"]{
+    text-decoration: none;
+    display: flex;
+    gap: calc(var(--mainpadding) / 2);
+    justify-content: space-between;
+    align-items: center;
+}
+header a[href="index.html"]:after{
+    content:"Grid Commerce";
+    font-size:2em;
+
 }
 main{
     display:grid;
@@ -75,13 +96,27 @@ footer > *{
 footer > *:not(:last-child){
     border-right:solid 1px var(--dark);
 }
+footer > ul:last-child{
+    grid-row: 3/4;
+    grid-column: 1/4;
+    display:flex;
+    justify-content: center;
+    gap:var(--mainpadding);
+    background-color: var(--dark);
+    align-items: center;
+    font-size: 0.8rem;;
+}
 footer address{
     padding-left:var(--mainpadding);
+    line-height: 1.5;
 }
-footer li{
+footer address::first-line{font-size:1.5em;}
+footer address:before{content:" ";background-image:url("../img/logo-gridcommerce-light.svg");width:40px;height:40px;display:inline-block;vertical-align: middle;}
+address img{vertical-align: middle;}
+footer ul:not(:last-child) li{
     margin-bottom:var(--mainpadding);
 }
-footer a{color:inherit;text-decoration: none;}
+footer a{/* color:inherit; */text-decoration: none;}
 header > div{
     display:flex;
     justify-content: space-between;
@@ -146,6 +181,10 @@ header nav > ul > li > ul:after{
     -ms-transform: skew(0deg, 0deg);
     transform: skew(0deg, 0deg);
     transition:all ease-out .3s;
+    border-bottom: solid 3px var(--color2);
+    /* outline: 5px solid var(--color2); */
+    /* -webkit-box-shadow: 0px 2px 0px 0px var(--color2); 
+box-shadow: 0px 2px 0px 0px var(--color2); */
 }
 header nav > ul > li:nth-of-type(even):hover > ul:after{
     transform-origin: top left;

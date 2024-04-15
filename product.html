@@ -14,124 +14,25 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/grid-commerce.js"></script>
   </head>
 
   <body>
-    <header>
-      <div>
-        <a href="index.html" title="Retour accueil"
-          ><img
-            src="https://placehold.co/50x50?text=Logo"
-            alt="Logo du site"
-            width="50"
-            height="50"
-        /></a>
-        <ul>
-          <li>
-            <a href="#" title="Connexion / Votre compte"
-              ><i class="fa fa-user"></i
-            ></a>
-          </li>
-          <li>
-            <a href="checkout.html" title="Votre panier"
-              ><i class="fa fa-shopping-cart"></i
-            ></a>
-          </li>
-        </ul>
-      </div>
-      <nav>
-        <ul>
-          <li>
-            <a href="category.html">link</a>
-            <ul>
-              <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-              <li>
-                <a href="category.html">Cupiditate ea asperiores possimus.</a>
-              </li>
-              <li><a href="category.html">Odio quidem quod delectus!</a></li>
-              <li>
-                <a href="category.html"
-                  >Officiis aperiam suscipit laboriosam.</a
-                >
-              </li>
-              <li><a href="category.html">Inventore quas ex in.</a></li>
-              <li>
-                <a href="category.html">Saepe, similique! Ut, voluptate.</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="category.html">link</a>
-            <ul>
-              <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-              <li>
-                <a href="category.html">Cupiditate ea asperiores possimus.</a>
-              </li>
-              <li><a href="category.html">Odio quidem quod delectus!</a></li>
-              <li>
-                <a href="category.html"
-                  >Officiis aperiam suscipit laboriosam.</a
-                >
-              </li>
-              <li><a href="category.html">Inventore quas ex in.</a></li>
-              <li>
-                <a href="category.html">Saepe, similique! Ut, voluptate.</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="category.html">link</a>
-            <ul>
-              <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-              <li>
-                <a href="category.html">Cupiditate ea asperiores possimus.</a>
-              </li>
-              <li><a href="category.html">Odio quidem quod delectus!</a></li>
-              <li>
-                <a href="category.html"
-                  >Officiis aperiam suscipit laboriosam.</a
-                >
-              </li>
-              <li><a href="category.html">Inventore quas ex in.</a></li>
-              <li>
-                <a href="category.html">Saepe, similique! Ut, voluptate.</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="category.html">link</a>
-            <ul>
-              <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-              <li>
-                <a href="category.html">Cupiditate ea asperiores possimus.</a>
-              </li>
-              <li><a href="category.html">Odio quidem quod delectus!</a></li>
-              <li>
-                <a href="category.html"
-                  >Officiis aperiam suscipit laboriosam.</a
-                >
-              </li>
-              <li><a href="category.html">Inventore quas ex in.</a></li>
-              <li>
-                <a href="category.html">Saepe, similique! Ut, voluptate.</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+    <header w3-include-html="partials/header.html">
+        
     </header>
     <main label="Produt-page">
       <figure>
         <img
-          src="https://placehold.co/500x500?text=Product picture"
-          alt="Praduct name"
+          src="assets/img/pure-css-500W.jpg"
+          alt="Pure CSS bottle"
           width="500"
-          height="500"
+          height="375"
         />
         <figcaption>Product name</figcaption>
       </figure>
       <section>
-        <h1>Product name</h1>
+        <h1>Pure CSS <span>Cascading liquor</span></h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, atque repellendus. Culpa dolor molestiae saepe itaque esse iure similique. Sed?</p>
         <ul>
             <li>Print</li>
@@ -217,25 +118,7 @@
         </section>
       </section>
     </main>
-    <footer>
-      <ul>
-        <li><a href="">Lorem, ipsum dolor.</a></li>
-        <li><a href="">Repellendus, nulla ad?</a></li>
-        <li><a href="">Aliquid, quod ut.</a></li>
-        <li><a href="">Corrupti, eum sit?</a></li>
-      </ul>
-      <ul>
-        <li><a href="">Lorem, ipsum dolor.</a></li>
-        <li><a href="">Enim, sunt fuga.</a></li>
-        <li><a href="">Ipsam, fugit aliquam?</a></li>
-        <li><a href="">Est, numquam praesentium!</a></li>
-      </ul>
-      <ul>
-        <li><a href="">Lorem, ipsum dolor.</a></li>
-        <li><a href="">Aspernatur, expedita pariatur?</a></li>
-        <li><a href="">Validation W3C</a></li>
-        <li><a href="">Accessibilité</a></li>
-      </ul>
-    </footer>
+    <footer w3-include-html="partials/footer.html"></footer>
   </body>
+  <script>includeHTML();</script>
 </html>
