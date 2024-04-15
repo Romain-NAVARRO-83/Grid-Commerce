@@ -213,7 +213,7 @@ div[aria-label="Liste d'articles"] article{
     display:grid;
     justify-content: center;
     grid-template-columns: 1fr;
-    grid-template-rows: 180px 20px 50px 30px;
+    grid-template-rows: 220px 30px 60px 40px;
 }
 div[aria-label="Liste d'articles"] article figure img{
     margin:auto;
