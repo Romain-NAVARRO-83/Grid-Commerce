@@ -4,9 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grid commerce</title>
-
-    <link rel="shortcut icon" sizes="any" type="image/svg+xml" href="assets/img/logo-gridcommerce-dark.svg" type="image/x-icon" media="(prefers-color-scheme: light)">
-    <link rel="shortcut icon" sizes="any" type="image/svg+xml" href="assets/img/logo-gridcommerce-light.svg" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <meta property="og:type" content="book" />
+    <meta property="og:title" content="Javanese Scriptography" />
+    <meta
+      property="og:url"
+      content="https://romain-navarro-83.github.io/Grid-Commerce/product.html"
+    />
+    <meta
+      property="og:image"
+      content="https://romain-navarro-83.github.io/Grid-Commerce/assets/img/javanese-scriptography-500W.jpg"
+    />
+    <meta
+      property="og:description"
+      content="A deep dive into confusing book titles along human History."
+    />
+    <meta property="book:isbn" content="8008542694208" />
+    <meta property="book:author" content="Romain Navarro" />
+    <meta property="book:release_date" content="2024-04-15" />
+    <meta property="book:tag" content="schoolproject" />
+    <meta property="book:tag" content="mockup" />
+    <meta property="book:tag" content="fake product" />
+    <link
+      rel="shortcut icon"
+      sizes="any"
+      type="image/svg+xml"
+      href="assets/img/logo-gridcommerce-dark.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="shortcut icon"
+      sizes="any"
+      type="image/svg+xml"
+      href="assets/img/logo-gridcommerce-light.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link
       rel="stylesheet"
@@ -20,9 +53,7 @@
   </head>
 
   <body>
-    <header w3-include-html="partials/header.html">
-        
-    </header>
+    <header w3-include-html="partials/header.html"></header>
     <main label="Produt-page">
       <figure>
         <img
@@ -35,22 +66,30 @@
       </figure>
       <section label="Product overview">
         <h1>Javanese Scriptography</h1>
-        <p>A deep dive into <em>confusing book titles</em> along human History.</p>
+        <p>
+          A deep dive into <em>confusing book titles</em> along human History.
+        </p>
         <ul>
-            <li><button><i class="fa fa-heart"></i></button>Print</li>
-            <li><button><i class="fa fa-share-alt"></i></button>Share</li>
-            <li><button><i class="fa fa-heart"></i></button>Favorites</li>
+          <li>
+            <button><i class="fa fa-heart"></i></button>Print
+          </li>
+          <li>
+            <button><i class="fa fa-share-alt"></i></button>Share
+          </li>
+          <li>
+            <button><i class="fa fa-heart"></i></button>Favorites
+          </li>
         </ul>
       </section>
       <section label="purchase form">
         <span>Stock</span>
         <span>Regular price</span>
-        <span itemprop="price" content="999.99">999.99</span>
-    
+        <span itemprop="price" content="999.99">999.99 €</span>
+
         <form action="">
-            <input type="hidden" name="product-id">
-            <input type="number" name="product-qty" id="product-qty" value="1">
-            <button type="submit">Add to cart</button>
+          <input type="hidden" name="product-id" />
+          <input type="number" name="product-qty" id="product-qty" value="1" />
+          <button type="submit">Add to cart</button>
         </form>
         <ul>
           <li>Lorem, ipsum.</li>
@@ -61,21 +100,33 @@
       </section>
       <section aria-label="Product details">
         <aside>
-            <nav>
-                <ul>
-                    <li><a href="#">description</a></li>
-                    <li><a href="#">Technical data</a></li>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Accessories</a></li>
-                </ul>
-            </nav>
+          <nav>
+            <ul>
+              <li><a href="#">description</a></li>
+              <li><a href="#">Technical data</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </nav>
         </aside>
         <section aria-labelledby="description">
           <h2 id="description">Description</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis sapiente ut explicabo cupiditate accusamus. Nemo laboriosam accusantium consectetur. Sed.</p>
-          <p>Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam doloremque dolore dolor eum laborum odio pariatur blanditiis quo distinctio.</p>
-          <p>Praesentium veritatis non adipisci nobis? In quibusdam, voluptas similique corrupti expedita provident fugiat unde harum eveniet saepe inventore vero debitis.</p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
+            sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
+            accusantium consectetur. Sed.
+          </p>
+          <p>
+            Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam
+            doloremque dolore dolor eum laborum odio pariatur blanditiis quo
+            distinctio.
+          </p>
+          <p>
+            Praesentium veritatis non adipisci nobis? In quibusdam, voluptas
+            similique corrupti expedita provident fugiat unde harum eveniet
+            saepe inventore vero debitis.
+          </p>
         </section>
         <section aria-labelledby="technicaldata">
           <h2 id="technicaldata">Technical data</h2>
@@ -114,19 +165,45 @@
         </section>
         <section aria-labelledby="documentation">
           <h2 id="documentation">Documentation</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis sapiente ut explicabo cupiditate accusamus. Nemo laboriosam accusantium consectetur. Sed.</p>
-          <p>Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam doloremque dolore dolor eum laborum odio pariatur blanditiis quo distinctio.</p>
-          <p>Praesentium veritatis non adipisci nobis? In quibusdam, voluptas similique corrupti expedita provident fugiat unde harum eveniet saepe inventore vero debitis.</p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
+            sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
+            accusantium consectetur. Sed.
+          </p>
+          <p>
+            Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam
+            doloremque dolore dolor eum laborum odio pariatur blanditiis quo
+            distinctio.
+          </p>
+          <p>
+            Praesentium veritatis non adipisci nobis? In quibusdam, voluptas
+            similique corrupti expedita provident fugiat unde harum eveniet
+            saepe inventore vero debitis.
+          </p>
         </section>
         <section aria-labelledby="reviews">
           <h2 id="reviews">Reviews</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis sapiente ut explicabo cupiditate accusamus. Nemo laboriosam accusantium consectetur. Sed.</p>
-          <p>Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam doloremque dolore dolor eum laborum odio pariatur blanditiis quo distinctio.</p>
-          <p>Praesentium veritatis non adipisci nobis? In quibusdam, voluptas similique corrupti expedita provident fugiat unde harum eveniet saepe inventore vero debitis.</p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
+            sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
+            accusantium consectetur. Sed.
+          </p>
+          <p>
+            Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam
+            doloremque dolore dolor eum laborum odio pariatur blanditiis quo
+            distinctio.
+          </p>
+          <p>
+            Praesentium veritatis non adipisci nobis? In quibusdam, voluptas
+            similique corrupti expedita provident fugiat unde harum eveniet
+            saepe inventore vero debitis.
+          </p>
         </section>
       </section>
     </main>
     <footer w3-include-html="partials/footer.html"></footer>
   </body>
-  <script>includeHTML();</script>
+  <script>
+    includeHTML();
+  </script>
 </html>
