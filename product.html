@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grid commerce</title>
+
     <link rel="shortcut icon" sizes="any" type="image/svg+xml" href="assets/img/logo-gridcommerce-dark.svg" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link rel="shortcut icon" sizes="any" type="image/svg+xml" href="assets/img/logo-gridcommerce-light.svg" type="image/x-icon" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="assets/css/reset.css" />
@@ -25,32 +26,38 @@
     <main label="Produt-page">
       <figure>
         <img
-          src="assets/img/pure-css-500W.jpg"
-          alt="Pure CSS bottle"
+          src="assets/img/javanese-scriptography-500W.jpg"
+          alt="Javanese Scriptography packshot"
           width="500"
           height="500"
         />
-        <figcaption>Product name</figcaption>
+        <!-- <figcaption>Product name</figcaption> -->
       </figure>
-      <section>
-        <h1>Pure CSS <span>Cascading liquor</span></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, atque repellendus. Culpa dolor molestiae saepe itaque esse iure similique. Sed?</p>
+      <section label="Product overview">
+        <h1>Javanese Scriptography</h1>
+        <p>A deep dive into <em>confusing book titles</em> along human History.</p>
         <ul>
-            <li>Print</li>
-            <li>Share</li>
-            <li>Favorites</li>
+            <li><button><i class="fa fa-heart"></i></button>Print</li>
+            <li><button><i class="fa fa-share-alt"></i></button>Share</li>
+            <li><button><i class="fa fa-heart"></i></button>Favorites</li>
         </ul>
       </section>
       <section label="purchase form">
         <span>Stock</span>
         <span>Regular price</span>
-        <span>999.99</span>
+        <span itemprop="price" content="999.99">999.99</span>
     
         <form action="">
             <input type="hidden" name="product-id">
             <input type="number" name="product-qty" id="product-qty" value="1">
             <button type="submit">Add to cart</button>
         </form>
+        <ul>
+          <li>Lorem, ipsum.</li>
+          <li>Explicabo, animi.</li>
+          <li>Eum, unde.</li>
+          <li>Amet, soluta.</li>
+        </ul>
       </section>
       <section aria-label="Product details">
         <aside>
