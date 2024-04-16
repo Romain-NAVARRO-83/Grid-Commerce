@@ -71,7 +71,7 @@
         </p>
         <ul>
           <li>
-            <button><i class="fa fa-heart"></i></button>Print
+            <button><i class="fa fa-print"></i></button>Print
           </li>
           <li>
             <button><i class="fa fa-share-alt"></i></button>Share
@@ -92,21 +92,22 @@
           <button type="submit">Add to cart</button>
         </form>
         <ul>
-          <li>Lorem, ipsum.</li>
-          <li>Explicabo, animi.</li>
-          <li>Eum, unde.</li>
-          <li>Amet, soluta.</li>
+          <li><i class="fa far fa-credit-card"></i>Secure payment</li>
+          <li><i class="fa far fa-truck"></i>Express delivery</li>
+          <li><i class="fa far far fa-clock"></i>14 days moneyback warranty</li>
+          <li><i class="fa far far fa-comments"></i>Online support</li>
         </ul>
       </section>
       <section aria-label="Product details">
         <aside>
           <nav>
             <ul>
-              <li><a href="#">description</a></li>
-              <li><a href="#">Technical data</a></li>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">Reviews</a></li>
-              <li><a href="#">Accessories</a></li>
+              <li><a href="#description">Description</a></li>
+              <li><a href="#technicaldata">Technical data</a></li>
+              <li><a href="#documentation">Documentation</a></li>
+              <li><a href="#reviews">Reviews</a></li>
+              <li><a href="#accessories">Accessories</a></li>
+              <li><a href="#relatedproducts">Related products</a></li>
             </ul>
           </nav>
         </aside>
@@ -199,7 +200,19 @@
             saepe inventore vero debitis.
           </p>
         </section>
+        <section aria-labelledby="relatedproducts">
+          <h2 id="relatedproducts">Related products</h2>
+          <div aria-label="Liste d'articles" role="region">
+            <article w3-include-html="partials/article.html"></article>
+            <article w3-include-html="partials/article2.html"></article>
+            <!-- <article w3-include-html="partials/article3.html"></article> -->
+            <article w3-include-html="partials/article4.html"></article>
+            <article w3-include-html="partials/article.html"></article>
+        </div>
+        </section>
       </section>
+      
+    </section>
     </main>
     <footer w3-include-html="partials/footer.html"></footer>
   </body>
