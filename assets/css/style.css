@@ -6,6 +6,7 @@
     --color4: #ffe6c7;
     --dark: rgba(0, 0, 0, .3);
     --transition: all ease-out .3s;
+    --fullline : 1/-1;
 
     @media(max-width:600px) {
         --article-per-row: 1fr;
@@ -36,7 +37,15 @@ body {
 h1 {
     font-size: 2em;
 }
-
+h2 {
+    font-size:1.5em;
+}
+h3 {
+    font-size:1.3em;
+}
+h4 {
+    font-size:1.1em;
+}
 h1,
 h2,
 h3,
@@ -56,12 +65,13 @@ h6 {
     padding-bottom: var(--mainpadding)
 }
 
-h1 span {
+h1 span, h2 span {
     color: var(--color2);
-    font-weight: 100;
-    font-size: 1rem;
 }
-
+h1 span{
+    font-weight: 100;
+    font-size: 80%;
+}
 a {
     color: inherit;
     text-decoration: none;
@@ -128,7 +138,7 @@ aside {
 
 aside>* {
     position: sticky;
-    top: 0;
+    top: 90px;
 
 }
 
@@ -301,26 +311,26 @@ header nav>ul>li:nth-of-type(odd):hover>ul:after {
     transition: all ease-out .3s;
 }
 
-div[aria-label="Liste d'articles"] {
+*[aria-label="Liste d'articles"] {
     display: grid;
     grid-template-columns: var(--article-per-row);
     gap: var(--mainpadding);
 }
 
-div[aria-label="Liste d'articles"] article {
+*[aria-label="Liste d'articles"] article {
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr;
     grid-template-rows: 250px 100px 50px;
 }
 
-div[aria-label="Liste d'articles"] article figure img {
+*[aria-label="Liste d'articles"] article figure img {
     margin: auto;
     display: block;
 }
 
-div[aria-label="Liste d'articles"] article>div:first-of-type,
-div[aria-label="Liste d'articles"] article>div:first-of-type p {
+*[aria-label="Liste d'articles"] article>div:first-of-type,
+*[aria-label="Liste d'articles"] article>div:first-of-type p {
     text-overflow: ellipsis;
     -webkit-text-overflow: ellipsis;
     overflow: hidden;
@@ -551,6 +561,77 @@ main[aria-label="Page d'accueil"]>* {
     grid-column: 1/7;
 }
 
-section[aria-labelledby="h1"] {
+main[aria-label="Page d'accueil"] section[aria-labelledby="h1"] {
     background-color: var(--color4);
+    background-image: url(../img/office-background.jpg);
+    background-size: cover;
+    background-position: center right;
+    min-height:50vh;
+    text-align:right;
+    display:grid;
+    grid-template-columns: auto 500px;
+    align-items: center;
+
+}
+main[aria-label="Page d'accueil"] section[aria-labelledby="h1"]::before{
+    content:" ";
+    background-image: url(../img/javanese-scriptography.png);
+    background-size: contain;
+    height:80%;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+main[aria-label="Page d'accueil"] h1{
+    backdrop-filter: blur(5px);
+    background-color:rgba(255,255,255,.6);
+    padding:var(--mainpadding);
+    grid-column: 2/3;
+    line-height: 1.3;
+}
+main[aria-label="Page d'accueil"] section[aria-labelledby="h2-1"]{
+display:grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+gap: var(--mainpadding);
+}
+main[aria-label="Page d'accueil"] section h2{
+ grid-column: var(--fullline);
+}
+main[aria-label="Page d'accueil"] section[aria-labelledby="h2-1"] article{
+    background-color: #454545;
+    color:#fff;
+    padding: var(--mainpadding);
+}
+main[aria-label="Page d'accueil"] section[aria-labelledby="h2-1"] article h3{
+    color:var(--color2);
+}
+main[aria-label="Page d'accueil"] section[aria-labelledby="h2-1"] article h3:after{
+    content: "";
+    width: 100%;
+    border-bottom: solid 1px var(--dark);
+    display: block;
+    margin-top: calc(var(--mainpadding) / 2);
+}
+main[aria-label="Page d'accueil"] section{
+    position:relative;
+    padding-bottom: 120px;
+    overflow: hidden;
+}
+main[aria-label="Page d'accueil"] > section:not(:last-of-type):after{
+    display: block;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 87px;
+    transform: skewY(2deg);
+    transform-origin: left;
+    -webkit-box-shadow: 0px -18px 18px 0px rgba(0,0,0,0.12);
+-moz-box-shadow: 0px -18px 18px 0px rgba(0,0,0,0.12);
+box-shadow: 0px -18px 18px 0px rgba(0,0,0,0.12);
+}
+main[aria-label="Page d'accueil"] > section:nth-of-type(even):after{
+    transform: skewY(-2deg);
+    transform-origin: right;
 }

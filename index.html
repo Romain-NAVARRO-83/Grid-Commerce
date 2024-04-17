@@ -21,38 +21,48 @@
     </header>
     <main aria-label="Page d'accueil" role="region">
             <section aria-labelledby="h1">
-                <h1 id="h1">Scientifically dubious code oriented cash grabs</h1>
+                <h1 id="h1">Scientifically dubious<br> code oriented<br> cash grabs</h1>
             </section>
             <section aria-labelledby="h2-1">
-                <h2 id="h2-1">Principales catégories</h2>
-                <ul>
-                    <li>
-                        <h3><a href="">Lorem, ipsum dolor.</a></h3>
-                    </li>
-                    <li>
-                        <h3><a href="">Rerum, praesentium natus?</a></h3>
-                    </li>
-                    <li>
-                        <h3><a href="">Reiciendis, et sapiente.</a></h3>
-                    </li>
-                    <li>
-                        <h3><a href="">Officiis, consequuntur rem?</a></h3>
-                    </li>
-                    <li>
-                        <h3><a href="">Ipsa, temporibus incidunt.</a></h3>
-                    </li>
-                    <li>
-                        <h3><a href="">Omnis, fuga architecto!</a></h3>
-                    </li>
-                </ul>
+                <h2 id="h2-1">Our <span>top</span> categories</h2>
+                <article>
+                    <h3><a href="category.html">Category name</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet sed magni deserunt nobis aliquid?</p>
+                </article>
+                <article>
+                    <h3><a href="category.html">Category name</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet sed magni deserunt nobis aliquid?</p>
+                </article>
+                <article>
+                    <h3><a href="category.html">Category name</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet sed magni deserunt nobis aliquid?</p>
+                </article>
+                <article>
+                    <h3><a href="category.html">Category name</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet sed magni deserunt nobis aliquid?</p>
+                </article>
             </section>
-            <section>services</section>
-            <section>promotions</section>
-            <section>blog</section>
-            <section>marques</section>
+            <section>
+                <h2>Services</h2>
+            </section>
+            <section aria-label="Liste d'articles">
+                <h2>Offers</h2>
+                
+                    <article w3-include-html="partials/article.html"></article>
+                    <article w3-include-html="partials/article2.html"></article>
+                    <article w3-include-html="partials/article3.html"></article>
+                    <article w3-include-html="partials/article4.html"></article>
+                
+            </section>
+            <section>
+                <h2>blog</h2>
+            </section>
+            <section>
+                <h2>Brands</h2>
+            </section>
 
     </main>
     <footer w3-include-html="partials/footer.html"></footer>
+    <script>includeHTML();</script>
 </body>
-<script>includeHTML();</script>
 </html>
