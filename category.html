@@ -20,17 +20,7 @@
     <header w3-include-html="partials/header.html">
         
     </header>
-    <main>
-        <aside>
-            <div>
-                <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda quia quo obcaecati sit omnis
-                    saepe!</div>
-                <div>Possimus, facere odit dignissimos dolorum rem iure eligendi eius ipsa quo aliquam, dicta ad non.
-                </div>
-                <div>Delectus illum quis accusamus ad? Qui cumque adipisci recusandae quasi. Maiores quam quasi iusto
-                    voluptas.</div>
-            </div>
-        </aside>
+    <main aria-label="category">
         <nav>
             <ul>
                 <li>Lorem, ipsum.</li>
@@ -39,28 +29,9 @@
                 <li>Eius, aperiam.</li>
             </ul>
         </nav>
-        <div aria-label="Liste d'articles" role="region">
-            <article w3-include-html="partials/article.html"></article>
-            <article w3-include-html="partials/article2.html"></article>
-            <article w3-include-html="partials/article3.html"></article>
-            <article w3-include-html="partials/article4.html"></article>
-            <article w3-include-html="partials/article.html"></article>
-            <article w3-include-html="partials/article2.html"></article>
-            <article w3-include-html="partials/article3.html"></article>
-            <article w3-include-html="partials/article4.html"></article>
-            <article w3-include-html="partials/article.html"></article>
-            <article w3-include-html="partials/article2.html"></article>
-            <article w3-include-html="partials/article3.html"></article>
-            <article w3-include-html="partials/article4.html"></article>
-            <article w3-include-html="partials/article.html"></article>
-            <article w3-include-html="partials/article2.html"></article>
-            <article w3-include-html="partials/article3.html"></article>
-            <article w3-include-html="partials/article4.html"></article>
-            <article w3-include-html="partials/article.html"></article>
-            <article w3-include-html="partials/article2.html"></article>
-            <article w3-include-html="partials/article3.html"></article>
-            <article w3-include-html="partials/article4.html"></article>
-        </div>
+        <section aria-label="Liste d'articles" role="region">
+            
+        </section>
         <nav>
             <ul>
                 <li>Lorem, ipsum.</li>
@@ -70,8 +41,19 @@
             </ul>
         </nav>
     </main>
+    <aside>
+        <div>
+            <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda quia quo obcaecati sit omnis
+                saepe!</div>
+            <div>Possimus, facere odit dignissimos dolorum rem iure eligendi eius ipsa quo aliquam, dicta ad non.
+            </div>
+            <div>Delectus illum quis accusamus ad? Qui cumque adipisci recusandae quasi. Maiores quam quasi iusto
+                voluptas.</div>
+        </div>
+    </aside>
     <footer w3-include-html="partials/footer.html"></footer>
     <script>includeHTML();</script>
+    <script defer>createArticleList();</script>
 </body>
 
 </html>
