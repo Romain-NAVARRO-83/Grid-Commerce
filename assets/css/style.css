@@ -3,20 +3,6 @@
 @import url(header.css);
 @import url(components.css);
 
-
-
-
-/* @media(min-width:var(--desktop)) {
-    --articleGrid: 1fr 1fr 1fr 1fr;
-    --categoryMainWidth :2/4;
-    --categoryAsideWidth:1/2;
-    --category-aside-row:2/3;
-    --searcFormDisplay:block;
-    --footer-items-basis:33%;
-
-} */
-
-
 main {
     display: grid;
 }
