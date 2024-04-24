@@ -21,11 +21,6 @@ main {
     display: grid;
 }
 
-/* main>*:not(aside) {
-    grid-column: span 5;
-    padding: var(--mainpadding);
-} */
-
  aside {
     grid-column: var(--categoryAsideWidth);
     grid-row: var(--category-aside-row);
