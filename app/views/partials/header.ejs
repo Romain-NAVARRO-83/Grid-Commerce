@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -24,46 +26,10 @@
 <!-- </div> -->
 <nav>
     <ul>
-        <li><a href="category.html">link</a>
-            <ul>
-                <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-                <li><a href="category.html">Cupiditate ea asperiores possimus.</a></li>
-                <li><a href="category.html">Odio quidem quod delectus!</a></li>
-                <li><a href="category.html">Officiis aperiam suscipit laboriosam.</a></li>
-                <li><a href="category.html">Inventore quas ex in.</a></li>
-                <li><a href="category.html">Saepe, similique! Ut, voluptate.</a></li>
-            </ul>
-        </li>
-        <li><a href="category.html">link</a>
-            <ul>
-                <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-                <li><a href="category.html">Cupiditate ea asperiores possimus.</a></li>
-                <li><a href="category.html">Odio quidem quod delectus!</a></li>
-                <li><a href="category.html">Officiis aperiam suscipit laboriosam.</a></li>
-                <li><a href="category.html">Inventore quas ex in.</a></li>
-                <li><a href="category.html">Saepe, similique! Ut, voluptate.</a></li>
-            </ul>
-        </li>
-        <li><a href="category.html">link</a>
-            <ul>
-                <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-                <li><a href="category.html">Cupiditate ea asperiores possimus.</a></li>
-                <li><a href="category.html">Odio quidem quod delectus!</a></li>
-                <li><a href="category.html">Officiis aperiam suscipit laboriosam.</a></li>
-                <li><a href="category.html">Inventore quas ex in.</a></li>
-                <li><a href="category.html">Saepe, similique! Ut, voluptate.</a></li>
-            </ul>
-        </li>
-        <li><a href="category.html">link</a>
-            <ul>
-                <li><a href="category.html">Lorem ipsum dolor sit.</a></li>
-                <li><a href="category.html">Cupiditate ea asperiores possimus.</a></li>
-                <li><a href="category.html">Odio quidem quod delectus!</a></li>
-                <li><a href="category.html">Officiis aperiam suscipit laboriosam.</a></li>
-                <li><a href="category.html">Inventore quas ex in.</a></li>
-                <li><a href="category.html">Saepe, similique! Ut, voluptate.</a></li>
-            </ul>
-        </li>
+        <% locals.categories.forEach((category)=>{%>
+<li><a href="category/<%= category.name.replace(' ','-') %>"><%= category.name %></a></li>
+            
+        <%})%>
     </ul>
 </nav>
     </header>
