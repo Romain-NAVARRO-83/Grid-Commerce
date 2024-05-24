@@ -1,17 +1,10 @@
 const client =require('sql_client')
 
-function getCategories()  {
-    
-// console.log('isdone');
-    client.query('SELECT * FROM categories').then((data)=>{
-
-        return(data.rows);
-        const categories = data.rows;
-      }).catch((error)=>{
-        console.log(error);
-        return("error");
-      }) ;
+const dataMapper = {
+  getcategories : async ()=>{
+    const categories = client.query('SELECT * FROM categories');
+    return categories.rows;
+  }
 }
-module.exports = {
+module.exports =
     getCategories
-}

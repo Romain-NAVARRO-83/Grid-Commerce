@@ -9,8 +9,6 @@ function categoryPage(req, res) {
       categories : categories
     });
   }
-  
-  // On met à disposition ces fonctions au routeur
   module.exports = {
     categoryPage
   };
