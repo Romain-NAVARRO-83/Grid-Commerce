@@ -12,21 +12,35 @@
 //   database: 'gridcommerce',
 // });
 // client.connect();
-const client = require('../sql_client.js'); 
-function index(req, res) {
-  client.query('SELECT * FROM categories').then((data)=>{
-    res.render('home',{
-      categories : data.rows,
-      pageTitle : "Home",
-    });
-  }).catch((error)=>{
-    console.log(error);
-    return("error");
-  }) ;
+// const client = require('../sql_client.js'); 
+const dataMapper = require('../data_mapper.js');
+// function index(req, res) {
+//   client.query('SELECT * FROM categories').then((data)=>{
+//     res.render('home',{
+//       categories : data.rows,
+//       pageTitle : "Home",
+//     });
+//   }).catch((error)=>{
+//     console.log(error);
+//     return("error");
+//   }) ;
 
- }
+//  }
+
+homeController = {
+  homePage : async (req,res) => {
+    try{
+      const categories = await dataMapper.getAllCategories();
+      res.render('home',{
+              categories : categories,
+              pageTitle : "Home",
+            });
+    }catch{
+      console.error(error);
+      res.send("error");
+    }
+  }
+}
  
  // On met à disposition ces fonctions au routeur
- module.exports = {
-   index
- };
+ module.exports = homeController;

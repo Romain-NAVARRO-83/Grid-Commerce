@@ -5,7 +5,7 @@ const productController = require('./controllers/productController');
 const categoryController = require('./controllers/categoryController');
 // const checkoutController = require('./controllers/checkoutController');
 
-router.get('/', homeController.index);
+router.get('/', homeController.homePage);
 
 // const categories = require("./")
 router.get('/category/:categoryName', categoryController.categoryPage);

@@ -1,14 +1,22 @@
-const client = require('../sql_client.js'); 
-let categories = {};
-client.query('SELECT * FROM categories').then((data)=>{categories = data.rows});
-function categoryPage(req, res) {
+// const client = require('../sql_client.js'); 
+const dataMapper = require('../data_mapper.js');
+
+
+categoryController = {
+  categoryPage : async (req,res)=>{
     const categoryName = req.params['categoryName'];
-    const category = categories.find((category)=> category.name.replace(" ","-") === categoryName )
-    res.render('category',{
-      category : category,
-      categories : categories
-    });
+    try{
+      const categories = await dataMapper.getAllCategories();
+      // console.log(categories);
+      const category = categories.find((category)=> category.name.replace(" ","-") === categoryName );
+      res.render('category',{
+        category : category,
+        categories : categories
+    })}catch(error){
+      console.error(error);
+      res.send("error");
+    }
   }
-  module.exports = {
-    categoryPage
-  };
+}
+
+  module.exports = categoryController;
