@@ -1,3 +1,6 @@
 <%- include ('partials/header.ejs') %> 
 I am a category page <%= locals.category.name %>
+<% locals.products.forEach((product) => { %>
+<%- include ('partials/miniatures/product.ejs', {product : product }) %>
+<% }) %>
 <%- include ('partials/footer.ejs') %>  

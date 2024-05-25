@@ -7,11 +7,13 @@ categoryController = {
     const categoryName = req.params['categoryName'];
     try{
       const categories = await dataMapper.getAllCategories();
-      // console.log(categories);
       const category = categories.find((category)=> category.name.replace(" ","-") === categoryName );
+      const products = await dataMapper.getAllProducts();
+      console.log(products);
       res.render('category',{
         category : category,
-        categories : categories
+        categories : categories,
+        products : products,
     })}catch(error){
       console.error(error);
       res.send("error");

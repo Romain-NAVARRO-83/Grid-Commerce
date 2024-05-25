@@ -8,8 +8,9 @@ const dataMapper = {
     },
     getAllProducts:
         async () => {
-            const products = client.query('SELCT * FROM products');
-            return products.rows;
+            const result = await client.query('SELECT * FROM products');
+            const products = result.rows;
+            return products;
         }
 }
 module.exports = dataMapper;
