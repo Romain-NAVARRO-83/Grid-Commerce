@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid commerce <% if(locals.pageTitle){%><%= locals.pageTitle %><%} %> </title>
+    <title>Grid commerce <% if(locals.pageTitle){%>
+            <%= locals.pageTitle %>
+                <%} %>
+    </title>
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+
+<body <% if (locals.pageType != "NULL"){%>
+class="category"
+<%}%>
+>
     <header>
-        <a href="index.html" title="Retour accueil"><img src="assets/img/logo-gridcommerce-light.svg" alt="Grid Commerce logo" width="50" height="50"></a>
-    <form>
-        <label for="search">
-            <span>Search product</span>
-        </label>
-        <input id="search" type="text" placeholder="Search product">
-        <input class="button" type="button" value="Search">
-      </form>
-    <ul>
-        <li> <a href="#" title="Connexion / Votre compte"><i class="fa fa-user"></i></a></li>
-        <li><a href="checkout.html" title="Votre panier"
-            ><i class="fa fa-shopping-cart"></i
-          ></a></li>
-    </ul>
-<!-- </div> -->
-<nav>
-    <ul>
-        <% locals.categories.forEach((category)=>{%>
-<li><a href="/category/<%= category.name.replace(' ','-') %>"><%= category.name %></a></li>
-            
-        <%})%>
-    </ul>
-</nav>
+        <a href="index.html" title="Retour accueil"><img src="assets/img/logo-gridcommerce-light.svg"
+                alt="Grid Commerce logo" width="50" height="50"></a>
+        <form>
+            <label for="search">
+                <span>Search product</span>
+            </label>
+            <input id="search" type="text" placeholder="Search product">
+            <input class="button" type="button" value="Search">
+        </form>
+        <ul>
+            <li> <a href="#" title="Connexion / Votre compte"><i class="fa fa-user"></i></a></li>
+            <li><a href="checkout.html" title="Votre panier"><i class="fa fa-shopping-cart"></i></a></li>
+        </ul>
+        <!-- </div> -->
+        <nav>
+            <ul>
+                <% locals.categories.forEach((category)=>{ if (category.depth == 0){%>
+                    <li><a href="/category/<%= category.name.replace(' ','-') %>">
+                            <%= category.name %>
+                        </a>
+                    
+                        <% locals.categories.forEach((subcategory)=>{ if (subcategory.id_parent == category.id){%>
+                            <ul>
+                                <li>
+                                    <a href="/category/<%= subcategory.name.replace(' ','-') %>">
+                                        <%= subcategory.name %>
+                                    </a>
+                                </li>
+                            </ul>
+                                                    <%}})%>
+                    </li>
+                    
+                            <%}})%>
+            </ul>
+        </nav>
     </header>
-    

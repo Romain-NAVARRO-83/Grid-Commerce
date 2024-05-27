@@ -1,0 +1,25 @@
+article > img{
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+article h2{
+    grid-column: 1 / -1;
+    justify-self: center;
+    text-align: center;
+}
+p{
+    grid-column: 1 / -1;
+}
+@media (min-width:1400px){
+    .category main{
+        grid-row: 2;
+        grid-column: 2 / -1;
+    }
+    .category aside{
+        grid-row: 2;
+        grid-column:1 / 2;
+    }
+    .category section[aria-label="Liste d'articles"]{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

@@ -66,3 +66,7 @@ em {
 i {
     font-style: italic;
 }
+button{
+    cursor: pointer;
+    padding:calc(var(--mainpadding) / 3) calc(var(--mainpadding) / 2);
+}
