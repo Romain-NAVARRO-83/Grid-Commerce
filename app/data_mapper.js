@@ -17,6 +17,11 @@ const dataMapper = {
             const result = await client.query(`SELECT * FROM product p INNER JOIN category_product cp ON p.id = cp.id_product WHERE cp.id_category = ${idCategory}`);
             const products = result.rows;
             return products;
+        },
+        getProductById : async (id) =>{
+            const result = await client.query(`SELECT * FROM "product" WHERE "id" = ${id}`);
+            const product = result.rows;
+            return product[0];
         }
 }
 module.exports = dataMapper;

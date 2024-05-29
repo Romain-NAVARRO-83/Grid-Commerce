@@ -1,0 +1,162 @@
+<%- include ('partials/header.ejs') %> 
+
+<main label="Produt-page">
+    <figure>
+      <img
+        src="/img/<%= product.picture_url  %>-500W.jpg"
+        alt="<%= product.name %> packshot"
+        width="500"
+        height="500"
+      />
+      <!-- <figcaption>Product name</figcaption> -->
+    </figure>
+    <section label="Product overview">
+      <h1><%= product.name %></h1>
+      <p>
+        <%= product.description_short %>
+      </p>
+      <ul>
+        <li>
+          <button><i class="fa fa-print"></i></button>Print
+        </li>
+        <li>
+          <button><i class="fa fa-share-alt"></i></button>Share
+        </li>
+        <li>
+          <button><i class="fa fa-heart"></i></button>Favorites
+        </li>
+      </ul>
+    </section>
+    <section label="purchase form">
+      <span>Stock</span>
+      <span>Regular price</span>
+      <span itemprop="price" content="999.99"><%= product.price %>€</span>
+
+      <form action="">
+        <input type="hidden" name="product-id" />
+        <input type="number" name="product-qty" id="product-qty" value="1" />
+        <button type="submit">Add to cart</button>
+      </form>
+      <ul>
+        <li><i class="fa far fa-credit-card"></i>Secure payment</li>
+        <li><i class="fa far fa-truck"></i>Express delivery</li>
+        <li><i class="fa far far fa-clock"></i>14 days moneyback warranty</li>
+        <li><i class="fa far far fa-comments"></i>Online support</li>
+      </ul>
+    </section>
+    <section aria-label="Product details">
+      <aside>
+        <nav>
+          <ul>
+            <li><a href="#description">Description</a></li>
+            <li><a href="#technicaldata">Technical data</a></li>
+            <li><a href="#documentation">Documentation</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#accessories">Accessories</a></li>
+            <li><a href="#relatedproducts">Related products</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <section aria-labelledby="description">
+        <h2 id="description">Description</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
+          sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
+          accusantium consectetur. Sed.
+        </p>
+        <p>
+          Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam
+          doloremque dolore dolor eum laborum odio pariatur blanditiis quo
+          distinctio.
+        </p>
+        <p>
+          Praesentium veritatis non adipisci nobis? In quibusdam, voluptas
+          similique corrupti expedita provident fugiat unde harum eveniet
+          saepe inventore vero debitis.
+        </p>
+      </section>
+      <section aria-labelledby="technicaldata">
+        <h2 id="technicaldata">Technical data</h2>
+        <dl>
+          <dt>Lorem, ipsum dolor.</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Odit, consequuntur tempore.</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Sint, magni itaque!</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Nam, sapiente enim.</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Dolorem, error velit.</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Deserunt, possimus doloribus?</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Quis, atque quibusdam?</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Iusto, totam dolore!</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Autem, tenetur ab!</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Harum, dignissimos saepe?</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Nam, inventore voluptatem!</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Pariatur, consequatur dolorem.</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Quas, asperiores doloribus.</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Deserunt, aliquam alias.</dt>
+          <dd>Lorem, ipsum.</dd>
+          <dt>Vitae, illo eum?</dt>
+          <dd>Lorem, ipsum.</dd>
+        </dl>
+      </section>
+      <section aria-labelledby="documentation">
+        <h2 id="documentation">Documentation</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
+          sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
+          accusantium consectetur. Sed.
+        </p>
+        <p>
+          Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam
+          doloremque dolore dolor eum laborum odio pariatur blanditiis quo
+          distinctio.
+        </p>
+        <p>
+          Praesentium veritatis non adipisci nobis? In quibusdam, voluptas
+          similique corrupti expedita provident fugiat unde harum eveniet
+          saepe inventore vero debitis.
+        </p>
+      </section>
+      <section aria-labelledby="reviews">
+        <h2 id="reviews">Reviews</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
+          sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
+          accusantium consectetur. Sed.
+        </p>
+        <p>
+          Saepe cum earum ea, facilis, nemo cupiditate amet excepturi nam
+          doloremque dolore dolor eum laborum odio pariatur blanditiis quo
+          distinctio.
+        </p>
+        <p>
+          Praesentium veritatis non adipisci nobis? In quibusdam, voluptas
+          similique corrupti expedita provident fugiat unde harum eveniet
+          saepe inventore vero debitis.
+        </p>
+      </section>
+      <section aria-labelledby="relatedproducts">
+        <h2 id="relatedproducts">Related products</h2>
+        <div aria-label="Liste d'articles" role="region">
+          <article w3-include-html="partials/article.html"></article>
+          <article w3-include-html="partials/article2.html"></article>
+          <article w3-include-html="partials/article4.html"></article>
+          <article w3-include-html="partials/article.html"></article>
+      </div>
+      </section>
+    </section>
+    
+  </section>
+  </main>
+<%- include ('partials/footer.ejs') %>  

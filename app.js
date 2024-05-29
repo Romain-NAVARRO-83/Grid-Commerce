@@ -6,6 +6,8 @@ app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 app.use(express.static('assets'));
 
+// app.locals.categories = require('./app/getCategories');
+
 const port = process.env.PORT || 3000;
 // app.get('/', (req,res)=> {
 //     res.render('home');

@@ -1,6 +1,6 @@
 <article>
-    <img src="/img/<%= locals.product.picture_url %>-200W.jpg" width="200" alt="<%= locals.product.name %>">
-    <h2><%= locals.product.name %></h2>
+    <a href="/product/<%= locals.product.id %> "><img src="/img/<%= locals.product.picture_url %>-200W.jpg" width="200" alt="<%= locals.product.name %>"></a>
+    <h2><a href="/product/<%= locals.product.id %> "><%= locals.product.name %></a></h2>
     <p><%= locals.product.description_short %></p>
     <button>Add to cart</button>
     <span><i class="fa fa-check"></i> In stock</span>

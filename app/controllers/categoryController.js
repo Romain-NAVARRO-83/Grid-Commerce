@@ -1,4 +1,3 @@
-// const client = require('../sql_client.js'); 
 const dataMapper = require('../data_mapper.js');
 
 

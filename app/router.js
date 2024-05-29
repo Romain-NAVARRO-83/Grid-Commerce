@@ -9,6 +9,7 @@ router.get('/', homeController.homePage);
 
 // const categories = require("./")
 router.get('/category/:categoryName', categoryController.categoryPage);
+router.get('/product/:id', productController.productPage);
 // router.get('/checkout', categoryController.categoryList);
 module.exports = router;
 
