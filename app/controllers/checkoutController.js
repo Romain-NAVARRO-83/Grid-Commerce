@@ -13,6 +13,13 @@ checkoutController = {
             console.log(err);
             res.send('error')
         }
+    },
+    addToCart : (req, res)=>{
+        req.session.cart.push({productId : req.body.idProduct, quantity : 1,productName : req.body.productName});
+        // req.session.cart = ["test"];
+        console.log("added" + req.body.idProduct + " session " + req.session.cart);
+        // 
+        res.send("added to cart");
     }
 }
 module.exports = checkoutController

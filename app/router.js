@@ -11,6 +11,8 @@ router.get('/', homeController.homePage);
 router.get('/category/:categoryName', categoryController.categoryPage);
 router.get('/product/:id', productController.productPage);
 router.get('/checkout', checkoutController.checkoutPage);
+
+router.post('/add-to-cart', checkoutController.addToCart)
 module.exports = router;
 
 

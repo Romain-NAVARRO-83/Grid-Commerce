@@ -1,0 +1,13 @@
+<div>
+    <% if (locals.cart) {locals.cart.forEach(cartItem => { %>
+     <article>
+        <img src="#" alt="#">
+        <p>
+            <%= cartItem.productName %>
+        </p>
+        <span>x <%= cartItem.quantity %></span>
+        <button><i class="fa fa-remove"></i></button>
+     </article>
+    <% }) } %>
+    <button>Place order</button>
+</div>
