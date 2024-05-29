@@ -16,43 +16,46 @@
 </head>
 
 <body <% if (locals.pageType != "NULL"){%>
-class="category"
+class="<%= locals.pageType %>"
 <%}%>
 >
     <header>
-        <a href="index.html" title="Retour accueil"><img src="assets/img/logo-gridcommerce-light.svg"
+        <a href="/" title="Retour accueil"><img src="assets/img/logo-gridcommerce-light.svg"
                 alt="Grid Commerce logo" width="50" height="50"></a>
         <form>
             <label for="search">
                 <span>Search product</span>
             </label>
             <input id="search" type="text" placeholder="Search product">
-            <input class="button" type="button" value="Search">
+            <button><i class="fa fa-search"></i></button>
         </form>
         <ul>
             <li> <a href="#" title="Connexion / Votre compte"><i class="fa fa-user"></i></a></li>
-            <li><a href="checkout.html" title="Votre panier"><i class="fa fa-shopping-cart"></i></a></li>
+            <li><a href="/checkout" title="Your cart"><i class="fa fa-shopping-cart"></i></a></li>
         </ul>
         <!-- </div> -->
-        <nav>
-            <ul>
-                <% locals.categories.forEach((category)=>{ if (category.depth == 0){%>
-                    <li><a href="/category/<%= category.name.replace(' ','-') %>">
-                            <%= category.name %>
-                        </a>
-                    
-                        <% locals.categories.forEach((subcategory)=>{ if (subcategory.id_parent == category.id){%>
-                            <ul>
-                                <li>
-                                    <a href="/category/<%= subcategory.name.replace(' ','-') %>">
-                                        <%= subcategory.name %>
-                                    </a>
-                                </li>
-                            </ul>
-                                                    <%}})%>
-                    </li>
-                    
-                            <%}})%>
-            </ul>
-        </nav>
+        <% if (locals.pageType != "checkout") { %>
+            <nav>
+                <ul>
+                    <% locals.categories.forEach((category)=>{ if (category.depth == 0){%>
+                        <li><a href="/category/<%= category.name.replace(' ','-') %>">
+                                <%= category.name %>
+                            </a>
+                        
+                            <% locals.categories.forEach((subcategory)=>{ if (subcategory.id_parent == category.id){%>
+                                <ul>
+                                    <li>
+                                        <a href="/category/<%= subcategory.name.replace(' ','-') %>">
+                                            <%= subcategory.name %>
+                                        </a>
+                                    </li>
+                                </ul>
+                                                        <%}})%>
+                        </li>
+                        
+                                <%}})%>
+                </ul>
+            </nav>
+        <% } %>
+       
     </header>

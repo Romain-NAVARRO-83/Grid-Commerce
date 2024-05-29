@@ -8,7 +8,8 @@ productController = {
 
             res.render('product',{
                 product : product,
-                categories : categories
+                categories : categories,
+                pageType : "product"
             });
         }catch(err){
             console.log(err);

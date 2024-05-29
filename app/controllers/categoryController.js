@@ -14,7 +14,7 @@ categoryController = {
         category : category,
         categories : categories,
         products : products,
-        pageType : category
+        pageType : "category"
     })}catch(error){
       console.error(error);
       res.send("error");
