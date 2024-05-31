@@ -5,6 +5,7 @@
     <form action="/add-to-cart" method="POST" target="cartReturn">
         <input type="hidden" name="idProduct"value="<%= locals.product.id %>">
         <input type="hidden" name="productName" value="<%= locals.product.name %>">
+        <input type="hidden" name="unitPrice" value="<%= locals.product.price %>">
         <input type="hidden" name="quantity" value="1">
         <button>Add to cart</button>
     </form>

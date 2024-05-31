@@ -26,25 +26,32 @@ function includeHTML() {
     }
   }
 
-  // Product table
-  function createArticleList(){
-    const products = {
-      id: ["1","2","3","4"],
-      title: ["Pure CSS - Cascading liquor", "Webdev - Night balm", "Javanese Scriptography", "Dom Pérignon"],
-      // url: ["#", "article2","#","#"],
-      imgSrc: ["pure-css", "webdev-night-balm", "javanese-scriptography", "dom-perignon"],
-      description:["<p>Made out of the pristine waters from the <em>Styling Springs</em> of Arizona, <i>Pure CSS</i> is a cascade of flavour guaranteed to soften the mood after long days of feral DOM riding.</p>", " <p>Improve your coding skills overnight with the brand new Webdev night balm. Harness the power of quantic science and bovine dejections as the benefits of this product has never been scientifically proved but, let's be honest, no one really cares about that.</p>", " <p>A deep dive into <em>confusing book titles</em> along human History.</p>", "<p>Client side wine from the sunbathed hills of <em>Dominican Republic</em>.</p>"],
-      price:[13.53, 49.99, 35.46, 45.33]
-    }
-    let htmlContent = "";
-    for (let i = 0; i < products.id.length; i++){
-       htmlContent += `<article><figure><img src="assets/img/${products.imgSrc[i]}-200W.jpg" alt="alt"width="200" height="200">
-       <figcaption><h2><a href="product.html?product=${products.id[i]}.html">${products.title[i]}</a></h2></figcaption>
-   </figure>
+  // // Product table
+  // function createArticleList(){
+  //   const products = {
+  //     id: ["1","2","3","4"],
+  //     title: ["Pure CSS - Cascading liquor", "Webdev - Night balm", "Javanese Scriptography", "Dom Pérignon"],
+  //     // url: ["#", "article2","#","#"],
+  //     imgSrc: ["pure-css", "webdev-night-balm", "javanese-scriptography", "dom-perignon"],
+  //     description:["<p>Made out of the pristine waters from the <em>Styling Springs</em> of Arizona, <i>Pure CSS</i> is a cascade of flavour guaranteed to soften the mood after long days of feral DOM riding.</p>", " <p>Improve your coding skills overnight with the brand new Webdev night balm. Harness the power of quantic science and bovine dejections as the benefits of this product has never been scientifically proved but, let's be honest, no one really cares about that.</p>", " <p>A deep dive into <em>confusing book titles</em> along human History.</p>", "<p>Client side wine from the sunbathed hills of <em>Dominican Republic</em>.</p>"],
+  //     price:[13.53, 49.99, 35.46, 45.33]
+  //   }
+  //   let htmlContent = "";
+  //   for (let i = 0; i < products.id.length; i++){
+  //      htmlContent += `<article><figure><img src="assets/img/${products.imgSrc[i]}-200W.jpg" alt="alt"width="200" height="200">
+  //      <figcaption><h2><a href="product.html?product=${products.id[i]}.html">${products.title[i]}</a></h2></figcaption>
+  //  </figure>
    
-   <div>
-   ${products.description[i]}.</p>
-   </div><button>View more</button><button>Add to cart</button><span>${products.price[i]} €</span> </article>`;
-    }
-    document.querySelector('*[aria-label="Liste d\'articles"]').innerHTML = htmlContent;
-  }
+  //  <div>
+  //  ${products.description[i]}.</p>
+  //  </div><button>View more</button><button>Add to cart</button><span>${products.price[i]} €</span> </article>`;
+  //   }
+  //   document.querySelector('*[aria-label="Liste d\'articles"]').innerHTML = htmlContent;
+  // }
+const removeButtons = document.querySelectorAll('header > ul >li:last-child > div article button:has(.fa-remove)');
+removeButtons.forEach((button)=>{
+  button.addEventListener("click",()=>{
+    const myId = button.getAttribute('data-idProduct');
+    console.log('clicked' + myId);
+  })
+})

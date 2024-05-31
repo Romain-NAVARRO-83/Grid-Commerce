@@ -34,6 +34,7 @@ homeController = {
       res.render('home',{
               categories : categories,
               pageTitle : "Home",
+              cart : req.session.cart
             });
     }catch{
       console.error(error);

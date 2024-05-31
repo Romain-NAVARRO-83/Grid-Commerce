@@ -1,13 +1,29 @@
 <div>
-    <% if (locals.cart) {locals.cart.forEach(cartItem => { %>
-     <article>
-        <img src="#" alt="#">
-        <p>
-            <%= cartItem.productName %>
-        </p>
-        <span>x <%= cartItem.quantity %></span>
-        <button><i class="fa fa-remove"></i></button>
-     </article>
-    <% }) } %>
-    <button>Place order</button>
+    <% if (locals.cart && locals.cart.length > 0) { 
+        let cartTotal = 0;%>
+        <% {locals.cart.forEach(cartItem=> { 
+            console.log(cartItem)
+
+            // Cart Total incrementation
+            cartTotal += parseInt(cartItem.unitPrice, 10) %>
+            
+            <article>
+                <img src="/img/<%= cartItem.picture_url %>-200W.jpg" alt="<%= cartItem.productName %>">
+                <p>
+                    <%= cartItem.productName %>
+                </p>
+                <span>x <%= cartItem.quantity %></span>
+                <button data-idProduct="<%= cartItem.productId %>"><i class="fa fa-remove"></i></button>
+            </article>
+
+            <%}) }%>
+            <div>
+                <span>Total : <%= cartTotal.toFixed(2) %> € </span>
+                <span></span>
+            </div>
+                <a href="/checkout">Place order</a>
+                <% }else{ %>
+                    <span>Your cart is empty !</span> 
+                    <% } %>
+
 </div>
