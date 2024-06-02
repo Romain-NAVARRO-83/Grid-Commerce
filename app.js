@@ -15,24 +15,23 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false}
 }));
+
+
+
 app.use((req,res,next)=>{
   req.session.cart = req.session.cart || [];
-  console.log("cart : " + req.session.cart);
+  
+  // console.log("cart : " + req.session.cart);
   next();
 });
+app.use((req,res,next)=>{
+  req.session.adminCredentials = req.session.adminCredentials || false;
+  next();
+})
 
-
-// app.locals.categories = require('./app/getCategories');
 
 const port = process.env.PORT || 3000;
-// app.get('/', (req,res)=> {
-//     res.render('home');
-//     console.log(router);
-// })
 app.use(router);
-// router.get('/', (req,res)=>{
-//     res.send('isok');
-// })
 app.listen(port, () => {
     console.log(`Grid Commerce listening:  http://localhost:${port}`);
   });
