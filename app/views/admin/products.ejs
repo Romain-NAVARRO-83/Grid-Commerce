@@ -2,5 +2,35 @@
     
 <%- include('./partials/head') %>
 <%- include('./partials/nav') %>
-<h1>Products</h1>
+<main>
+    <h1>Products</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Picture</th>
+            <th>Ref</th>
+            <th>Name</th>
+            <th>Description short</th>
+            <th>Description long</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% locals.products.forEach(product => { const longDesc = product.description_long%>
+        <tr>
+           <td><%= product.id %></td>
+           <td>picture</td>
+           <td><%= product.reference %></td>
+           <td><%= product.name %></td>
+           <td><%= product.description_short %></td>
+           <td><button><i class="fa fa-pencil"></i></button></td>
+           <td><%= product.price %></td>
+           <td><%= product.stock %></td>
+        </tr>
+       <% }) %>
+    </tbody>
+</table>
+</main>
 <%- include('./partials/foot') %>

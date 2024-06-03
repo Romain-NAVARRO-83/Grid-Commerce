@@ -22,6 +22,16 @@ const dataMapper = {
             const result = await client.query(`SELECT * FROM "product" WHERE "id" = ${id}`);
             const product = result.rows;
             return product[0];
+        },
+        countProducts : async ()=>{
+            const result = await client.query(`SELECT COUNT(*) FROM "product"`);
+            const productCount = parseInt(result.rows[0].count,10);
+            return productCount;
+        },
+        countDepletedProducts : async ()=>{
+            const result = await client.query(`SELECT COUNT(*) FROM "product" WHERE stock < 1`);
+            const productCount = parseInt(result.rows[0].count,10);
+            return productCount;
         }
 }
 module.exports = dataMapper;

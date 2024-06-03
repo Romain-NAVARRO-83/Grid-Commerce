@@ -8,6 +8,9 @@ app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 app.use(express.static('assets'));
 
+// Installation
+const installer = require('./app/installer');
+
 // Cookies 
 app.use(session({
   secret: 'harrytuttle',

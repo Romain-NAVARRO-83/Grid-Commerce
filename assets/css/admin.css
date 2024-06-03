@@ -1,0 +1,36 @@
+@import url(vars.css);
+@import url(baselayout.css);
+@import url(components.css);
+body{
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    min-height: 100vh;
+}
+header{
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    background-color:var(--color1);
+    display:flex;
+    flex-direction: column;
+}
+header a{
+    color:#fff;
+    text-decoration: none;
+    padding: var(--mainpadding);
+    display: block;
+}
+td,th{
+    border: solid 1px var(--color1);
+}
+main{
+    display:flex;
+    flex-wrap: wrap;
+    gap: var(--mainpadding);
+    justify-content: space-between;
+}
+h1{
+    flex-basis: 100%;
+}
+body.dashboard main section{
+    flex-basis:25%
+}

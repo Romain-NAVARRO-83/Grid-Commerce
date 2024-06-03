@@ -37,3 +37,7 @@ header > ul >li:last-child > div article{
 header > ul >li:last-child > div article > span{
     text-align:right;
 }
+td{
+    padding:calc(var(--mainpadding) / 2);
+    font-size:14px;
+}
