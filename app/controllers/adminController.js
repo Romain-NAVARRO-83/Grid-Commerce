@@ -10,18 +10,44 @@ adminController = {
         try{
             const productCount = await dataMapper.countProducts();
             const depletedProductCount = await dataMapper.countDepletedProducts();
-            console.log(productCount);
-            res.render('./admin/dashboard',{pageType : "dashboard", productCount, depletedProductCount});
-        }catch{
-            next();
+            const orders = await dataMapper.getOrdersByWeek();
+            const customersOrders = await dataMapper.getBestCustomers();
+            const categoryProducts = await dataMapper.getCategoriesProductCount();
+            res.render('./admin/dashboard',{pageType : "dashboard", productCount, depletedProductCount, orders, customersOrders,categoryProducts});
+        }catch(error){
+            console.log(error);
+            res.send(error);
+            
         }
         
     },
     productsPage : async (req,res) => {
         try{
             const products = await dataMapper.getAllProducts();
-            res.render('./admin/products',{products, pageType : "products"});
+            const bestSellers = await dataMapper.getBestSellers(5);
+            res.render('./admin/products',{products, pageType : "products", bestSellers});
         }catch{
+            res.send('error')
+        }
+        
+    },
+    ordersPage : async (req,res) => {
+        try{
+            const orders = await dataMapper.getOrders(15,20);
+            res.render('./admin/orders',{orders, pageType : "orders", orders});
+        }catch(error){
+            
+            console.log(error);
+            res.send('error')
+        }
+        
+    },
+    customersPage : async (req,res) => {
+        try{
+            const customers = await dataMapper.getCustomers();
+            res.render('./admin/customers',{customers, pageType : "customers"});
+        }catch(error){
+            console.log(error);
             res.send('error')
         }
         

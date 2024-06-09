@@ -15,10 +15,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body <% if (locals.pageType != "NULL"){%>
-class="<%= locals.pageType %>"
-<%}%>
->
+<body class="<%= !locals.pageType  ? 'default' :  locals.pageType  %>">
     <header>
         <a href="/" title="Retour accueil"><img src="/img/logo-gridcommerce-light.svg"
                 alt="Grid Commerce logo" width="50" height="50"></a>
@@ -30,7 +27,7 @@ class="<%= locals.pageType %>"
             <button><i class="fa fa-search"></i></button>
         </form>
         <ul>
-            <li> <a href="#" title="Connexion / Votre compte"><i class="fa fa-user"></i></a></li>
+            <li> <a href="/login" title="Connexion / Votre compte"><i class="fa fa-user"></i></a></li>
             <li><iframe src="" name="cartReturn" frameborder="0" width="100" height="20"></iframe><a href="/checkout" title="Your cart"><i class="fa fa-shopping-cart"></i></a>
             <%- include('miniCart') %>
             </li>

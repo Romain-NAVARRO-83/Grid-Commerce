@@ -3,6 +3,7 @@
 @import url(header.css);
 @import url(components.css);
 @import url(responsiveness.css);
+@import url(pages_login.css);
 
 main {
     display: grid;
@@ -24,49 +25,13 @@ aside>* {
 
 } */
 
-footer{
-    background-color:var(--color1);
-    color: #fff;
-    grid-column: 1/-1;
-  display:flex;
-  flex-wrap:wrap;
-  /* padding: var(--mainpadding);
-  padding-bottom: calc(var(--mainpadding) * 2); */
-}
-footer>*{
-    /* flex-basis: var(--footer-items-basis);
-    padding: 0 var(--mainpadding); */
-    flex-grow: 2;
-}
-footer address {
-    /* padding-left: var(--mainpadding); */
-    line-height: 1.5;
-}
 
-footer address::first-line {
-    font-size: 1.5em;
-}
-
-footer address:before {
-    content: " ";
-    background-image: url("../img/logo-gridcommerce-light.svg");
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-address img {
-    vertical-align: middle;
-}
 
 /* footer ul:not(:last-child) li {
     margin-bottom: var(--mainpadding);
 } */
 
-footer a {
-    text-decoration: none;
-}
+
 
 
 main[aria-label="category"]{

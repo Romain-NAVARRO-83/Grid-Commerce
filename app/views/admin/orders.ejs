@@ -1,0 +1,48 @@
+<%- include('./partials/head') %>
+    <%- include('./partials/nav') %>
+
+        <main>
+            <h1>Orders</h1>
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Reference</th>
+                            <th>id</th>
+                            <th>id</th>
+                            <th>id</th>
+                            <th>id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% locals.orders.forEach(order=> { %>
+                            <tr>
+                                <td>
+                                    <%= order.id %>
+                                </td>
+                                <td>
+                                    <%= order.reference %>
+                                </td>
+                                <td>
+                                    <%= order.date_creation %>
+                                </td>
+                                <td>
+                                    <%= order.total_price %>
+                                </td>
+                                <td>
+                                    <%= order.state %>
+                                </td>
+                                <td>
+                                    <%= order.id %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </section>
+
+
+
+        </main>
+        <%- include('./partials/foot') %>

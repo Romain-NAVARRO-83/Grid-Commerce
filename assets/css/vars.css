@@ -1,9 +1,17 @@
 :root {
     --mainpadding: 20px;
+    /* Theme colors */
     --color1: #454545;
     --color2: #f60;
     --color3: #ffa559;
     --color4: #ffe6c7;
+    --grey:#f0f0f0;
+    --dark:rgba(0,0,0,.2);
+    --light:rgba(255,255,255,.2);
+
+    /* UI colors */
+    --colorDanger : rgb(145, 0, 0);
+
     --dark: rgba(0, 0, 0, .3);
     --transition: all ease-out .3s;
     --fullline: 1/-1;

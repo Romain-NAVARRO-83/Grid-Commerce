@@ -2,6 +2,12 @@
 input[name="product-qty"]{
     width:50px;
 }
+input{
+    background-color:var(--grey) ;
+    border:solid 2px var(--dark);
+    border-radius:2px;
+    line-height: 1.7;
+}
 iframe[name="cartReturn"]{
     position:fixed;
     top:0;
@@ -37,7 +43,23 @@ header > ul >li:last-child > div article{
 header > ul >li:last-child > div article > span{
     text-align:right;
 }
-td{
+footer{
+    background-color: var(--color1);
+    display:flex;
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap:var(--mainpadding);
+    padding: calc(var(--mainpadding) * 2) var(--mainpadding);
+}
+td, th{
     padding:calc(var(--mainpadding) / 2);
     font-size:14px;
+}
+.alert{
+    display:block;
+}
+
+.danger{
+    color:var(--colorDanger);
 }

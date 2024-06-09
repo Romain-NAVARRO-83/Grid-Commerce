@@ -1,0 +1,12 @@
+body.login main{
+    text-align:center;
+    grid-column: 1 / -1;
+}
+body.login main form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+    max-width: 100%;
+    gap: var(--mainpadding);
+}

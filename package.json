@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Romain-NAVARRO-83/Grid-Commerce#readme",
   "dependencies": {
+    "@amcharts/amcharts5": "^5.9.11",
+    "dayjs": "^1.11.11",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",

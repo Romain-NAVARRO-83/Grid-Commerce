@@ -1,0 +1,48 @@
+<%- include('./partials/head') %>
+    <%- include('./partials/nav') %>
+
+        <main>
+            <h1>Customers</h1>
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Orders</th>
+                            <th>id</th>
+                            <th>id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% locals.customers.forEach(customer=> { %>
+                            <tr>
+                                <td>
+                                    <%= customer.id %>
+                                </td>
+                                <td>
+                                    <%= customer.first_name %> -  <%= customer.last_name %>
+                                </td>
+                                <td>
+                                    <%= customer.email %>
+                                </td>
+                                <td>
+                                    <%= customer.id %>
+                                </td>
+                                <td>
+                                    <%= customer.id %>
+                                </td>
+                                <td>
+                                    <%= customer.id %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </section>
+
+
+
+        </main>
+        <%- include('./partials/foot') %>
