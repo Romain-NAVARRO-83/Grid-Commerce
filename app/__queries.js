@@ -1,4 +1,4 @@
-const client =require('../app/sql_client')
+const client =require('./sql_client')
 
 const dataMapper = {
   getAllCategories : async ()=>{

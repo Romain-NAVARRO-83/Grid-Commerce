@@ -36,7 +36,7 @@
         <% if (locals.pageType != "checkout") { %>
             <nav>
                 <ul>
-                    <% locals.categories.forEach((category)=>{ if (category.depth == 0){%>
+                    <% locals.categories.forEach((category)=>{ if (category.depth == 1){%>
                         <li><a href="/category/<%= category.name.replace(' ','-') %>">
                                 <%= category.name %>
                             </a>

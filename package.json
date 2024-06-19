@@ -6,7 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "db:create": "psql -U gridcommerce -d gridcommerce -h localhost -f database/create_tables.sql",
+    "db:populate": "psql -U gridcommerce -d gridcommerce -h localhost -f database/populate_tables.sql",
+    "db:create_products":"psql -U gridcommerce -d gridcommerce -h localhost -f database/create_products.sql",
+    "db:create_dummy_orders": "psql -U gridcommerce -d gridcommerce -h localhost -f database/create_dummy_orders.sql",
+    "db:reset": "npm run db:create && npm run db:populate",
+    "db:reset:demo" : "npm run db:reset && npm run db:create_products && npm run db:create_dummy_orders "
   },
   "repository": {
     "type": "git",
@@ -25,6 +31,7 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
-    "pg": "^8.11.5"
+    "pg": "^8.11.5",
+    "sequelize": "^6.37.3"
   }
 }

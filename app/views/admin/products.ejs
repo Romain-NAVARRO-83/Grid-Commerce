@@ -23,9 +23,9 @@
                     <% locals.products.forEach(product=> { const longDesc = product.description_long%>
                         <tr>
                             <td>
-                                <%= product.id %>
+                               <a href="/admin/products/<%= product.id %>"> <%= product.id %></a>
                             </td>
-                            <td><img src="/img/<%= product.name.toLowerCase().replace(' ','-').replace('é','e') %>-200W.jpg" alt="<%= product.name %>" width="50"></td>
+                            <td><img src="<%= product.picture_url %>" alt="<%= product.name %>" width="50"></td>
                             <td>
                                 <%= product.reference %>
                             </td>

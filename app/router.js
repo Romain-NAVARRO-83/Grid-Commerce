@@ -24,9 +24,7 @@ router.post('/add-to-cart', checkoutController.addToCart)
 // Base redirection
 router.get('/admin',(req,res,next)=>{
     if (req.session.adminCredentials === true){
-        // console.log(req.originalUrl);
-        // console.log('Admin credentials OK');
-        // console.log(req.session.adminCredentials);
+
         res.redirect('/admin/dashboard');
 
     }else if (req.originalUrl != '/admin/login'){
@@ -65,7 +63,9 @@ router.get('/admin/logout',(req,res,next)=>{
 router.get('/admin/login', adminController.loginPage);
 router.get('/admin/dashboard', adminController.dashboardPage);
 router.get('/admin/products', adminController.productsPage);
+router.get('/admin/products/:id', adminController.productPage);
 router.get('/admin/orders', adminController.ordersPage);
+router.get('/admin/orders/:id', adminController.orderPage);
 router.get('/admin/customers', adminController.customersPage);
 
 

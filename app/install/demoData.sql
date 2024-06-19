@@ -1,3 +1,5 @@
+
+
 CREATE OR REPLACE FUNCTION generate_order_details() RETURNS VOID AS $$
 DECLARE
     order_rec RECORD;

@@ -1,5 +1,7 @@
 const dataMapper = require('../data_mapper.js');
 
+const Product = require('../model/Product.js');
+
 
 
 adminController = {
@@ -8,7 +10,8 @@ adminController = {
     },
     dashboardPage : async (req,res) => {
         try{
-            const productCount = await dataMapper.countProducts();
+            // const productCount = await dataMapper.countProducts();
+            const productCount = await Product.count();
             const depletedProductCount = await dataMapper.countDepletedProducts();
             const orders = await dataMapper.getOrdersByWeek();
             const customersOrders = await dataMapper.getBestCustomers();
@@ -30,6 +33,13 @@ adminController = {
             res.send('error')
         }
         
+    },productPage: async (req,res) => {
+        try{
+            res.send('EJS not made yet')
+        }catch(err){
+            console.log(error);
+            res.send('error')
+        }
     },
     ordersPage : async (req,res) => {
         try{
@@ -41,6 +51,14 @@ adminController = {
             res.send('error')
         }
         
+    },
+    orderPage: async (req,res) => {
+        try{
+            res.send('EJS not made yet')
+        }catch(err){
+            console.log(error);
+            res.send('error')
+        }
     },
     customersPage : async (req,res) => {
         try{

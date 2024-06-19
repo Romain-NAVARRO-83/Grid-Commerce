@@ -4,7 +4,11 @@
     <main>
       <h1>Dashboard</h1>
       <section>
-        <h2>Orders <span class="small">(<%= locals.orders[0].total_number_of_orders %>)</span></h2>
+        <h2>Orders 
+          <% if (locals.orders[0]) { %>
+            <span class="small">(<%= locals.orders[0].total_number_of_orders %>)</span>
+          <% } %>
+         </h2>
 
        
         <div>
