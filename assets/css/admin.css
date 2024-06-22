@@ -48,7 +48,7 @@ h1{
     flex-basis: 100%;
 }
 body.dashboard main section{
-    flex-basis:32%
+    flex-basis:49%
 }
 section{
     flex-basis: 100%;
@@ -61,6 +61,11 @@ section{
     background-color: #fff;
     transform: translateX(100%);
     transition: all ease-out .3s;
+    border-left:solid 2px var(--color2);
+    padding: var(--mainpadding);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
 }
 .modal.active{

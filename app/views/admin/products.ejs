@@ -49,9 +49,15 @@
             
 content
 <form action="update_product"id="editModal" class="modal">
-    <button class="modalToggler"><i class="fa fa-pencil"></i></button>
-    <input type="text" name="" id="">
-    <input type="text" name="" id="">
+    <button class="modalToggler"><i class="fa-solid fa-xmark"></i></button>
+    <label for="reference">Reference</label>
+    <input type="text" name="reference" id="reference" value="Reference">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="Name">
+    <label for="description_short">Description short</label>
+    <textarea name="description_short" id="description_short"></textarea>
+    <label for="description_long">Description long</label>
+    <textarea name="description_long" id="description_long"></textarea>
 </form>
             
         </main>

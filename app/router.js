@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const dataMapper = require('./data_mapper.js');
 
 const homeController = require ('./controllers/homeController');
 const productController = require('./controllers/productController');
@@ -38,10 +39,10 @@ router.get('/admin',(req,res,next)=>{
 // credentials checking
 router.get('/admin/*',(req,res,next)=>{
     if (req.session.adminCredentials === true){
-        console.log(req.originalUrl);
-        console.log('Admin credentials OK');
-        console.log(req.session.adminCredentials);
-
+        // console.log(req.originalUrl);
+        // console.log('Admin credentials OK');
+        // console.log(req.session.adminCredentials);
+        
     }else if (req.originalUrl != '/admin/login'){
         console.log(req.originalUrl);
         res.redirect('/admin/login');

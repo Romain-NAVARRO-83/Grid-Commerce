@@ -1,0 +1,16 @@
+<%- include('./partials/head') %>
+    <%- include('./partials/nav') %>
+        <main>
+            <h1>Order <span class="small">#<%= locals.order.reference %></span></h1>
+            <p><%=  JSON.stringify(locals.order.customer) %></p>
+            <h2>Passée par <%= locals.order.customer.first_name %> <%= locals.order.customer.last_name %></h2>
+            <section>
+                <ul>
+                    <% order.orderDetail.forEach(orderDetail => { %>
+                        <li><%= orderDetail.id %></li>
+                       <% }) %>
+                </ul>
+                
+            </section>
+        </main>   
+        <%- include('./partials/foot') %>

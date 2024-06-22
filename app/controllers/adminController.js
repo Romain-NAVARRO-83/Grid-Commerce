@@ -1,8 +1,9 @@
 const dataMapper = require('../data_mapper.js');
+const {Op} = require("sequelize");
+// const Product = require('../model/Product.js');
+// const Order = require('../model/Order.js');
 
-const Product = require('../model/Product.js');
-
-
+const {Order, Product, Customer} = require('../model/associations.js');
 
 adminController = {
     loginPage : async (req,res) => {
@@ -10,9 +11,14 @@ adminController = {
     },
     dashboardPage : async (req,res) => {
         try{
-            // const productCount = await dataMapper.countProducts();
             const productCount = await Product.count();
-            const depletedProductCount = await dataMapper.countDepletedProducts();
+            const depletedProductCount = await Product.count({
+                where: {
+                    stock: {
+                        [Op.lt]: 1
+                    }
+                }
+            });
             const orders = await dataMapper.getOrdersByWeek();
             const customersOrders = await dataMapper.getBestCustomers();
             const categoryProducts = await dataMapper.getCategoriesProductCount();
@@ -35,7 +41,7 @@ adminController = {
         
     },productPage: async (req,res) => {
         try{
-            res.send('EJS not made yet')
+            res.render('admin/product');
         }catch(err){
             console.log(error);
             res.send('error')
@@ -54,9 +60,14 @@ adminController = {
     },
     orderPage: async (req,res) => {
         try{
-            res.send('EJS not made yet')
+            const orderId = req.params['id'];
+            const order = await Order.findByPk(orderId,{include  : [
+                {association : "customer"},
+                {association : "orderDetail"},
+            ]})
+            res.render('admin/order',{order});
         }catch(err){
-            console.log(error);
+            console.log(err);
             res.send('error')
         }
     },
