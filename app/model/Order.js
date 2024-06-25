@@ -1,7 +1,13 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require("./sequelizeClient.js");
+const dayjs= require('dayjs')
 
-class Order extends Model {}
+class Order extends Model {
+  
+  get date() {
+    return this.date_creation ? dayjs(this.date_creation).format('YYYY MM DD') : 'Invalid Date';
+  }
+}
 
 Order.init({
     reference: {
@@ -25,7 +31,7 @@ Order.init({
     sequelize, // instance de Sequelize
     modelName: 'Order', // nom du modèle
     tableName: 'order', // nom de la table
-    timestamps: false, // désactive les champs `createdAt` et `updatedAt`
+    updatedAt : false
   });
   
   module.exports = Order;

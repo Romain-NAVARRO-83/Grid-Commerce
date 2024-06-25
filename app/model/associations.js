@@ -12,7 +12,7 @@ Customer.hasMany(Order, {
     foreignKey: "id_customer",
     as: "customer"
   });
-  module.exports = {Customer, Order, Product}
+  
 
   // Order <-> OrderDetail (One-To-Many)
   Order.hasMany(OrderDetail,{
@@ -33,3 +33,4 @@ Customer.hasMany(Order, {
     as : "product"
   });
 
+  module.exports = {Customer, Order, Product, OrderDetail}

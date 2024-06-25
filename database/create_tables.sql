@@ -5,6 +5,9 @@ DROP TABLE IF EXISTS "customer" CASCADE;
 DROP TABLE IF EXISTS "category_product" CASCADE;
 DROP TABLE IF EXISTS "category" CASCADE;
 DROP TABLE IF EXISTS "product" CASCADE;
+DROP TABLE IF EXISTS "shipments" CASCADE;
+DROP TABLE IF EXISTS "shipment_details" CASCADE;
+
 
 
 CREATE TABLE IF NOT EXISTS "product" (
@@ -12,7 +15,7 @@ CREATE TABLE IF NOT EXISTS "product" (
 	"name" varchar(250),
 	"reference" varchar(255) NOT NULL UNIQUE,
 	"description_short" varchar(255),
-	"price" numeric(10,0) DEFAULT '0',
+	"price" FLOAT DEFAULT '0',
 	"picture_url" varchar(255),
 	"stock" bigint NOT NULL,
 	PRIMARY KEY ("id")
@@ -21,7 +24,7 @@ CREATE TABLE IF NOT EXISTS "product" (
 CREATE TABLE IF NOT EXISTS "category" (
 	"id" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
 	"name" varchar(250) NOT NULL,
-	"depth" bigint DEFAULT '0',
+	"depth" INTEGER DEFAULT '0',
 	"id_parent" bigint,
 	PRIMARY KEY ("id")
 );
@@ -59,8 +62,19 @@ CREATE TABLE IF NOT EXISTS "order_detail" (
 	"unit_price" numeric(10,0) NOT NULL,
 	PRIMARY KEY ("id")
 );
-
-
+CREATE TABLE IF NOT EXISTS "shipments"(
+	"id" SERIAL NOT NULL UNIQUE,
+	"id_order" INTEGER NOT NULL,
+	"date_creation" TIMESTAMP NOT NULL DEFAULT NOW(),
+	PRIMARY KEY ("id")
+);
+CREATE TABLE IF NOT EXISTS "shipment_details"(
+	"id" SERIAL NOT NULL UNIQUE,
+	"id_shipment" INTEGER NOT NULL,
+	"quantity" INTEGER NOT NULL,
+	"date_creation" TIMESTAMP NOT NULL DEFAULT NOW(),
+	PRIMARY KEY ("id")
+);
 
 ALTER TABLE "category_product" ADD CONSTRAINT "category_product_fk1" FOREIGN KEY ("id_product") REFERENCES "product"("id");
 
@@ -70,5 +84,9 @@ ALTER TABLE "order" ADD CONSTRAINT "order_fk2" FOREIGN KEY ("id_customer") REFER
 ALTER TABLE "order_detail" ADD CONSTRAINT "order_detail_fk1" FOREIGN KEY ("id_order") REFERENCES "order"("id");
 
 ALTER TABLE "order_detail" ADD CONSTRAINT "order_detail_fk2" FOREIGN KEY ("id_product") REFERENCES "product"("id");
+
+ALTER TABLE "shipments" ADD CONSTRAINT "shipments_fk1" FOREIGN KEY ("id_order") REFERENCES "order"("id");
+
+ALTER TABLE "shipment_details" ADD CONSTRAINT "shipments_details_fk1" FOREIGN KEY ("id_shipment") REFERENCES "shipments"("id");
 
 COMMIT;

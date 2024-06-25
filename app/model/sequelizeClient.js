@@ -7,7 +7,9 @@ const { Sequelize } = require('sequelize');
 //   password: process.env.PASSWORD,
 //   host: 'localhost',
 // });
-const sequelize = new Sequelize(process.env.PG_CONNECTION_STRING);
+const sequelize = new Sequelize(process.env.PG_CONNECTION_STRING,{
+  define: {createdAt: "date_creation"}
+});
 const testConnection = async () => {
   try {
     await sequelize.authenticate();

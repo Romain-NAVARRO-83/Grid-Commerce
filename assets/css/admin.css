@@ -1,5 +1,6 @@
 @import url(vars.css);
 @import url(baselayout.css);
+@import url(nanocss.css);
 @import url(components.css);
 body{
     display:grid;
@@ -56,19 +57,39 @@ section{
 .modal{
     position:fixed;
     z-index: 99;
-    width:100%;
+    width:calc(100% - 150px);
     height:100vh;
     background-color: #fff;
     transform: translateX(100%);
+    margin-left: -20px;
     transition: all ease-out .3s;
     border-left:solid 2px var(--color2);
-    padding: var(--mainpadding);
-    display: flex;
-    flex-wrap: wrap;
+    padding: 0;
+    gap: var(--mainpadding);
+    /* display: flex; */
+    /* flex-wrap: wrap; */
     align-items: center;
+    display:grid;
+    grid-template-columns: 30px 1fr;
 
 }
 .modal.active{
     transform: translateX(0);
     transition: all ease-out .3s;
+}
+.modal > *{
+    grid-column: 2 / 3;
+}
+.modal .modalToggler{
+    grid-row: span 20;
+    grid-column: 1 / 2;
+    height:100%;
+}
+.bigNumber{
+    font-size:2.5rem;
+    font-weight: bold;
+    color: var(--color1);
+}
+.text-center{
+    text-align: center;
 }

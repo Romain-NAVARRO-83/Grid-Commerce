@@ -1,0 +1,32 @@
+section, div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+section > *, div > *{
+    flex-grow: 2;
+    flex-basis: 100%;
+}
+@media (min-width:1200px){
+    .l3{flex-basis:calc((100% / 12) * 3)}
+    .l4{flex-basis:calc((100% / 12) * 4)}
+    .l5{flex-basis:calc((100% / 12) * 5)}
+    .l6{flex-basis:calc((100% / 12) * 6)}
+    .l8{flex-basis:calc((100% / 12) * 8)}
+    .l9{flex-basis:calc((100% / 12) * 9)}
+    .l10{flex-basis:calc((100% / 12) * 10)}
+    .l11{flex-basis:calc((100% / 12) * 11)}
+    .l12{flex-basis:calc((100% / 12) * 12)}
+}
+
+.valid{color:var(--colorValid)}
+
+button{border:0;cursor: pointer;}
+button.valid{
+    color:#fff;
+    background-color: var(--colorValid);
+}
+button.special{
+    color:#fff;
+    background-color: var(--color2);
+}

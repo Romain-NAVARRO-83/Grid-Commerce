@@ -11,6 +11,7 @@
 
     /* UI colors */
     --colorDanger : rgb(145, 0, 0);
+    --colorValid : rgb(35, 112, 35);
 
     --dark: rgba(0, 0, 0, .3);
     --transition: all ease-out .3s;

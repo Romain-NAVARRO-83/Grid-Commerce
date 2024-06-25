@@ -3,7 +3,7 @@ const {Op} = require("sequelize");
 // const Product = require('../model/Product.js');
 // const Order = require('../model/Order.js');
 
-const {Order, Product, Customer} = require('../model/associations.js');
+const {Order, Product, Customer, OrderDetail}  = require('../model/associations.js');
 
 adminController = {
     loginPage : async (req,res) => {
@@ -49,7 +49,26 @@ adminController = {
     },
     ordersPage : async (req,res) => {
         try{
-            const orders = await dataMapper.getOrders(15,20);
+            // const orders = await dataMapper.getOrders(15,20);
+
+            const orders = await Order.findAll({
+                include: [
+                    {
+                        model: OrderDetail,
+                        as: 'orderDetail',
+                        include: {
+                            model: Product,
+                            as: 'product'
+                        }
+                    },
+                    {
+                        model: Customer,
+                        as: 'customer'
+                    }
+                ],
+                limit: 10
+            });
+
             res.render('./admin/orders',{orders, pageType : "orders", orders});
         }catch(error){
             
