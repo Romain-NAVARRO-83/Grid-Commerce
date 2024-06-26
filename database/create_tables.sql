@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS "order" (
 	"reference" varchar(250) NOT NULL UNIQUE,
 	"id_customer" bigint NOT NULL,
 	"state" smallint NOT NULL,
-	"date_creation" TIMESTAMP NOT NULL DEFAULT NOW(),
+	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	PRIMARY KEY ("id")
 );
 
@@ -65,14 +65,14 @@ CREATE TABLE IF NOT EXISTS "order_detail" (
 CREATE TABLE IF NOT EXISTS "shipments"(
 	"id" SERIAL NOT NULL UNIQUE,
 	"id_order" INTEGER NOT NULL,
-	"date_creation" TIMESTAMP NOT NULL DEFAULT NOW(),
+	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	PRIMARY KEY ("id")
 );
 CREATE TABLE IF NOT EXISTS "shipment_details"(
 	"id" SERIAL NOT NULL UNIQUE,
 	"id_shipment" INTEGER NOT NULL,
 	"quantity" INTEGER NOT NULL,
-	"date_creation" TIMESTAMP NOT NULL DEFAULT NOW(),
+	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	PRIMARY KEY ("id")
 );
 

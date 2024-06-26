@@ -99,6 +99,10 @@ adminController = {
             res.send('error')
         }
         
+    },
+    sendShipment : async (req,res) => {
+        const myBody = req.body;
+        locals.message = JSON.stringify(myBody);
     }
 }
 module.exports = adminController;

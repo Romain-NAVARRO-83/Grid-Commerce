@@ -68,6 +68,7 @@ router.get('/admin/products/:id', adminController.productPage);
 router.get('/admin/orders', adminController.ordersPage);
 router.get('/admin/orders/:id', adminController.orderPage);
 router.get('/admin/customers', adminController.customersPage);
+router.post('/admin/sendShipment', adminController.sendShipment);
 
 
 

@@ -21,7 +21,10 @@ section > *, div > *{
 
 .valid{color:var(--colorValid)}
 
-button{border:0;cursor: pointer;}
+button{border:0;}
+button:not([disabled="disabled"]){
+    cursor: pointer;
+}
 button.valid{
     color:#fff;
     background-color: var(--colorValid);

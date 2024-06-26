@@ -84,6 +84,7 @@
                 <section id="orderShipping">
                     <table class="l6">
                         <thead>
+                            <th>Id</th>
                             <th>Reference</th>
                             <th>Purchased</th>
                             <th>Sent</th>
@@ -94,6 +95,7 @@
                         <tbody>
                             <% orders[0].orderDetail.forEach(productLine => { %>
                              <tr>
+                                <td><%= productLine.product.id %></td>
                                 <td><%= productLine.product.reference %></td>
                                 <td><%= productLine.quantity %></td>
                                 <td><%let qtySent = 0;  %> <%= qtySent %></td>
@@ -114,9 +116,19 @@
                             <% }) %>
                         </tbody>
                     </table>
-                    <div class="l6">
+                    <div id="shipmentBoard"class="l6">
                         <h3>Your shipment</h3>
-                        <form action="/admin/sendShipment">
+                        <form action="/admin/sendShipment" method="POST">
+                            <table>
+                                <thead>
+                                    <th>Reference</th>
+                                    <th colspan="2">Qty</th>
+                                    
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
                             <button>Send</button>
                         </form>
                     </div>
