@@ -7,6 +7,7 @@ const categoryController = require('./controllers/categoryController');
 const checkoutController = require('./controllers/checkoutController');
 const customerController = require('./controllers/customerController');
 const adminController = require('./controllers/adminController');
+const apiController = require('./controllers/apiController');
 
 router.get('/', homeController.homePage);
 
@@ -69,6 +70,9 @@ router.get('/admin/orders', adminController.ordersPage);
 router.get('/admin/orders/:id', adminController.orderPage);
 router.get('/admin/customers', adminController.customersPage);
 router.post('/admin/sendShipment', adminController.sendShipment);
+
+// API routes
+router.get('/api/orders/:id', apiController.getOrderById);
 
 
 

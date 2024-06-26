@@ -31,5 +31,23 @@ lineSenders.forEach((lineSender) => {
         // console.log(myQty);
 
     })
+});
+
+// Get order details
+const togglers = document.querySelectorAll('body.orders main > section > table button');
+togglers.forEach((toggler) => {
+    toggler.addEventListener('click',async () => {
+        const orderId = toggler.getAttribute('data-orderId');
+        fetch(`/api/orders/${orderId}`)
+        .then(async response => {
+            // handle the response
+            const foundOrder = await response.json();
+            console.log(foundOrder)
+        })
+        .catch(error => {
+            // handle the error
+        });
+    });
+
 })
 
