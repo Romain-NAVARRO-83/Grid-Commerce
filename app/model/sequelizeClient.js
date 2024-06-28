@@ -8,7 +8,8 @@ const { Sequelize } = require('sequelize');
 //   host: 'localhost',
 // });
 const sequelize = new Sequelize(process.env.PG_CONNECTION_STRING,{
-  define: {createdAt: "date_creation"}
+  define: {createdAt: "date_creation"},
+  logging: false
 });
 const testConnection = async () => {
   try {

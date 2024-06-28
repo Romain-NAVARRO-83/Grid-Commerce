@@ -10,7 +10,7 @@ const {Order, Product, Customer, OrderDetail}  = require('../model/associations.
             const orderId = req.params['id'];
             try{
                 const myOrder = await Order.findByPk(orderId,{
-                    include : "customer"
+                    include : ["customer",{association : "shipments"},{association : "orderDetail", include : "product"}]
                 });
                 res.send(myOrder);
             }catch{

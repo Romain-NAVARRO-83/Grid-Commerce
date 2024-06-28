@@ -3,7 +3,7 @@ const {Op} = require("sequelize");
 // const Product = require('../model/Product.js');
 // const Order = require('../model/Order.js');
 
-const {Order, Product, Customer, OrderDetail}  = require('../model/associations.js');
+const {Order, Product, Customer, OrderDetail, Shipment}  = require('../model/associations.js');
 
 adminController = {
     loginPage : async (req,res) => {
@@ -47,7 +47,7 @@ adminController = {
             res.send('error')
         }
     },
-    ordersPage : async (req,res) => {
+    ordersPage : async (req,res, message = null) => {
         try{
             // const orders = await dataMapper.getOrders(15,20);
 
@@ -69,7 +69,7 @@ adminController = {
                 limit: 10
             });
 
-            res.render('./admin/orders',{orders, pageType : "orders", orders});
+            res.render('./admin/orders',{orders, pageType : "orders", orders, message});
         }catch(error){
             
             console.log(error);
@@ -101,8 +101,19 @@ adminController = {
         
     },
     sendShipment : async (req,res) => {
-        const myBody = req.body;
-        locals.message = JSON.stringify(myBody);
+        
+        try{
+           console.log('sendShip route activated');
+           await Shipment.create({
+            id_order : req.body.orderId
+           })
+           console.log(`Shipment created for order id ${req.body.orderId}`);
+            res.status(200).end();
+
+        }catch(err){
+            console.log(err);
+            res.send('error')
+        }
     }
 }
 module.exports = adminController;

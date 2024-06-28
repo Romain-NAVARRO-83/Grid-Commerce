@@ -13,7 +13,7 @@ Shipment.init({
   }, {
     sequelize, 
     modelName: 'Shipment', // nom du modèle
-    tableName: 'shipment', // nom de la table
+    tableName: 'shipments', // nom de la table
     updatedAt : false
   });
   

@@ -39,17 +39,14 @@ router.get('/admin',(req,res,next)=>{
 });
 // credentials checking
 router.get('/admin/*',(req,res,next)=>{
-    if (req.session.adminCredentials === true){
-        // console.log(req.originalUrl);
-        // console.log('Admin credentials OK');
-        // console.log(req.session.adminCredentials);
+    // if (req.session.adminCredentials === true){
         
-    }else if (req.originalUrl != '/admin/login'){
-        console.log(req.originalUrl);
-        res.redirect('/admin/login');
+    // }else if (req.originalUrl != '/admin/login'){
+    //     console.log(req.originalUrl);
+    //     res.redirect('/admin/login');
    
 
-    }
+    // }
     next();
 })
 router.post('/admin/login',(req,res,next)=>{
@@ -69,7 +66,7 @@ router.get('/admin/products/:id', adminController.productPage);
 router.get('/admin/orders', adminController.ordersPage);
 router.get('/admin/orders/:id', adminController.orderPage);
 router.get('/admin/customers', adminController.customersPage);
-router.post('/admin/sendShipment', adminController.sendShipment);
+router.post('/api/sendShipment', adminController.sendShipment);
 
 // API routes
 router.get('/api/orders/:id', apiController.getOrderById);

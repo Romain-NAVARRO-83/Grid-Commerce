@@ -17,7 +17,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% locals.orders.forEach(order=> { console.log(order)%>
+                        <% locals.orders.forEach(order=> {%>
                             <tr>
                                 <td>
                                     <%= order.id %>
@@ -47,16 +47,17 @@
             </section>
             <div id="orderModal" class="modal">
                 <button class="modalToggler special"><i class="fa-solid fa-xmark"></i></button>
-                <section>
+                <section class="gap">
                     <div class="l8">
                         <h2>Reference <span class="small">id</span></h2>
                     <p>Date</p>
                     </div>
                     <div class="l4">
                         <h3><%=  orders[0].customer.first_name%> <%=  orders[0].customer.last_name%></h3>
+                        <a href="#" class="customeremail">customer email</a>
                     </div>
                 </section>
-                <section id="orderDetail">
+                <section id="orderDetail" class="gap">
                     <table class="l9">
                         <thead>
                             <th>Ref</th>
@@ -65,14 +66,7 @@
                             <th>Total</th>
                         </thead>
                         <tbody>
-                            <% orders[0].orderDetail.forEach(productLine => { %>
-                             <tr>
-                                <td>ref</td>
-                                <td>name</td>
-                                <td><%= productLine.quantity %></td>
-                                <td><%= productLine.quantity * productLine.unit_price %></td>
-                             </tr>
-                            <% }) %>
+                            
                         </tbody>
                     </table>
                     <div class="l3 text-center">
@@ -81,8 +75,9 @@
                         <span class="bigNumber"><%= new Intl.NumberFormat({ style: "currency", currency: "EUR" }).format(total) %> €</span>
                     </div>
                 </section>
-                <section id="orderShipping">
-                    <table class="l6">
+                <section id="orderShipping" class="gap">
+                    <h3>Manage shipments</h3>
+                    <table id="prepareBoard" class="l6">
                         <thead>
                             <th>Id</th>
                             <th>Reference</th>
@@ -93,45 +88,21 @@
                             <th>Send</th>
                         </thead>
                         <tbody>
-                            <% orders[0].orderDetail.forEach(productLine => { %>
-                             <tr>
-                                <td><%= productLine.product.id %></td>
-                                <td><%= productLine.product.reference %></td>
-                                <td><%= productLine.quantity %></td>
-                                <td><%let qtySent = 0;  %> <%= qtySent %></td>
-                                <td><%= productLine.quantity - qtySent %></td>
-                                <td><%= productLine.product.stock %></td>
-                                <% let sendThis = 0;
-                                let partial = false;
-                                 if (productLine.product.stock >= productLine.quantity){
-                                    sendThis = productLine.quantity; 
-                                }else if (productLine.product.stock > 0){
-                                    sendThis = productLine.product.stock;
-                                    partial = true;
-                                }%>
-                                <td><% if (productLine.product.stock > 0){%>
-                                    <input type="number" value="<%= sendThis %>"> <button class=" <%= partial ? `err1` : `valid`%>">Prepare</button>
-                                <%} %></td>
-                             </tr>
-                            <% }) %>
+                  
                         </tbody>
                     </table>
                     <div id="shipmentBoard"class="l6">
-                        <h3>Your shipment</h3>
-                        <form action="/admin/sendShipment" method="POST">
-                            <table>
-                                <thead>
-                                    <th>Reference</th>
-                                    <th colspan="2">Qty</th>
-                                    
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                            </table>
+                        <h4>Your shipment</h4>
+                        <form action="/api/sendShipment" method="POST" >
+                            <input type="hidden" name="orderId" value="<%= orders[0].id %>">
+                            <div class="gap"></div>
                             <button>Send</button>
                         </form>
                     </div>
+                    <h4>Previous shipments</h4>
+                    <ul id="shipmentsList">
+                        
+                    </ul>
                 </section>
                 
             </div>

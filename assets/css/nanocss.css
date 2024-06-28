@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 section, div{
     display: flex;
     flex-wrap: wrap;
@@ -8,17 +11,17 @@ section > *, div > *{
     flex-basis: 100%;
 }
 @media (min-width:1200px){
-    .l3{flex-basis:calc((100% / 12) * 3)}
-    .l4{flex-basis:calc((100% / 12) * 4)}
-    .l5{flex-basis:calc((100% / 12) * 5)}
-    .l6{flex-basis:calc((100% / 12) * 6)}
-    .l8{flex-basis:calc((100% / 12) * 8)}
-    .l9{flex-basis:calc((100% / 12) * 9)}
-    .l10{flex-basis:calc((100% / 12) * 10)}
-    .l11{flex-basis:calc((100% / 12) * 11)}
-    .l12{flex-basis:calc((100% / 12) * 12)}
+    .l3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}
+    .l4{flex-basis:calc((100% / 12) * 4 - var(--mainpadding))}
+    .l5{flex-basis:calc((100% / 12) * 5 - var(--mainpadding))}
+    .l6{flex-basis:calc((100% / 12) * 6 - var(--mainpadding))}
+    .l8{flex-basis:calc((100% / 12) * 8 - var(--mainpadding))}
+    .l9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
+    .l10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
+    .l11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
+    .l12{flex-basis:calc((100% / 12) * 12 - var(--mainpadding))}
 }
-
+.gap{gap:var(--mainpadding)};
 .valid{color:var(--colorValid)}
 
 button{border:0;}
@@ -32,4 +35,9 @@ button.valid{
 button.special{
     color:#fff;
     background-color: var(--color2);
+}
+.slate{
+    padding:var(--mainpadding);
+    border: solid 1px rgba(0, 0, 0, .2);
+    border-radius:3px
 }

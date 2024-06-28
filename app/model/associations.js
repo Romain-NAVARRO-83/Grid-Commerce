@@ -2,6 +2,7 @@ const Customer = require("./Customer.js");
 const Order = require("./Order.js");
 const OrderDetail = require("./OrderDetail.js");
 const Product = require("./Product.js");
+const Shipment = require("./Shipment.js");
 
 // Customer <-> Answer (One-To-Many)
 Customer.hasMany(Order, {
@@ -32,5 +33,14 @@ Customer.hasMany(Order, {
     foreignKey : "id_product",
     as : "product"
   });
+  // Order <-> Answer (One-To-Many)
+Order.hasMany(Shipment, {
+  foreignKey: "id_order",
+  as: "shipments"
+});
+Shipment.belongsTo(Order, {
+  foreignKey: "id_order",
+  as: "order"
+});
 
-  module.exports = {Customer, Order, Product, OrderDetail}
+  module.exports = {Customer, Order, Product, OrderDetail, Shipment}

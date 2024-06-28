@@ -96,3 +96,17 @@ section{
 .done{
     opacity: .3;
 }
+#alert{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:var(--mainpadding);
+}
+#alert > div{
+    backdrop-filter: blur(10px);
+    max-width:800px;
+    padding:var(--mainpadding);
+    margin:auto;
+    background-color: #ffffff50;
+    text-align: center;
+}
