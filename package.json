@@ -9,10 +9,10 @@
     "start": "node app.js",
     "db:create": "psql -U gridcommerce -d gridcommerce -h localhost -f database/create_tables.sql",
     "db:populate": "psql -U gridcommerce -d gridcommerce -h localhost -f database/populate_tables.sql",
-    "db:create_products":"psql -U gridcommerce -d gridcommerce -h localhost -f database/create_products.sql",
+    "db:create_products": "psql -U gridcommerce -d gridcommerce -h localhost -f database/create_products.sql",
     "db:create_dummy_orders": "psql -U gridcommerce -d gridcommerce -h localhost -f database/create_dummy_orders.sql",
     "db:reset": "npm run db:create && npm run db:populate",
-    "db:reset:demo" : "npm run db:reset && npm run db:create_products && npm run db:create_dummy_orders "
+    "db:reset:demo": "npm run db:reset && npm run db:create_products && npm run db:create_dummy_orders "
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,15 @@
   "homepage": "https://github.com/Romain-NAVARRO-83/Grid-Commerce#readme",
   "dependencies": {
     "@amcharts/amcharts5": "^5.9.11",
+    "argon2": "^0.40.3",
     "dayjs": "^1.11.11",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
+    "email-validator": "^2.0.4",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
+    "node": "^20.15.0",
+    "password-validator": "^5.3.0",
     "pg": "^8.11.5",
     "sequelize": "^6.37.3"
   }

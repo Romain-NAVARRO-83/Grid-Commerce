@@ -8,11 +8,12 @@ const checkoutController = require('./controllers/checkoutController');
 const customerController = require('./controllers/customerController');
 const adminController = require('./controllers/adminController');
 const apiController = require('./controllers/apiController');
+const getCategoriesMiddleware = require('./middlewares/getCategoriesMiddleware.js')
 
 router.get('/', homeController.homePage);
 
 // const categories = require("./")
-router.get('/category/:categoryName', categoryController.categoryPage);
+router.get('/category/:categoryName',getCategoriesMiddleware.frontCategories, categoryController.categoryPage);
 router.get('/product/:id', productController.productPage);
 router.get('/login', customerController.loginPage);
 router.post('/login', customerController.loginAttempt);

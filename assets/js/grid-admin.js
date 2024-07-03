@@ -147,43 +147,47 @@ lineSenders.forEach((lineSender) => {
 
 // Send shipment
 const shipForm = document.querySelector('form[action="/api/sendShipment"]');
-shipForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const myOrderId = document.querySelector('#shipmentBoard input[name="orderId"]').value;
-    modal.classList.toggle('active');
-
-    const data = new FormData(shipForm);
-    // console.log(data.orderId);
-    let bodyString = "";
-    for (const [name, value] of data) {
-        bodyString += `${name}=${value}&`
-    }
-    // const orderId = toggler.getAttribute('data-orderId');
-    fetch(`/api/sendShipment`, {
-        method: "POST",
-
-        // whatever data you want to post with a key-value pair
-
-        body: bodyString,
-        headers:
-        {
-            "Content-Type": "application/x-www-form-urlencoded"
+if (shipForm){
+    shipForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const myOrderId = document.querySelector('#shipmentBoard input[name="orderId"]').value;
+        modal.classList.toggle('active');
+    
+        const data = new FormData(shipForm);
+        // console.log(data.orderId);
+        let bodyString = "";
+        for (const [name, value] of data) {
+            bodyString += `${name}=${value}&`
         }
-
-    })
-        .then(async response => {
-            // handle the response
-
-
-
-            const message = await response;
-            nanoAlert("valid", `Shipment created for order id ${myOrderId}`);
-
-            console.log(response);
-
+        // const orderId = toggler.getAttribute('data-orderId');
+        fetch(`/api/sendShipment`, {
+            method: "POST",
+    
+            // whatever data you want to post with a key-value pair
+    
+            body: bodyString,
+            headers:
+            {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+    
         })
-        .catch(error => {
-            // handle the error
-        });
-});
+            .then(async response => {
+                // handle the response
+    
+    
+    
+                const message = await response;
+                nanoAlert("valid", `Shipment created for order id ${myOrderId}`);
+    
+                console.log(response);
+    
+            })
+            .catch(error => {
+                // handle the error
+            });
+    });
+    
+}
+
 

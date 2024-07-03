@@ -1,3 +1,8 @@
+:root{
+    /* Breakpoints */
+    --mediumBreakpoint :800px;
+    --largeBreakpoint :1200px;
+}
 *{
     box-sizing: border-box;
 }
@@ -10,7 +15,29 @@ section > *, div > *{
     flex-grow: 2;
     flex-basis: 100%;
 }
-@media (min-width:1200px){
+@media (max-width:calc(var(--mediumBreakpoint) - 1px)){
+    .s3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}
+    .s4{flex-basis:calc((100% / 12) * 4 - var(--mainpadding))}
+    .s5{flex-basis:calc((100% / 12) * 5 - var(--mainpadding))}
+    .s6{flex-basis:calc((100% / 12) * 6 - var(--mainpadding))}
+    .s8{flex-basis:calc((100% / 12) * 8 - var(--mainpadding))}
+    .s9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
+    .s10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
+    .s11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
+    .s12{flex-basis:100%}
+}
+@media (min-width:var(--mediumBreakpoint)) and (max-width:calc(var(--largeBreakpoint) - 1px)){
+    .m3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}
+    .m4{flex-basis:calc((100% / 12) * 4 - var(--mainpadding))}
+    .m5{flex-basis:calc((100% / 12) * 5 - var(--mainpadding))}
+    .m6{flex-basis:calc((100% / 12) * 6 - var(--mainpadding))}
+    .m8{flex-basis:calc((100% / 12) * 8 - var(--mainpadding))}
+    .m9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
+    .m10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
+    .m11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
+    .m12{flex-basis:100%}
+}
+@media (min-width:var(--largeBreakpoint)){
     .l3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}
     .l4{flex-basis:calc((100% / 12) * 4 - var(--mainpadding))}
     .l5{flex-basis:calc((100% / 12) * 5 - var(--mainpadding))}
@@ -19,7 +46,7 @@ section > *, div > *{
     .l9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
     .l10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
     .l11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
-    .l12{flex-basis:calc((100% / 12) * 12 - var(--mainpadding))}
+    .l12{flex-basis:100%}
 }
 .gap{gap:var(--mainpadding)};
 .valid{color:var(--colorValid)}
