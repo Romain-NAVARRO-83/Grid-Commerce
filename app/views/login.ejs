@@ -2,13 +2,13 @@
 <main>
     <h1>Connect your account</h1>
     <% if (locals.alert) { %>
-     <div class="<%= alert[0] %>"><%= alert[1] %></div>
+     <div class="alert <%= alert[0] %>"><%= alert[1] %></div>
     <% } %>
     <nav>
-        <button class="tabNav" data-target="tabPanelForms" data-panel="signin">Sign in</button>
-        <button class="tabNav" data-target="tabPanelForms" data-panel="signup">Sign up</button>
+        <button class="tabnav" data-target="tabPanelForms" data-panel="signin">Sign in</button>
+        <button class="tabnav" data-target="tabPanelForms" data-panel="signup">Sign up</button>
     </nav>
-    <div id="tabPanelForms" class="tabContainer">
+    <div id="tabPanelForms" class="tabContainer noflex">
             
             <form action="/login" method="POST" id="signin" class="active">
                 <h2>Sign in</h2>

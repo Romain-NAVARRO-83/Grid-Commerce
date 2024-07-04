@@ -23,17 +23,18 @@ const customerController = {
                 }
             })
             if (! foundCustomer || ! compare(foundCustomer.password,userPassword)){
-                res.render('home', {
-                    categories: categories,
-                    pageTitle: "Home",
-                    cart: req.session.cart,
-                    alert : ["warning","Incorrect user email or password"]
-                    
-                  });  
-            }else{
-                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["valid",`You are now connected as ${foundCustomer.first_name} ${foundCustomer.last_name}`]  
-            });  
+                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","Incorrect user email or password"]   
+                });  
+            }else{         
+            res.render('home', {
+                categories: categories,
+                pageTitle: "Home",
+                cart: req.session.cart,
+                alert : ["valid",`You are now connected as ${foundCustomer.first_name} ${foundCustomer.last_name}`],
+             customer : foundCustomer  
                 
+                
+              });  
             }
             
            
@@ -48,7 +49,6 @@ const customerController = {
         const userPassword = req.body.password;
         
         try{
-            
             const categories = await dataMapper.getAllCategories();
             const testUserExist = await Customer.findOne({
                 where:{
@@ -57,22 +57,28 @@ const customerController = {
             })
             // Validation email
         if (! validator.validate(userEmail)){
-            res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["warning","The email provided doesn't have the right format"]});
+            res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","The email provided doesn't have the right format"]});
         };
         // Validation password
         if (! validPassword(userPassword)){
-            res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["warning","password format incorrect"]});
+            res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","password format incorrect"]});
         }
         // Validation user exist
             if (testUserExist){
-                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["warning","An account already exist with this email, you shoul try signing in instead"]});
+                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","An account already exist with this email, you shoul try signing in instead"]});
             }else{
 
                try{
-                const hashedPassword = hash(userPassword);
-                await dataMapper.createCustomer(userEmail,hashedPassword);
+                const hashedPassword = await hash(userPassword);
+                // await dataMapper.createCustomer(userEmail,hashedPassword);
+                await Customer.create({
+                    first_name : 'bob',
+                    last_name :'fakeman',
+                    email : userEmail,
+                    password : hashedPassword
+                })
                 // console.log(createCustomer);
-                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["ok","email is not in the database"]})
+                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["valid","Good ! Your account is created, you can now log in."]})
                }catch(error){
                 console.error(error);
       res.send("error");

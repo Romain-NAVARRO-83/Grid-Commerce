@@ -4,21 +4,35 @@
     --largeBreakpoint :1200px;
 
     /* UI colors */
-    --validColor : rgb(22, 94, 22);
-    --errorColor : rgb(94, 22 , 22);
-    --infoColor : rgb(22, 22, 94);
-    --dangerColor : rgb(172, 123, 19);
+        /* Hues */
+    --validHue : 120;
+    --errorHue : 0;
+    --infoHue : 240;
+    --dangerHue : 41;
+    /* colors */
+    --validColor : hsl(var(--validHue), 62%, 23%);
+    --errorColor : hsl(var(--errorHue), 62%, 23%);
+    --infoColor : hsl(var(--infoHue), 62%, 23%);
+    --dangerColor : hsl(var(--dangerHue), 80%, 37%);
+    /* Light colors */
+    --validColorLight : hsl(var(--validHue), 62%, 60%);
+    --errorColorLight : hsl(var(--errorHue), 62%, 60%);
+    --infoColorLight : hsl(var(--infoHue), 62%, 60%);
+    --dangerColorLight : hsl(var(--dangerHue), 80%, 97%);
+
+    /* Theme variables */
+    --mainradius : 3px;
 
 }
 *{
     box-sizing: border-box;
 }
-section, div{
+section:not(.noflex), div:not(.noflex){
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-section > *, div > *{
+section:not(.noflex) > *, div:not(.noflex) > *{
     flex-grow: 2;
     flex-basis: 100%;
 }
@@ -38,11 +52,6 @@ section > *, div > *{
     .m4{flex-basis:calc((100% / 12) * 4 - var(--mainpadding))}
     .m5{flex-basis:calc((100% / 12) * 5 - var(--mainpadding))}
     .m6{flex-basis:calc((100% / 12) * 6 - var(--mainpadding))}
-    .m8{flex-basis:calc((100% / 12) * 8 - var(--mainpadding))}
-    .m9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
-    .m10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
-    .m11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
-    .m12{flex-basis:100%}
 }
 @media (min-width:var(--largeBreakpoint)){
     .l3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}
@@ -56,7 +65,7 @@ section > *, div > *{
     .l12{flex-basis:100%}
 }
 .gap{gap:var(--mainpadding)};
-.valid{color:var(--colorValid)}
+.valid{color:var(--validColor)}
 
 button{border:0;}
 button:not([disabled="disabled"]){
@@ -64,7 +73,7 @@ button:not([disabled="disabled"]){
 }
 button.valid{
     color:#fff;
-    background-color: var(--colorValid);
+    background-color: var(--validColor);
 }
 button.special{
     color:#fff;
@@ -75,8 +84,20 @@ button.special{
     border: solid 1px rgba(0, 0, 0, .2);
     border-radius:3px
 }
-
-
+.alert{
+    padding:var(--mainpadding);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--mainradius);
+}
+.alert.valid{
+    border-color:var(--validColor);
+    background-color:var(--validColorLight);
+} 
+.alert.danger{
+    border-color:var(--dangerColor);
+    background-color:var(--dangerColorLight);
+} 
 
 /* JS components */
 .tabContainer >:not(.active){

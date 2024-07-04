@@ -9,6 +9,9 @@
         <a href="tel:+33555555555">05 555 555</a>
     </address>
     <ul>
+        <% if (locals.user) { %>
+            <li><a href="#">Your account</a></li>
+        <% } %>
         <li><a href="">Lorem, ipsum dolor.</a></li>
         <li><a href="">Enim, sunt fuga.</a></li>
         <li><a href="">Ipsam, fugit aliquam?</a></li>

@@ -11,14 +11,20 @@ document.addEventListener("DOMContentLoaded", () =>{
     tabNavs.forEach((tabNav) => {
         
         tabNav.addEventListener("click",()=>{
+            const tabNavSiblings = Array.from(tabNav.parentElement.children);
             const targetContainer = tabNav.dataset.target;
             const targetPanel =  document.querySelector(`#${tabNav.dataset.panel}`);
-            const allPanels = document.querySelectorAll(`#${targetContainer}> *`);
+            // const allPanels = document.querySelectorAll(`#${targetContainer}> *`);
+            const allPanels = Array.from(document.querySelector(`#${targetContainer}`).children);
+            tabNavSiblings.forEach((tabNav)=>{
+                tabNav.classList.remove('active');
+            })
             allPanels.forEach((panel)=>{
                 panel.classList.remove('active'); 
                 // TODO => ARIA
-                targetPanel.classList.add('active'); 
-            })
+            });
+            targetPanel.classList.add('active'); 
+            tabNav.classList.add('active');
         })
     })
     
