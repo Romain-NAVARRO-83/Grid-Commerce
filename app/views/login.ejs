@@ -4,30 +4,35 @@
     <% if (locals.alert) { %>
      <div class="<%= alert[0] %>"><%= alert[1] %></div>
     <% } %>
-    <div>
-        <h2>Sign in</h2>
-        <form action="/login" method="POST">
-            <label for="email">email</label>
-            <input type="email" name="email" id="email">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-            <button>Login</button>
-            <a href="forgot_password">Forgot password ?</a>
-        </form>
-    </div>
-    <div>
-        <h2>Sign up</h2>
-        <form action="/signup" method="POST">
-            <label for="email">email</label>
-            <input type="email" name="email" id="email" required>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
-            <label for="confirmPassword">Confirm password</label>
-            <input type="password" name="confirmPassword" id="confirmPassword" required>
-            <label for="conditions">Accept terms and conditions</label>
-            <input type="checkbox" name="conditions" id="conditions" required>
-            <button>Create account</button>
-        </form>
+    <nav>
+        <button class="tabNav" data-target="tabPanelForms" data-panel="signin">Sign in</button>
+        <button class="tabNav" data-target="tabPanelForms" data-panel="signup">Sign up</button>
+    </nav>
+    <div id="tabPanelForms" class="tabContainer">
+            
+            <form action="/login" method="POST" id="signin" class="active">
+                <h2>Sign in</h2>
+                <label for="email">email</label>
+                <input type="email" name="email" id="email">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <button class="valid">Login</button>
+                <a href="forgot_password">Forgot password ?</a>
+            </form>
+
+            
+            <form action="/signup" method="POST" id="signup">
+                <h2>Sign up</h2>
+                <label for="email">email</label>
+                <input type="email" name="email" id="email" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" required>
+                <label for="conditions">Accept terms and conditions</label>
+                <input type="checkbox" name="conditions" id="conditions" required>
+                <button class="valid">Create account</button>
+            </form>
     </div>
 </main>
 <%- include('partials/footer') %>

@@ -13,9 +13,30 @@ const customerController = {
         }
     },
     loginAttempt : async (req, res) => {
+        const categories = await dataMapper.getAllCategories();
+        const userEmail = req.body.email;
+        const userPassword = req.body.password;
         try{
-            const categories = await dataMapper.getAllCategories();
-            res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["warning","Incorrect user email or password"]})
+            const foundCustomer = await Customer.findOne({
+                where:{
+                    email : userEmail
+                }
+            })
+            if (! foundCustomer || ! compare(foundCustomer.password,userPassword)){
+                res.render('home', {
+                    categories: categories,
+                    pageTitle: "Home",
+                    cart: req.session.cart,
+                    alert : ["warning","Incorrect user email or password"]
+                    
+                  });  
+            }else{
+                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["valid",`You are now connected as ${foundCustomer.first_name} ${foundCustomer.last_name}`]  
+            });  
+                
+            }
+            
+           
         }catch(error){
       console.error(error);
       res.send("error");

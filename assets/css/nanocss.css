@@ -2,6 +2,13 @@
     /* Breakpoints */
     --mediumBreakpoint :800px;
     --largeBreakpoint :1200px;
+
+    /* UI colors */
+    --validColor : rgb(22, 94, 22);
+    --errorColor : rgb(94, 22 , 22);
+    --infoColor : rgb(22, 22, 94);
+    --dangerColor : rgb(172, 123, 19);
+
 }
 *{
     box-sizing: border-box;
@@ -67,4 +74,11 @@ button.special{
     padding:var(--mainpadding);
     border: solid 1px rgba(0, 0, 0, .2);
     border-radius:3px
+}
+
+
+
+/* JS components */
+.tabContainer >:not(.active){
+    display:none;
 }
