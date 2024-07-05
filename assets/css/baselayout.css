@@ -4,8 +4,8 @@
 body {
     min-height: 100vh;
     font-family: Helvetica, sans-serif;
-    display:grid;
-    grid-template-columns: 200px auto 200px;
+    /* display:grid;
+    grid-template-columns: 200px auto 200px; */
 }
 
 h1 {

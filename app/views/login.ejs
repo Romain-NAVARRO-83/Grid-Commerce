@@ -1,38 +1,62 @@
 <%- include('partials/header') %>
-<main>
-    <h1>Connect your account</h1>
+<main class="half-screen">
+    <div class="m6 l6 flexcol gap">
+        <h1>Connect to your account</h1>
+        <p>Or click "Sign up" to create your account.</p>
     <% if (locals.alert) { %>
      <div class="alert <%= alert[0] %>"><%= alert[1] %></div>
     <% } %>
     <nav>
-        <button class="tabnav" data-target="tabPanelForms" data-panel="signin">Sign in</button>
+        <button class="tabnav active" data-target="tabPanelForms" data-panel="signin">Sign in</button>
         <button class="tabnav" data-target="tabPanelForms" data-panel="signup">Sign up</button>
     </nav>
     <div id="tabPanelForms" class="tabContainer noflex">
             
             <form action="/login" method="POST" id="signin" class="active">
-                <h2>Sign in</h2>
-                <label for="email">email</label>
+                
+                <fieldset>
+                    <label for="email">email</label>
                 <input type="email" name="email" id="email">
-                <label for="password">Password</label>
+                </fieldset>
+                <fieldset>
+                    <label for="password">Password</label>
                 <input type="password" name="password" id="password">
+                
+                </fieldset>
+                
                 <button class="valid">Login</button>
                 <a href="forgot_password">Forgot password ?</a>
             </form>
 
             
             <form action="/signup" method="POST" id="signup">
-                <h2>Sign up</h2>
-                <label for="email">email</label>
-                <input type="email" name="email" id="email" required>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" required>
+                <h2>Create your account</h2>
+                <fieldset>
+                    <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" id="firstname">
+                </fieldset>
+                <fieldset>
+                    <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" id="lastname">
+                </fieldset>
+                <fieldset>
+                    <label for="emailsignup">email</label>
+                <input type="email" name="emailsignup" id="emailsignup" required>
+                </fieldset>
+                <fieldset>
+                    <label for="passwordsignup">Password</label>
+                <input type="password" name="passwordsignup" id="passwordsignup" required>
                 <label for="confirmPassword">Confirm password</label>
                 <input type="password" name="confirmPassword" id="confirmPassword" required>
-                <label for="conditions">Accept terms and conditions</label>
+                <p class="small">Password muste be at least <strong>12 characters </strong>long, with at least <strong>1 uppercase</strong>, <strong>1 lowercase</strong> and <strong>1 special character</strong>.</p>
+            </fieldset>
+                <fieldset>
+                    <label for="conditions">Accept terms and conditions</label>
                 <input type="checkbox" name="conditions" id="conditions" required>
+                </fieldset>
                 <button class="valid">Create account</button>
             </form>
+    </div>
     </div>
 </main>
 <%- include('partials/footer') %>

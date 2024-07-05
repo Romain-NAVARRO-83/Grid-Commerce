@@ -25,7 +25,8 @@ const customerController = {
             if (! foundCustomer || ! compare(foundCustomer.password,userPassword)){
                 res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","Incorrect user email or password"]   
                 });  
-            }else{         
+            }else{       
+                req.session.customerId = foundCustomer.id; 
             res.render('home', {
                 categories: categories,
                 pageTitle: "Home",
@@ -45,8 +46,8 @@ const customerController = {
     },
     signUp : async (req, res) => {
         
-        const userEmail = req.body.email;
-        const userPassword = req.body.password;
+        const userEmail = req.body.emailsignup;
+        const userPassword = req.body.passwordsignup;
         
         try{
             const categories = await dataMapper.getAllCategories();
@@ -78,6 +79,7 @@ const customerController = {
                     password : hashedPassword
                 })
                 // console.log(createCustomer);
+                
                 res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["valid","Good ! Your account is created, you can now log in."]})
                }catch(error){
                 console.error(error);

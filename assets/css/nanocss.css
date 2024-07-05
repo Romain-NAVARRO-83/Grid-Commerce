@@ -23,20 +23,26 @@
     /* Theme variables */
     --mainradius : 3px;
 
+    /* Animation variables */
+    --animation-duration: .3s;
+
 }
 *{
     box-sizing: border-box;
 }
-section:not(.noflex), div:not(.noflex){
+section:not(.noflex), div:not(.noflex), main:not(.noflex){
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-section:not(.noflex) > *, div:not(.noflex) > *{
+section:not(.noflex) > *, div:not(.noflex) > *, main:not(.noflex) > *{
     flex-grow: 2;
-    flex-basis: 100%;
+    /* flex-basis: 100%; */
 }
-@media (max-width:calc(var(--mediumBreakpoint) - 1px)){
+.flexcol{
+    flex-direction: column;
+}
+@media (max-width:calc(800px - 1px)){
     .s3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}
     .s4{flex-basis:calc((100% / 12) * 4 - var(--mainpadding))}
     .s5{flex-basis:calc((100% / 12) * 5 - var(--mainpadding))}
@@ -47,13 +53,20 @@ section:not(.noflex) > *, div:not(.noflex) > *{
     .s11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
     .s12{flex-basis:100%}
 }
-@media (min-width:var(--mediumBreakpoint)) and (max-width:calc(var(--largeBreakpoint) - 1px)){
+@media (min-width:800px) and (max-width:calc(1200px - 1px)){
     .m3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}
     .m4{flex-basis:calc((100% / 12) * 4 - var(--mainpadding))}
     .m5{flex-basis:calc((100% / 12) * 5 - var(--mainpadding))}
     .m6{flex-basis:calc((100% / 12) * 6 - var(--mainpadding))}
+    .m7{flex-basis:calc((100% / 12) * 7 - var(--mainpadding))}
+    .m8{flex-basis:calc((100% / 12) * 8 - var(--mainpadding))}
+    .m9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
+    .m10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
+    .m11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
+    .m12{flex-basis:calc((100% / 12) * 12 - var(--mainpadding))}
 }
-@media (min-width:var(--largeBreakpoint)){
+@media (min-width:1200px){
+    .l2{flex-basis:calc((100% / 12) * 2 - var(--mainpadding))}
     .l3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}
     .l4{flex-basis:calc((100% / 12) * 4 - var(--mainpadding))}
     .l5{flex-basis:calc((100% / 12) * 5 - var(--mainpadding))}
@@ -98,8 +111,35 @@ button.special{
     border-color:var(--dangerColor);
     background-color:var(--dangerColorLight);
 } 
-
+.small{
+    font-size:.8em;
+}
+fieldset{
+    display:flex;
+    flex-direction: column;
+    gap: var(--mainpadding);
+    text-align:left;
+}
 /* JS components */
+.tabContainer > *.active{
+    animation-name:fadeIn;
+    animation-duration: var(--animation-duration);
+}
 .tabContainer >:not(.active){
     display:none;
+}
+.tabnav:not(.active){
+    opacity: .5;
+}
+
+
+
+/* Animations */
+@keyframes fadeIn{
+    from {
+        opacity:0
+    }
+    to{
+        opacity:1
+    }
 }

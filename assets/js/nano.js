@@ -6,7 +6,7 @@ function getBiggerChild() {
 // tab panels
 document.addEventListener("DOMContentLoaded", () =>{
     // const tabPanels = document.querySelectorAll('.tabContainer > *:not(.active)');
-    const tabNavs = document.querySelectorAll('.tabNav');
+    const tabNavs = document.querySelectorAll('.tabnav');
     // Toggle panels
     tabNavs.forEach((tabNav) => {
         

@@ -5,12 +5,7 @@
 @import url(responsiveness.css);
 @import url(pages_login.css);
 
-main {
-    display: grid;
-    /* grid-row: var(--categoryMainRow);
-    grid-column: var(--categoryMainColumn); */
-    /* grid-template-columns: var(--categoryMainColumnTemp); */
-}
+
 
  aside {
     /* grid-column: var(--categoryAsideWidth);
@@ -34,15 +29,6 @@ aside>* {
 
 
 
-main[aria-label="category"]{
-    /* grid-column: var(--categoryMainWidth);
-    padding: var(--mainpadding); */
-}
-*[aria-label="Liste d'articles"] {
-    display: grid;
-    /* grid-template-columns: var(--articleGrid);
-    gap: var(--mainpadding); */
-}
 .category section[aria-label="Liste d'articles"] {
     padding:calc(var(--mainpadding) * 2) var(--mainpadding);
     gap:var(--mainpadding);
@@ -184,13 +170,13 @@ main[label="Produt-page"] section:has(h1) {
     display: grid;
 }
 
-section[aria-label="Product details"] {
+/* section[aria-label="Product details"] {
     display: grid;
     grid-template-columns: 200px auto;
     gap: var(--mainpadding);
 
 
-}
+} */
 
 section[aria-label="Product details"] aside {
     grid-column: 1/2;
@@ -390,4 +376,10 @@ box-shadow: 0px -18px 18px 0px rgba(0,0,0,0.12);
 main[aria-label="Page d'accueil"] > section:nth-of-type(even):after{
     transform: skewY(-2deg);
     transform-origin: right;
+}
+
+
+.anchor-nav{
+    position:sitcky;
+    top:50px;
 }

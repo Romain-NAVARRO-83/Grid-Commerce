@@ -56,10 +56,15 @@ td, th{
     padding:calc(var(--mainpadding) / 2);
     font-size:14px;
 }
-.alert{
-    display:block;
-}
 
-.danger{
-    color:var(--colorDanger);
+.half-screen > div{
+    padding:var(--mainpadding);
+}
+.half-screen::after{
+    content : "";
+    flex-basis:49%;
+    background-color: var(--color2);
+    background-image:url('../img/office-background.jpg');
+    background-size: cover;
+    background-blend-mode: multiply;
 }

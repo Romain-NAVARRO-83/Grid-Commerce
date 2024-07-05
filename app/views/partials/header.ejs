@@ -28,7 +28,14 @@
             <button><i class="fa fa-search"></i></button>
         </form>
         <ul>
-            <li> <a href="/login" title="Connexion / Votre compte"><i class="fa fa-user"></i></a></li>
+            <li> 
+                <% if (! locals.customer) { %>
+                    <a href="/login" title="Connexion"><i class="fa fa-user fa-large"></i></a>
+                <% }else{ %>
+                    <a href="/account" title="Your account (<%= customer.first_name%>)"><i class="fa-solid fa-house-user fa2x"></i></a>
+                    <% }%>
+                
+            </li>
             <li><iframe src="" name="cartReturn" frameborder="0" width="100" height="20"></iframe><a href="/checkout" title="Your cart"><i class="fa fa-shopping-cart"></i></a>
             <%- include('miniCart') %>
             </li>
