@@ -34,10 +34,12 @@ section:not(.noflex), div:not(.noflex), main:not(.noflex){
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: relative;
     
 }
 section:not(.noflex) > *:not(.strict), div:not(.noflex) > *:not(.strict), main:not(.noflex) > *:not(.strict){
     flex-grow: 2;
+
     container-type: inline-size;
     /* flex-basis: 100%; */
 }
@@ -47,6 +49,8 @@ section:not(.noflex) > *:not(.strict), div:not(.noflex) > *:not(.strict), main:n
     flex-wrap: nowrap;
 }
 h1, h2, h3, h4, h5, h6{flex-basis:100%;}
+*.flexcol > *{flex-basis:auto}
+
 @media (max-width:calc(800px - 1px)){
     .shidden{display:none;}
     .s3{flex-basis:calc((100% / 12) * 3 - var(--mainpadding))}

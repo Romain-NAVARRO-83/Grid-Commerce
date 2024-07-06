@@ -13,36 +13,7 @@ iframe[name="cartReturn"]{
     top:0;
     z-index: 9;
 }
-header > ul >li:last-child > div{
-    background-color:#fff;
-    border:solid 2px var(--color1);
-    border-right:0;
-    color:#000;
-    /* padding:calc(var(--mainpadding) / 2) 0; */
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    z-index: 9;
-    right:0;
-    max-height:0;
-    overflow:hidden;
-    transition:all ease-out .3s;
-}
-header > ul >li:last-child:hover > div{
-    min-height:50px;
-    max-height:80vh;
-    overflow-y:auto;
-    transition:all ease-out .3s;
-}
-header > ul >li:last-child > div article{
-    padding:calc(var(--mainpadding) / 2);
-    display:flex;
-    gap:calc(var(--mainpadding) / 2);
-    justify-content: flex-start;
-}
-header > ul >li:last-child > div article > span{
-    text-align:right;
-}
+
 footer{
     background-color: var(--color1);
     display:flex;
@@ -67,4 +38,49 @@ td, th{
     background-image:url('../img/office-background.jpg');
     background-size: cover;
     background-blend-mode: multiply;
+}
+
+/* MINICART */
+body{
+    overflow-x: hidden;
+}
+body.noscroll {
+    position: fixed!important;
+    width:100%;
+}
+.cart-toggler{
+    cursor: pointer;
+}
+#minicart{
+    background-color:#fff;
+    position:absolute;
+    z-index: 9;
+    top:0;
+    right:0;
+    float:right;
+    width:400px;
+    max-width: 100vw;
+    height:100%;
+    border-left:solid 2px var(--color1);
+    transform: translateX(100%);
+    transition: all ease-out .3s;
+}
+#minicart.active{
+    transform: translateX(0);
+    transition: all ease-out .3s;
+}
+#overlay{
+    content:" ";
+    background: #000;
+    opacity:.9;
+    z-index: 8;
+    position:absolute;
+    left:0;
+    width:100%;
+    height:100%;
+    display:none;
+    backdrop-filter: blur(10px);
+}
+body.noscroll #overlay{
+    display:block;
 }

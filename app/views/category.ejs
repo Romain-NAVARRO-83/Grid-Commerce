@@ -1,6 +1,7 @@
 <%- include ('partials/header.ejs') %> 
 
 <main class="gap">
+    
     <section class="gap pad s12 m12 l12">
         <h1><%= locals.category.name %></h1>
         <h2>SEO subtitle</h2>
@@ -10,26 +11,7 @@
         </div>
     </section>
     <aside class="shidden mhidden l2 padh">lef column</aside>
-    <!-- <nav>
-        <ul>
-            <li>Lorem, ipsum.</li>
-            <li>Minima, temporibus.</li>
-            <li>Natus, cum.</li>
-            <li>Eius, aperiam.</li>
-        </ul>
-        <select name="sortorder" id="sortorder">
-            <option value="" disabled selected>Sort order</option>
-            <option value="">Lorem, ipsum.</option>
-            <option value="">Sit, voluptatum.</option>
-            <option value="">Ipsum, ea.</option>
-            <option value="">Minus, suscipit!</option>
-            <option value="">Enim, sit.</option>
-        </select>
-        <div>
-            <button><i class="fa-solid fa-list"></i></button>
-            <button><i class="fa-solid fa-list"></i></button>
-        </div>
-    </nav> -->
+   
     <section class="s12 m12 l10 pad">
 <% locals.products.forEach((product) => { %>
 <%- include ('partials/miniatures/product.ejs', {product : product }) %>
@@ -38,6 +20,6 @@
 <section class="l12 pad noflex">
    <%- locals.category.text_bottom %>
 </section>
-</main>
+
 
 <%- include ('partials/footer.ejs') %>  
