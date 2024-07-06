@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS "category" (
 	"name" varchar(250) NOT NULL,
 	"depth" INTEGER DEFAULT '0',
 	"id_parent" bigint,
+	"text_top" varchar(2000),
+	"text_bottom" varchar(2000),
 	PRIMARY KEY ("id")
 );
 

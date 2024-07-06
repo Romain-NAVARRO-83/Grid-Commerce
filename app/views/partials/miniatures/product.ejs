@@ -1,5 +1,5 @@
-<article>
-    <a href="/product/<%= locals.product.id %> "><img src="/img/<%= locals.product.picture_url %>-200W.jpg" width="200" alt="<%= locals.product.name %>"></a>
+<article class="l3 strict">
+    <a href="/product/<%= locals.product.id %> "><img src="https://placehold.co/200x200?text=<%= product.name.replace(" ","+") %>" width="200" alt="<%= locals.product.name %>"></a>
     <h2><a href="/product/<%= locals.product.id %> "><%= locals.product.name %></a></h2>
     <p><%= locals.product.description_short %></p>
     <form action="/add-to-cart" method="POST" target="cartReturn">

@@ -1,14 +1,16 @@
 <%- include ('partials/header.ejs') %> 
 
-<main>
-    <section>
+<main class="gap">
+    <section class="gap pad s12 m12 l12">
         <h1><%= locals.category.name %></h1>
         <h2>SEO subtitle</h2>
 
-        <p><em>SEO content</em> Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ratione laboriosam doloribus placeat sunt, minus totam cum reiciendis aliquid. Voluptatum!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, aspernatur error nisi ad tempora reprehenderit aliquid, repellendus ratione quos repellat dolores fuga rerum tempore inventore quas. Aspernatur officia adipisci at.</p>
+        <div class="noflex l12">
+            <%- locals.category.text_top %>
+        </div>
     </section>
-    <nav>
+    <aside class="shidden mhidden l2 padh">lef column</aside>
+    <!-- <nav>
         <ul>
             <li>Lorem, ipsum.</li>
             <li>Minima, temporibus.</li>
@@ -27,12 +29,15 @@
             <button><i class="fa-solid fa-list"></i></button>
             <button><i class="fa-solid fa-list"></i></button>
         </div>
-    </nav>
-    <section aria-label="Liste d'articles" role="region">
+    </nav> -->
+    <section class="s12 m12 l10 pad">
 <% locals.products.forEach((product) => { %>
 <%- include ('partials/miniatures/product.ejs', {product : product }) %>
 <% }) %>
 </section>
+<section class="l12 pad noflex">
+   <%- locals.category.text_bottom %>
+</section>
 </main>
-<aside>lef column</aside>
+
 <%- include ('partials/footer.ejs') %>  

@@ -13,6 +13,12 @@ Category.init({
         type:DataTypes.SMALLINT,
         allowNull: false,
         default : 0
+    },
+    text_top : {
+        type:DataTypes.TEXT
+    },
+    text_bottom : {
+        type:DataTypes.TEXT
     }
 },{
     sequelize,
