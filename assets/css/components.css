@@ -70,8 +70,7 @@ body.noscroll {
     transition: all ease-out .3s;
 }
 #overlay{
-    content:" ";
-    background: #000;
+    background-color:#000;
     opacity:.9;
     z-index: 8;
     position:absolute;

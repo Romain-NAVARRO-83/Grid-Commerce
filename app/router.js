@@ -10,6 +10,7 @@ const adminController = require('./controllers/adminController');
 const apiController = require('./controllers/apiController');
 const getCategoriesMiddleware = require('./middlewares/getCategoriesMiddleware.js')
 
+router.use(checkoutController.logCart);
 router.get('/', homeController.homePage);
 
 // const categories = require("./")
@@ -20,7 +21,8 @@ router.post('/login', customerController.loginAttempt);
 router.post('/signup', customerController.signUp);
 router.get('/checkout', checkoutController.checkoutPage);
 
-router.post('/add-to-cart', checkoutController.addToCart)
+router.get('/cart',checkoutController.getCart);
+router.post('/cart', checkoutController.addToCart);
 
 
 // Admin routes

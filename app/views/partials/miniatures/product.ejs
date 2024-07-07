@@ -2,7 +2,7 @@
     <a href="/product/<%= locals.product.id %> "><img src="https://placehold.co/200x200?text=<%= product.name.replace(" ","+") %>" width="200" alt="<%= locals.product.name %>"></a>
     <h2><a href="/product/<%= locals.product.id %> "><%= locals.product.name %></a></h2>
     <p><%= locals.product.description_short %></p>
-    <form action="/add-to-cart" method="POST" target="cartReturn">
+    <form action="/cart" method="POST">
         <input type="hidden" name="idProduct"value="<%= locals.product.id %>">
         <input type="hidden" name="productName" value="<%= locals.product.name %>">
         <input type="hidden" name="unitPrice" value="<%= locals.product.price %>">

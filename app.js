@@ -7,7 +7,9 @@ const router = require('./app/router');
 app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 app.use(express.static('assets'));
-
+// app.use(express.json());
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 const dayjs= require('dayjs')
 
 // Cookies 

@@ -1,21 +1,31 @@
 <aside id="minicart" class="pad">
     <div class="flexcol">
-        <h4>Your cart</h4>
-        <div class="flexcol s12 m12 l12">
-            <div>
-                <img src="/img/-200W.jpg" alt="alt">
-                <p>
-                   product
-                </p>
-                <span>x 10</span>
-                <button data-idProduct="idprod"><i class="fa fa-remove"></i></button>
-            </div>
+        <h4>Your cart <span class="small">count products</span></h4>
+        <div id="cart-content" class="noflex s12 m12 l12">
+            <template id="cart-line">
+                <div class="slate">
+                    <figure class="l2">
+                        <img slot="img" src="/img/-200W.jpg" alt="alt">
+                    </figure>
+                   <div class=" l9">
+                    <span slot="name" class="pad l12">
+                        product
+                     </span>
+                     <div class="l12 noflex txt-right padh">
+                        <span slot="quantity" >QUANTITY </span>
+                        <i class="fa-solid fa-caret-right"></i>
+                        <span slot="total">TOTAL-LINE</span>
+                     </div>
+                   </div>
+                    <button class="l1" slot="remove-product" data-idProduct="idprod"><i class="fa fa-remove"></i></button>
+                </div>
+            </template>
         </div>
 
         
         <div class="flexcol">
             <span>Total :XX € </span>
-            <a href="/checkout">Place order</a>
+            <button class = "valid" onclick='window.location.href ="/checkout";'>Place order</button>
            
                 <span>Your cart is empty !</span> 
              
