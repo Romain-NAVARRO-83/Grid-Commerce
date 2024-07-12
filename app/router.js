@@ -10,7 +10,7 @@ const adminController = require('./controllers/adminController');
 const apiController = require('./controllers/apiController');
 const getCategoriesMiddleware = require('./middlewares/getCategoriesMiddleware.js')
 
-router.use(checkoutController.logCart);
+// router.use(checkoutController.logCart);
 router.get('/', homeController.homePage);
 
 // const categories = require("./")

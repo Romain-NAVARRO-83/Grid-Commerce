@@ -48,6 +48,7 @@ section:not(.noflex) > *:not(.strict), div:not(.noflex) > *:not(.strict), main:n
     flex-direction: column;
     flex-wrap: nowrap;
 }
+.flexrow{flex-direction:row}
 h1, h2, h3, h4, h5, h6{flex-basis:100%;}
 *.flexcol > *{flex-basis:auto}
 

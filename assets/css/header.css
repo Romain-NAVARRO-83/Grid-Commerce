@@ -61,12 +61,16 @@ header nav > ul > li > ul{
     left:0;
     width:100%;
     background-color: var(--color1);
+    display:flex;
+    justify-content: space-between;
+    padding-top:30px;
+    padding-bottom: 60px;
 } 
 header nav > ul > li:hover > ul{
     margin-top:0;
     z-index: 1;
 } 
-header nav>ul>li>ul:after {
+header nav>ul>li>ul::after {
     content: " ";
     display: var(--subnavAfterDisplay);
     background-color: inherit;
@@ -102,6 +106,20 @@ header nav>ul>li:nth-of-type(odd):hover>ul:after {
     -ms-transform: skew(0deg, -2deg);
     transform: skew(0deg, -2deg);
     transition: var(--transition);
+}
+
+header .cart-toggler{
+    position:relative;
+}
+#cart-token{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 12px;
+    border-radius:50%;
+    text-align: center;
+    padding:5px;
+    background-color: var(--color2);
 }
 /* 
 

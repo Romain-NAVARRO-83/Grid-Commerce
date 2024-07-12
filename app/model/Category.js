@@ -14,6 +14,9 @@ Category.init({
         allowNull: false,
         default : 0
     },
+    id_parent : {
+        type:DataTypes.SMALLINT
+    },
     text_top : {
         type:DataTypes.TEXT
     },

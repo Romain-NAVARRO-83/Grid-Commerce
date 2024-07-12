@@ -1,4 +1,4 @@
-const dataMapper = require('../data_mapper.js');
+// const dataMapper = require('../data_mapper.js');
 const {Category,Product} = require('../model/associations.js');
 
 categoryController = {

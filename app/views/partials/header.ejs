@@ -12,58 +12,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="/css/nanocss.css">
+    <link rel="stylesheet" href="/css/nanocss.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body class="<%= !locals.pageType  ? 'default' :  locals.pageType  %>">
     <header>
-        <a href="/" title="Retour accueil"><img src="/img/logo-gridcommerce-light.svg"
-                alt="Grid Commerce logo" width="50" height="50"></a>
-        <form>
+        <a href="/" title="Retour accueil"><img src="/img/logo-gridcommerce-light.svg" alt="Grid Commerce logo"
+                width="50" height="50"></a>
+        <form class="flexrow">
             <label for="search">
                 <span>Search product</span>
             </label>
             <input id="search" type="text" placeholder="Search product">
-            <button><i class="fa fa-search"></i></button>
+            <button class="ghost"><i class="fa fa-search"></i></button>
         </form>
         <ul>
-            <li> 
+            <li>
                 <% if (! locals.customer) { %>
                     <a href="/login" title="Connexion"><i class="fa fa-user fa-large"></i></a>
-                <% }else{ %>
-                    <a href="/account" title="Your account (<%= customer.first_name%>)"><i class="fa-solid fa-house-user fa2x"></i></a>
-                    <% }%>
-                
+                    <% }else{ %>
+                        <a href="/account" title="Your account (<%= customer.first_name%>)"><i
+                                class="fa-solid fa-house-user fa2x"></i></a>
+                        <% }%>
+
             </li>
-            <li class="cart-toggler"><i class="fa fa-shopping-cart"></i>
-            
+            <li class="cart-toggler padh"><i class="fa fa-shopping-cart"></i>
+
             </li>
         </ul>
         <!-- </div> -->
-        <% if (locals.pageType != "checkout") { %>
+        <% if (locals.pageType !="checkout" ) { %>
             <nav>
                 <ul>
                     <% locals.categories.forEach((category)=>{ if (category.depth == 1){%>
                         <li><a href="/category/<%= category.name.replace(' ','-') %>">
                                 <%= category.name %>
                             </a>
-                        
-                            <% locals.categories.forEach((subcategory)=>{ if (subcategory.id_parent == category.id){%>
-                                <ul>
-                                    <li>
-                                        <a href="/category/<%= subcategory.name.replace(' ','-') %>">
-                                            <%= subcategory.name %>
-                                        </a>
-                                    </li>
+
+                            <% const subcategories=categories.filter((subcategory)=> subcategory.id_parent ==
+                                category.id);
+                                if(subcategories.length){%>
+                                <ul class="padh">
+                                    <% subcategories.forEach(subcategory=> {
+                                        %>
+                                        <li "s12 m4 l3 txtcenter">
+                                            <a href="/category/<%= subcategory.name.replace(' ','-') %>">
+                                                <%= subcategory.name %>
+                                            </a>
+                                        </li>
+                                        <% }) }%>
                                 </ul>
-                                                        <%}})%>
                         </li>
-                        
-                                <%}})%>
+
+                        <%}})%>
                 </ul>
             </nav>
-        <% } %>
-       
+            <% } %>
+
     </header>
-    

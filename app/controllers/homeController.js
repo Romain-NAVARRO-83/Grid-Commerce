@@ -1,13 +1,8 @@
 
-const dataMapper = require('../data_mapper.js');
-
-
-homeController = {
+const homeController = {
   homePage: async (req, res) => {
     try {
-      const categories = await dataMapper.getAllCategories();
       res.render('home', {
-        categories: categories,
         pageTitle: "Home",
         cart: req.session.cart
       });
@@ -18,5 +13,4 @@ homeController = {
   }
 }
 
-// On met à disposition ces fonctions au routeur
 module.exports = homeController;

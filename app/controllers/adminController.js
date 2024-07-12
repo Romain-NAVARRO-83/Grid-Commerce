@@ -1,4 +1,4 @@
-const dataMapper = require('../data_mapper.js');
+// const dataMapper = require('../data_mapper.js');
 const {Op} = require("sequelize");
 // const Product = require('../model/Product.js');
 // const Order = require('../model/Order.js');
