@@ -46,6 +46,9 @@ h1 span{
     font-weight: 100;
     font-size: 80%;
 }
+main{
+    min-height:80vh;
+}
 a {
     color: inherit;
     text-decoration: none;

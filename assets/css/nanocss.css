@@ -114,6 +114,12 @@ button.special{
     color:#fff;
     background-color: var(--color2);
 }
+.txtcenter{
+    text-align: center;
+}
+.txtright{
+    text-align:right;
+}
 .slate{
     /* padding:var(--mainpadding); */
     border: solid 1px rgba(0, 0, 0, .2);

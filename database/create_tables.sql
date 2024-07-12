@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS "customer" (
 	"id" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
 	"first_name" varchar(255) NOT NULL,
 	"last_name" varchar(255) NOT NULL,
-	"password" varchar(16) NOT NULL,
+	"password" text NOT NULL,
 	"email" varchar(255) NOT NULL UNIQUE,
 	PRIMARY KEY ("id")
 );

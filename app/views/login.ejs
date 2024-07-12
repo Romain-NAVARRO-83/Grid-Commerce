@@ -1,8 +1,10 @@
 <%- include('partials/header') %>
 <main class="half-screen">
-    <div class="m6 l6 flexcol gap">
+    <div class="m6 l6 noflex">
+       <div class="noflex padv">
         <h1>Connect to your account</h1>
         <p>Or click "Sign up" to create your account.</p>
+       </div>
     <% if (locals.alert) { %>
      <div class="alert <%= alert[0] %>"><%= alert[1] %></div>
     <% } %>

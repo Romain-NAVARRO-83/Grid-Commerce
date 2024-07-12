@@ -22,7 +22,9 @@ const dayjs= require('dayjs')
 const sessionMidleware = require("./app/middlewares/sessionMiddleware.js");
 app.use(sessionMidleware);
 const loadLoggedCustomer = require("./app/middlewares/loadLoggedCustomer.js");
+const { frontCategories } = require('./app/middlewares/getCategoriesMiddleware.js');
 app.use(loadLoggedCustomer);
+app.use(frontCategories);
 
 
 
@@ -41,7 +43,7 @@ app.use((req,res,next)=>{
 const port = process.env.PORT || 3000;
 app.use(router);
 app.use(function(req, res) {
-  res.status(404).render('error/404');
+  res.render('error/404',{ pageType: "error", pageTitle: "Page not found" });
 });
 app.listen(port, () => {
     console.log(`Grid Commerce listening:  http://localhost:${port}`);

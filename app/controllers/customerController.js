@@ -1,95 +1,99 @@
 const dataMapper = require('../data_mapper.js');
-const {Customer} = require('../model/associations.js');
-const {hash, compare, validPassword} = require('../modules/crypto.js');
+const { Customer } = require('../model/associations.js');
+const { hash, compare, validPassword } = require('../modules/crypto.js');
 var validator = require("email-validator");
 const customerController = {
-    loginPage : async (req, res) => {
-        try{
+    loginPage: async (req, res) => {
+        try {
             const categories = await dataMapper.getAllCategories();
-            res.render("login", {categories, pageType : "login", pageTitle : "Login"});
-        }catch(error){
-      console.error(error);
-      res.send("error");
+            res.render("login", { categories, pageType: "login", pageTitle: "Login" });
+        } catch (error) {
+            console.error(error);
+            res.send("error");
         }
     },
-    loginAttempt : async (req, res) => {
+    loginAttempt: async (req, res) => {
         const categories = await dataMapper.getAllCategories();
         const userEmail = req.body.email;
         const userPassword = req.body.password;
-        try{
+        try {
             const foundCustomer = await Customer.findOne({
-                where:{
-                    email : userEmail
+                where: {
+                    email: userEmail
                 }
             })
-            if (! foundCustomer || ! compare(foundCustomer.password,userPassword)){
-                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","Incorrect user email or password"]   
-                });  
-            }else{       
-                req.session.customerId = foundCustomer.id; 
-            res.render('home', {
-                categories: categories,
-                pageTitle: "Home",
-                cart: req.session.cart,
-                alert : ["valid",`You are now connected as ${foundCustomer.first_name} ${foundCustomer.last_name}`],
-             customer : foundCustomer  
-                
-                
-              });  
+            if (!foundCustomer || !compare(foundCustomer.password, userPassword)) {
+                res.render('login', {
+                    categories, pageType: "login", pageTitle: "Login", alert: ["danger", "Incorrect user email or password"]
+                });
+            } else {
+                req.session.customerId = foundCustomer.id;
+                res.render('home', {
+                    categories: categories,
+                    pageTitle: "Home",
+                    cart: req.session.cart,
+                    alert: ["valid", `You are now connected as ${foundCustomer.first_name} ${foundCustomer.last_name}`],
+                    customer: foundCustomer
+
+
+                });
             }
-            
-           
-        }catch(error){
-      console.error(error);
-      res.send("error");
+
+
+        } catch (error) {
+            console.error(error);
+            res.send("error");
         }
     },
-    signUp : async (req, res) => {
-        
+    signUp: async (req, res) => {
+
+        const userFirstname = req.body.firstname;
+        const userLastname = req.body.lastname;
         const userEmail = req.body.emailsignup;
         const userPassword = req.body.passwordsignup;
-        
-        try{
+
+        console.log(JSON.stringify(req.body));
+
+        try {
             const categories = await dataMapper.getAllCategories();
             const testUserExist = await Customer.findOne({
-                where:{
-                    email : userEmail
+                where: {
+                    email: userEmail
                 }
             })
             // Validation email
-        if (! validator.validate(userEmail)){
-            res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","The email provided doesn't have the right format"]});
-        };
-        // Validation password
-        if (! validPassword(userPassword)){
-            res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","password format incorrect"]});
-        }
-        // Validation user exist
-            if (testUserExist){
-                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["danger","An account already exist with this email, you shoul try signing in instead"]});
-            }else{
-
-               try{
-                const hashedPassword = await hash(userPassword);
-                // await dataMapper.createCustomer(userEmail,hashedPassword);
-                await Customer.create({
-                    first_name : 'bob',
-                    last_name :'fakeman',
-                    email : userEmail,
-                    password : hashedPassword
-                })
-                // console.log(createCustomer);
-                
-                res.render('login',{categories, pageType : "login", pageTitle : "Login",alert : ["valid","Good ! Your account is created, you can now log in."]})
-               }catch(error){
-                console.error(error);
-      res.send("error");
-               }
+            if (!validator.validate(userEmail)) {
+                res.render('login', { categories, pageType: "login", pageTitle: "Login", alert: ["danger", "The email provided doesn't have the right format"] });
+            };
+            // Validation password
+            if (!validPassword(userPassword)) {
+                res.render('login', { categories, pageType: "login", pageTitle: "Login", alert: ["danger", "password format incorrect"] });
             }
-            
-        }catch(error){
-      console.error(error);
-      res.send("error");
+            // Validation user exist
+            if (testUserExist) {
+                res.render('login', { categories, pageType: "login", pageTitle: "Login", alert: ["danger", "An account already exist with this email, you shoul try signing in instead"] });
+            } else {
+
+                try {
+                    const hashedPassword = await hash(userPassword);
+                    const newCustomer = await Customer.create({
+                        first_name: userFirstname,
+                        last_name: userLastname,
+                        email: userEmail,
+                        password: hashedPassword
+                    })
+                    // console.log(createCustomer);
+
+                    res.render('login', { categories, pageType: "login", pageTitle: "Login", alert: ["valid", "Good ! Your account is created, you can now log in."] })
+                } catch (error) {
+                    console.error(error);
+                    res.render('login', { categories, pageType: "login", pageTitle: "Login", alert: ["danger", "An error occured, please try again"] })
+                }
+            }
+
+        } catch (error) {
+            console.error(error);
+            res.send("error");
         }
     }
 }

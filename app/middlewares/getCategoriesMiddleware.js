@@ -5,7 +5,7 @@ const getCategoriesMiddleware = {
         try{
             const frontCategories = await Category.findAll();
             console.log(frontCategories);
-            locals.categories = frontCategories;
+            res.locals.categories = frontCategories;
             next();
         }catch{
             const frontCategories =["No category"];
