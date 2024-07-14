@@ -37,11 +37,14 @@ section:not(.noflex), div:not(.noflex), main:not(.noflex){
     position: relative;
     
 }
+section, div, main, section > *, div > *, main > *{
+    flex-basis: 100%;
+}
 section:not(.noflex) > *:not(.strict), div:not(.noflex) > *:not(.strict), main:not(.noflex) > *:not(.strict){
     flex-grow: 2;
 
-    container-type: inline-size;
-    /* flex-basis: 100%; */
+    /* container-type: inline-size; */
+    
 }
 .flexcol, article, form{
     display:flex;
@@ -62,7 +65,7 @@ h1, h2, h3, h4, h5, h6{flex-basis:100%;}
     .s9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
     .s10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
     .s11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
-    .s12{flex-basis:100%}
+    /* .s12{flex-basis:100%} */
 }
 @media (min-width:800px) and (max-width:calc(1200px - 1px)){
     .mhidden{display:none;}
@@ -75,7 +78,7 @@ h1, h2, h3, h4, h5, h6{flex-basis:100%;}
     .m9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
     .m10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
     .m11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
-    .m12{flex-basis:calc((100% / 12) * 12 - var(--mainpadding))}
+    /* .m12{flex-basis:calc((100% / 12) * 12 - var(--mainpadding))} */
 }
 @media (min-width:1200px){
     .l2{flex-basis:calc((100% / 12) * 2 - var(--mainpadding))}
@@ -87,7 +90,7 @@ h1, h2, h3, h4, h5, h6{flex-basis:100%;}
     .l9{flex-basis:calc((100% / 12) * 9 - var(--mainpadding))}
     .l10{flex-basis:calc((100% / 12) * 10 - var(--mainpadding))}
     .l11{flex-basis:calc((100% / 12) * 11 - var(--mainpadding))}
-    .l12{flex-basis:100%}
+    /* .l12{flex-basis:100%} */
 }
 
 .gap{gap:var(--mainpadding)}

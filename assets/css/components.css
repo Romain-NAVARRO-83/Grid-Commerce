@@ -41,9 +41,9 @@ td, th{
 }
 
 /* MINICART */
-body{
+/* body{
     overflow-x: hidden;
-}
+} */
 body.noscroll {
     position: fixed!important;
     width:100%;
@@ -64,10 +64,12 @@ body.noscroll {
     border-left:solid 2px var(--color1);
     transform: translateX(100%);
     transition: all ease-out .3s;
+    display:none;
 }
 #minicart.active{
     transform: translateX(0);
     transition: all ease-out .3s;
+    display:block;
 }
 #overlay{
     background-color:#000;

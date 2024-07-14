@@ -131,3 +131,47 @@ async function cartToken(){
   container.appendChild(token);
 
 }
+
+// Anchor Nav
+const nav = document.querySelector('#anchor-nav');
+console.log(nav);
+if (nav){
+  // console.log(document.querySelector('body.product'));
+  window.onscroll = function() {updateAnchorNav()};
+
+}
+function updateAnchorNav(){
+  const currentScroll = window.scrollY ;
+  console.log("curent : " + currentScroll);
+  const navs = document.querySelectorAll('#anchor-nav li a');
+  navs.forEach(nav =>{
+    const targetId = nav.getAttribute('href').replace('#','');
+    const target = document.querySelector(`#${targetId}`);
+    const absolutePosition = {
+      top : target.getBoundingClientRect().top + window.scrollY,
+      bottom : target.getBoundingClientRect().bottom + window.scrollY
+    }
+    if(targetId === 'documentation'){
+      console.log(`${nav} : Target : ${absolutePosition.top } ${absolutePosition.bottom}`);
+    }
+    if (isOnScreen(target))
+    {
+      nav.classList.add('active');
+    }else{
+      nav.classList.remove('active');
+    }
+  })
+
+}
+function isOnScreen(element) {
+  let rect = element.getBoundingClientRect();
+  let scrollTop = window.scrollY + window.outerHeight/2;
+
+  let elementTop = rect.top + scrollTop;
+  let elementBottom = elementTop + rect.height;
+
+  const topTester = scrollTop + 200
+  const bottomTester = scrollTop + window.outerHeight - 200;
+
+  return bottomTester  > elementTop && topTester  < elementBottom;
+}
