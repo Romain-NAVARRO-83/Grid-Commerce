@@ -129,6 +129,8 @@ document.addEventListener("DOMContentLoaded", function(){
 // header cart count token
 async function cartToken(){
   const cart = await getCart();
+  const totalQuantity = cart.reduce((sum, product) => sum + parseInt(product.quantity), 0);
+
   const container = document.querySelector('.cart-toggler');
   const previousSpan = container.querySelector('span');
   if (previousSpan){
@@ -137,7 +139,7 @@ async function cartToken(){
   if (cart.length > 0){
     const token = document .createElement('span');
   token.id = 'cart-token';
-  token.textContent = cart.length;
+  token.textContent = totalQuantity;
   container.appendChild(token);
   }
   
