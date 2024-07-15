@@ -420,3 +420,8 @@ div.slick-track, div.slick-list{
     height:500px;
     background-color: var(--color2);
 }
+.rassurance li{
+    margin-bottom: var(--mainpadding);
+    display: flex;
+}
+.rassurance .fa{color:var(--color2);margin-right: var(--mainpadding);font-size: 1.2rem;}

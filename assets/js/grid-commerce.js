@@ -75,7 +75,7 @@ async function toggleMinicart(){
   }
 }
 async function populateMinicart(cartContent){
-  // console.log(JSON.stringify(cartContent));
+  let cartTotal = 0
   const container = document.querySelector('#cart-content');
   container.innerHTML = '';
   // if (cartContent.length < 1){
@@ -87,6 +87,7 @@ async function populateMinicart(cartContent){
       clone.querySelector('[slot="name"]').textContent = cartLine.productName;
       clone.querySelector('[slot="quantity"]').textContent = "x" + cartLine.quantity;
       clone.querySelector('[slot="total"]').textContent =` ${cartLine.quantity * cartLine.unitPrice}€`;
+      cartTotal += cartLine.quantity * cartLine.unitPrice;
   
       container.appendChild(clone);
     })
@@ -95,7 +96,15 @@ async function populateMinicart(cartContent){
       document.querySelector('#minicart-action.flexcol').remove();
     }
   const template = document.querySelector('#minicartaction');
+
   const cartBottom = template.content.cloneNode(true);
+  const totalSpan = document.createElement('div');
+  totalSpan.classList.add('noflex', 'txtright');
+  totalSpan.textContent = `Total : ${cartTotal} €`;
+  const totalContainer = cartBottom.querySelector('button').parentNode;
+  console.log(totalContainer);
+  totalContainer.prepend(totalSpan);
+  // totalSpan.textContent = `Total : ${cartTotal} €`;
   document.querySelector('#minicart').appendChild(cartBottom);
   document.querySelector('#minicart-action').classList.add('flexcol');
   }
@@ -125,12 +134,19 @@ async function cartToken(){
   if (previousSpan){
     previousSpan.remove();
   }
-  const token = document .createElement('span');
+  if (cart.length > 0){
+    const token = document .createElement('span');
   token.id = 'cart-token';
   token.textContent = cart.length;
   container.appendChild(token);
+  }
+  
 
 }
+document.addEventListener("DOMContentLoaded", (event) => {
+  cartToken()
+});
+
 
 // Anchor Nav
 const nav = document.querySelector('#anchor-nav');
