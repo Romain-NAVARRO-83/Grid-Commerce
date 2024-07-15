@@ -15,14 +15,14 @@ checkoutController = {
         }
     },
     addToCart : (req, res)=>{
-        console.log("req.body" + JSON.stringify(req.body));
+        // console.log("req.body" + JSON.stringify(req.body));
         req.session.cart.push({
             productId : req.body.idProduct,
              quantity : req.body.quantity,
              productName : req.body.productName,
               unitPrice : req.body.unitPrice});
         // req.session.cart = ["test"];
-        console.log("added" + req.body.idProduct + " session " + JSON.stringify(req.session.cart));
+        // console.log("added" + req.body.idProduct + " session " + JSON.stringify(req.session.cart));
         // return("added" + req.body.idProduct);
         res.json({cart : req.session.cart}).end();
         // 

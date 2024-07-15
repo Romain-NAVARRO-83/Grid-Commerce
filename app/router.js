@@ -33,7 +33,7 @@ router.get('/admin',(req,res,next)=>{
         res.redirect('/admin/dashboard');
 
     }else if (req.originalUrl != '/admin/login'){
-        console.log(req.originalUrl);
+        // console.log(req.originalUrl);
         res.redirect('/admin/login');
    
 

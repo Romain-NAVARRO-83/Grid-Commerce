@@ -12,8 +12,10 @@ Product.init({
         allowNull: false
       },
       description_short: {
-        type: DataTypes.TEXT,
-        allowNull: false
+        type: DataTypes.TEXT
+      },
+      description_long: {
+        type: DataTypes.TEXT
       },
       price: {
         type: DataTypes.FLOAT

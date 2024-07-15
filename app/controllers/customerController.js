@@ -51,7 +51,7 @@ const customerController = {
         const userEmail = req.body.emailsignup;
         const userPassword = req.body.passwordsignup;
 
-        console.log(JSON.stringify(req.body));
+        // console.log(JSON.stringify(req.body));
 
         try {
             // const categories = await dataMapper.getAllCategories();

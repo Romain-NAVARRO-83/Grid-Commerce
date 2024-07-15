@@ -171,7 +171,51 @@ function isOnScreen(element) {
   let elementBottom = elementTop + rect.height;
 
   const topTester = scrollTop + 200
-  const bottomTester = scrollTop + window.outerHeight - 200;
+  const bottomTester = scrollTop + window.outerHeight * 0.6;
 
-  return bottomTester  > elementTop && topTester  < elementBottom;
+  return elementTop < bottomTester  && elementBottom > bottomTester;
 }
+
+$('.slick-1').slick({
+  autoplay: true,
+  autoplaySpeed: 3000,
+  dots: false,
+  infinite: true,
+  speed: 300,
+  buttons: true
+});
+
+$('.slick-1234').slick({
+  autoplay: true,
+  autoplaySpeed: 4000,
+  dots: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});

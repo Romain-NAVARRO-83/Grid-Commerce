@@ -133,6 +133,10 @@ body.product form[action="/cart"]{
 /* body.product form[action="/cart"] input[name="product-qty"]{
 
 } */
+ form.add-to-cart input[name="quantity"]{
+    width:50px;
+    flex-grow:0;
+ }
 section[label="Product overview"] ul button{
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -339,22 +343,22 @@ main[aria-label="Page d'accueil"] section[aria-labelledby="h2-1"] article{
     color:#fff;
     padding: var(--mainpadding);
 }
-main[aria-label="Page d'accueil"] section[aria-labelledby="h2-1"] article h3{
+body.home main section article h3{
     color:var(--color2);
 }
-main[aria-label="Page d'accueil"] section[aria-labelledby="h2-1"] article h3:after{
+body.home main .sectionarticle h3:after{
     content: "";
     width: 100%;
     border-bottom: solid 1px var(--dark);
     display: block;
     margin-top: calc(var(--mainpadding) / 2);
 }
-main[aria-label="Page d'accueil"] section{
+body.home  main section{
     position:relative;
     padding-bottom: 120px;
     overflow: hidden;
 }
-main[aria-label="Page d'accueil"] > section:not(:last-of-type):after{
+body.home  main > section:not(:last-of-type):after{
     display: block;
     content: "";
     background-color: #fff;
@@ -369,7 +373,7 @@ main[aria-label="Page d'accueil"] > section:not(:last-of-type):after{
 -moz-box-shadow: 0px -18px 18px 0px rgba(0,0,0,0.12);
 box-shadow: 0px -18px 18px 0px rgba(0,0,0,0.12);
 }
-main[aria-label="Page d'accueil"] > section:nth-of-type(even):after{
+body.home  main> section:nth-of-type(even):after{
     transform: skewY(-2deg);
     transform-origin: right;
 }
@@ -398,4 +402,21 @@ main[aria-label="Page d'accueil"] > section:nth-of-type(even):after{
 #product-detail > section{
     padding-bottom:100px;
     min-height:80vh
+}
+
+.slick-1234 {
+    display: block;
+}
+.slick-1234 .slick-slide{
+    padding : var(--mainpadding);
+}
+div.slick-track, div.slick-list{
+    display:block;
+}
+.slick-slide {
+    margin: 0 var(--mainpadding);
+  }
+#homeslider{
+    height:500px;
+    background-color: var(--color2);
 }

@@ -4,7 +4,7 @@ const getCategoriesMiddleware = {
     frontCategories : async (req,res,next) => {
         try{
             const frontCategories = await Category.findAll();
-            console.log(frontCategories);
+            // console.log(frontCategories);
             res.locals.categories = frontCategories;
             next();
         }catch{

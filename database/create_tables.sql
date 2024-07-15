@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS "product" (
 	"name" varchar(250),
 	"reference" varchar(255) NOT NULL UNIQUE,
 	"description_short" varchar(255),
+	"description_long" TEXT,
 	"price" FLOAT DEFAULT '0',
 	"picture_url" varchar(255),
 	"stock" bigint NOT NULL,

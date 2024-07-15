@@ -22,7 +22,7 @@ BEGIN
             VALUES (
                 order_rec.id,
                 product_rec.id,
-                FLOOR(RANDOM() * 10) + 1, -- Random quantity between 1 and 10
+                FLOOR(RANDOM() * 10) + 1,
                 product_rec.price
             );
         END LOOP;

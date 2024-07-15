@@ -1,7 +1,8 @@
 <%- include ('partials/header.ejs') %> 
 
 <main>
-    <figure class="l4 m4 pad">
+  <section class="forcefull pad">
+    <figure class="l4 m4">
       <img src="https://placehold.co/400x400?text=<%= product.name %> picture" alt="<%= product.name %> packshot">
       <!-- <img
         src="/img/-500W.jpg"
@@ -11,7 +12,7 @@
       /> -->
       <!-- <figcaption>Product name</figcaption> -->
     </figure>
-    <section class="l4 m4 flexcol pad">
+    <div class="l5 m4 flexcol">
       <h1><%= product.name %></h1>
       <p>
         <%= product.description_short %>
@@ -27,26 +28,32 @@
           <button><i class="fa fa-heart"></i></button>Favorites
         </li>
       </ul>
-    </section>
-    <section class="l4 gap pad">
+    </div>
+    <div class="l3 gap">
       <div class="txtright">
-        <span>Stock</span>
+       
+        
       <span>Regular price</span>
       <span itemprop="price" content="<%= product.price %>"><%= product.price %>€</span>
+      <% if (product.stock > 2) { %>
+        <span class="valid"><i class="fa fa-check"></i> In stock</span>
+      <% }else if (product.stock > 0){%>
+        <span class="danger">Only a few in stock</span>
+      <% }else{%>
+        <span class="error">Depleted</span>
+        <%}%>
       </div>
 
-      <form action="/cart" class="flexrow">
+      <!-- <form action="/cart" class="flexrow">
         <input type="hidden" name="product-id" />
         <input type="number" name="product-qty" id="product-qty" value="1" class="txtcenter"/>
         <button class="valid l6 m6 s6">Add to cart</button>
-      </form>
-      <ul>
-        <li><i class="fa far fa-credit-card"></i>Secure payment</li>
-        <li><i class="fa far fa-truck"></i>Express delivery</li>
-        <li><i class="fa far far fa-clock"></i>14 days moneyback warranty</li>
-        <li><i class="fa far far fa-comments"></i>Online support</li>
-      </ul>
-    </section>
+      </form> -->
+      <%- include('partials/addToCart') %>
+      <%- include('partials/rassurance.ejs') %>
+    </div>
+  </section>
+    
     <section >
       <aside class="l2">
         <nav id="anchor-nav">
@@ -61,12 +68,12 @@
         </nav>
       </aside>
       <div id="product-detail" class="l10 padh">
-        <section aria-labelledby="description">
-          <h2 id="description">Description</h2>
+        <section id="description">
+          <h2>Description</h2>
           <%- product.description_long %>
         </section>
-        <section aria-labelledby="technicaldata">
-          <h2 id="technicaldata">Technical data</h2>
+        <section id="technicaldata">
+          <h2 >Technical data</h2>
           <dl>
             <dt>Lorem, ipsum dolor.</dt>
             <dd>Lorem, ipsum.</dd>
@@ -100,8 +107,8 @@
             <dd>Lorem, ipsum.</dd>
           </dl>
         </section>
-        <section aria-labelledby="documentation">
-          <h2 id="documentation">Documentation</h2>
+        <section id="documentation">
+          <h2 >Documentation</h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
             sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
@@ -118,8 +125,8 @@
             saepe inventore vero debitis.
           </p>
         </section>
-        <section aria-labelledby="reviews">
-          <h2 id="reviews">Reviews</h2>
+        <section id="reviews">
+          <h2 >Reviews</h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
             sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
@@ -136,8 +143,8 @@
             saepe inventore vero debitis.
           </p>
         </section>
-        <section aria-labelledby="relatedproducts">
-          <h2 id="relatedproducts">Related products</h2>
+        <section id="relatedproducts">
+          <h2 >Related products</h2>
           <div aria-label="Liste d'articles" role="region">
             <article w3-include-html="partials/article.html"></article>
             <article w3-include-html="partials/article2.html"></article>
@@ -149,4 +156,53 @@
     </section>
     
   </section>
+  <!-- Microdata -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "3.5",
+        "reviewCount": "11"
+      },
+      "description": "0.7 cubic feet countertop microwave. Has six preset cooking categories and convenience features like Add-A-Minute and Child Lock.",
+      "name": "Kenmore White 17\" Microwave",
+      "image": "kenmore-microwave-17in.jpg",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "price": "55.00",
+        "priceCurrency": "USD"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": "Ellie",
+          "datePublished": "2011-04-01",
+          "reviewBody": "The lamp burned out and now I have to replace it.",
+          "name": "Not a happy camper",
+          "reviewRating": {
+            "@type": "Rating",
+            "bestRating": "5",
+            "ratingValue": "1",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": "Lucas",
+          "datePublished": "2011-03-25",
+          "reviewBody": "Great microwave for the price. It is small and fits in my apartment.",
+          "name": "Value purchase",
+          "reviewRating": {
+            "@type": "Rating",
+            "bestRating": "5",
+            "ratingValue": "4",
+            "worstRating": "1"
+          }
+        }
+      ]
+    }
+    </script>
 <%- include ('partials/footer.ejs') %>  
