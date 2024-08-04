@@ -1,0 +1,22 @@
+<label class="nano l6 " for="firstName">Firstname:
+    <input type="text" id="firstName" name="firstName" required>
+</label>
+<label class="nano l6 " for="lastName">Lastname:
+    <input type="text" id="lastName" name="lastName" required>
+</label>
+<label class="nano l6 " for="address">Address:
+    <input type="text" id="address" name="address" required>
+</label>
+<label class="nano l6 " for="postalCode">Postal code:
+    <input type="text" id="postalCode" name="postalCode" required pattern="\d{5}"
+        title="Le code postal doit être composé de 5 chiffres">
+</label>
+
+<label class="nano l6 " for="city">City :
+    <input type="text" id="city" name="city" required>
+</label>
+
+<label class="nano l6 " for="phone">Telephone :
+    <input type="tel" id="phone" name="phone" required pattern="^((\+)33|0|0033)[1-9](\d{2}){4}$"
+        title="Le numéro de téléphone doit être au format français">
+</label>

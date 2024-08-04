@@ -1,9 +1,17 @@
-<article class="l3 strict slate">
-    <a href="/product/<%= locals.product.id %> "><img src="https://placehold.co/200x200?text=<%= product.name.replace(" ","+") %>" width="200" alt="<%= locals.product.name %>"></a>
-    <h2><a href="/product/<%= locals.product.id %> "><%= locals.product.name %></a></h2>
-    <p><%= locals.product.description_short %></p>
-   <%- include('../addToCart') %>
-    
-    <span><i class="fa fa-check"></i> In stock</span>
-    <span><%= locals.product.price %> €</span>
+<article class="l3 strict card">
+    <a href="/product/<%= locals.product.id %> "><img src="/img/products/<%= product.picture_url %>.jpg" width="200"
+            alt="<%=
+            locals.product.name %>"></a>
+    <h2><a href="/product/<%= locals.product.id %> ">
+            <%= locals.product.name %>
+        </a></h2>
+    <p>
+        <%= locals.product.description_short %>
+    </p>
+    <%- include('../addToCart') %>
+
+        <span class="valid"><i class="fa fa-check"></i> <span class="small">In stock</span></span>
+        <span>
+            <%= locals.product.price %> €
+        </span>
 </article>

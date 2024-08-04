@@ -1,0 +1,10 @@
+fieldset legend {
+    font-weight: bold;
+    color: var(--color1);
+    font-size: 1.2em;
+    margin-bottom: var(--mainpadding)
+}
+
+fieldset {
+    margin-bottom: 50px;
+}

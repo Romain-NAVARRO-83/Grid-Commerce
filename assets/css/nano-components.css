@@ -1,0 +1,12 @@
+.tabContainer>*.active {
+    animation-name: fadeIn;
+    animation-duration: var(--animation-duration);
+}
+
+.tabContainer>:not(.active) {
+    display: none;
+}
+
+.tabnav:not(.active) {
+    opacity: .5;
+}

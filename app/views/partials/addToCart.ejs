@@ -1,7 +1,7 @@
-<form action="/cart" class="flexrow add-to-cart">
-    <input type="hidden" name="idProduct"value="<%= locals.product.id %>">
+<form action="/cart" class="nano add-to-cart">
+    <input type="hidden" name="idProduct" value="<%= locals.product.id %>">
     <input type="hidden" name="productName" value="<%= locals.product.name %>">
     <input type="hidden" name="unitPrice" value="<%= locals.product.price %>">
-    <input type = "number" name="quantity" value="1">
-    <button class="valid">Add to cart</button>
+    <input type="number" name="quantity" value="1" class="s2 txt-center">
+    <button class="valid s10">Add to cart</button>
 </form>

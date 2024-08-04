@@ -1,41 +1,46 @@
 /* Forms */
-input[name="product-qty"]{
-    width:50px;
+input[name="product-qty"] {
+    width: 50px;
 }
-input{
-    background-color:var(--grey) ;
-    border:solid 2px var(--dark);
-    border-radius:2px;
+
+input {
+    background-color: var(--grey);
+    border: solid 2px var(--dark);
+    border-radius: 2px;
     line-height: 1.7;
 }
-iframe[name="cartReturn"]{
-    position:fixed;
-    top:0;
+
+iframe[name="cartReturn"] {
+    position: fixed;
+    top: 0;
     z-index: 9;
 }
 
-footer{
+footer {
     background-color: var(--color1);
-    display:flex;
+    display: flex;
     grid-column: 1 / -1;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap:var(--mainpadding);
+    gap: var(--mainpadding);
     padding: calc(var(--mainpadding) * 2) var(--mainpadding);
 }
-td, th{
-    padding:calc(var(--mainpadding) / 2);
-    font-size:14px;
+
+td,
+th {
+    padding: calc(var(--mainpadding) / 2);
+    font-size: 14px;
 }
 
-.half-screen > div{
-    padding:var(--mainpadding);
+.half-screen>div {
+    padding: var(--mainpadding);
 }
-.half-screen::after{
-    content : "";
-    flex-basis:49%;
+
+.half-screen::after {
+    content: "";
+    flex-basis: 49%;
     background-color: var(--color2);
-    background-image:url('../img/office-background.jpg');
+    background-image: url('../img/office-background.jpg');
     background-size: cover;
     background-blend-mode: multiply;
 }
@@ -45,43 +50,51 @@ td, th{
     overflow-x: hidden;
 } */
 body.noscroll {
-    position: fixed!important;
-    width:100%;
+    position: fixed !important;
+    width: 100%;
 }
-.cart-toggler{
+
+.cart-toggler {
     cursor: pointer;
 }
-#minicart{
-    background-color:#fff;
-    position:absolute;
+
+#minicart {
+    background-color: #fff;
+    position: absolute;
     z-index: 9;
-    top:0;
-    right:0;
-    float:right;
-    width:400px;
+    top: 0;
+    right: 0;
+    float: right;
+    width: 400px;
     max-width: 100vw;
-    height:100%;
-    border-left:solid 2px var(--color1);
+    height: 100%;
+    border-left: solid 2px var(--color1);
     transform: translateX(100%);
     transition: all ease-out .3s;
-    display:none;
+    display: none;
 }
-#minicart.active{
+
+#minicart.active {
     transform: translateX(0);
     transition: all ease-out .3s;
-    display:block;
+    display: block;
 }
-#overlay{
-    background-color:#000;
-    opacity:.9;
+
+#overlay {
+    background-color: #000;
+    opacity: .9;
     z-index: 8;
-    position:absolute;
-    left:0;
-    width:100%;
-    height:100%;
-    display:none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    top: 0;
+    left: 0
 }
-body.noscroll #overlay{
-    display:block;
+
+body.noscroll #overlay {
+    display: block;
 }

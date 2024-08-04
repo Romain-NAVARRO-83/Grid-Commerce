@@ -26,42 +26,27 @@ INSERT INTO "customer" ("first_name", "last_name", "password", "email") VALUES
 -- create categories
 -- Insert level 1 categories
 INSERT INTO "category" ("name", "depth", "id_parent") VALUES
-('Electronics', 1, NULL),
-('Clothing', 1, NULL),
-('Home & Kitchen', 1, NULL),
-('Sports & Outdoors', 1, NULL);
-
--- Insert subcategories for 'Electronics'
-INSERT INTO "category" ("name", "depth", "id_parent") VALUES
-('Mobile Phones', 2, (SELECT id FROM "category" WHERE name = 'Electronics')),
-('Laptops', 2, (SELECT id FROM "category" WHERE name = 'Electronics')),
-('Televisions', 2, (SELECT id FROM "category" WHERE name = 'Electronics')),
-('Cameras', 2, (SELECT id FROM "category" WHERE name = 'Electronics')),
-('Headphones', 2, (SELECT id FROM "category" WHERE name = 'Electronics'));
-
--- Insert subcategories for 'Clothing'
-INSERT INTO "category" ("name", "depth", "id_parent") VALUES
-('Men Clothing', 2, (SELECT id FROM "category" WHERE name = 'Clothing')),
-('Women Clothing', 2, (SELECT id FROM "category" WHERE name = 'Clothing')),
-('Kids Clothing', 2, (SELECT id FROM "category" WHERE name = 'Clothing')),
-('Accessories', 2, (SELECT id FROM "category" WHERE name = 'Clothing'));
-
--- Insert subcategories for 'Home & Kitchen'
-INSERT INTO "category" ("name", "depth", "id_parent") VALUES
-('Furniture', 2, (SELECT id FROM "category" WHERE name = 'Home & Kitchen')),
-('Kitchen Appliances', 2, (SELECT id FROM "category" WHERE name = 'Home & Kitchen')),
-('Bedding', 2, (SELECT id FROM "category" WHERE name = 'Home & Kitchen')),
-('Decor', 2, (SELECT id FROM "category" WHERE name = 'Home & Kitchen')),
-('Storage', 2, (SELECT id FROM "category" WHERE name = 'Home & Kitchen'));
-
--- Insert subcategories for 'Sports & Outdoors'
-INSERT INTO "category" ("name", "depth", "id_parent") VALUES
-('Exercise and Fitness', 2, (SELECT id FROM "category" WHERE name = 'Sports & Outdoors')),
-('Outdoor Recreation', 2, (SELECT id FROM "category" WHERE name = 'Sports & Outdoors')),
-('Team Sports', 2, (SELECT id FROM "category" WHERE name = 'Sports & Outdoors')),
-('Fan Shop', 2, (SELECT id FROM "category" WHERE name = 'Sports & Outdoors')),
-('Camping and Hiking', 2, (SELECT id FROM "category" WHERE name = 'Sports & Outdoors')),
-('Cycling', 2, (SELECT id FROM "category" WHERE name = 'Sports & Outdoors'));
+('Beryl Family', 1, NULL),
+('Corundum Family', 1, NULL),
+('Quartz Family', 1, NULL),
+('Garnet Family', 1, NULL),
+-- Subctegories
+('Emerald', 2, 1),
+('Aquamarine', 2, 1),
+('Morganite', 2, 1),
+('Heliodor', 2, 1),
+('Ruby', 2, 2),
+('Sapphire', 2, 2),
+('Star Sapphire', 2, 2),
+('Fancy Sapphire', 2, 2),
+('Amethyst', 2, 3),
+('Citrine', 2, 3),
+('Rose Quartz', 2, 3),
+('Smoky Quartz', 2, 3),
+('Almandine', 2, 4),
+('Pyrope', 2, 4),
+('Spessartine', 2, 4),
+('Grossular', 2, 4);
 
 
 COMMIT;

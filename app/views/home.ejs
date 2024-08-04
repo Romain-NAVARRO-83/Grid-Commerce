@@ -1,46 +1,117 @@
-<%- include ('partials/header.ejs') %> 
-<main>
-    <section id = "homeslider" class="slick-1">
-        <div>
-            <h1>Welcome to Grid Commerce</h1>
-            <button class="special">Call to action</button>
-        </div>
-        <div><h2>Promotions</h2>
-        <button class="special">Call to action</button></div>
-        <div><h2>Slide</h2>
-        <button class="special">Call to action</button></div>
-    </section>
-    <section class="slick-1234 noflex">
-        <% locals.homeproducts.forEach(product => { %>
-        <%- include('./partials/miniatures/product-slide.ejs',{product}) %> 
-        <% }) %>
-        
-    </section>
-    <section class="padh">
-        <div class="l8 m6 l12">
-            <h2>Lorem ipsum dolor sit.</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum iusto similique ratione.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium magni quos numquam optio cupiditate!</p>
-        </div>
-        <div class="l4 m6 l12"><%- include('partials/rassurance') %></div>
-    </section>
-    <section class="padh">
-        <div>
-            <p>Lorem, ipsum dolor.</p>
-        </div>
-        <div>
-            <p>Dolorum, delectus possimus.</p>
-        </div>
-        <div>
-            <p>Est, minus asperiores.</p>
-        </div>
-    </section>
-    <section class="padh">
-        info + rassurrance
-    </section>
-    <section class="padh">
-        <h2>Title</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In pariatur fugit, nemo rerum accusamus commodi? Tempore quae ipsa magnam ipsum, sapiente earum officia soluta aut molestiae recusandae dolor, impedit omnis.</p>
-    </section>
+<%- include ('partials/header.ejs') %>
+    <main>
+        <section id="homeslider" class="slick-1 angle">
+            <div class="slide1">
+                <h1>Welcome to Gemstore</h1>
+                <div class="s12 m6 l4">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus molestias numquam vel quas
+                        sapiente incidunt?</p>
+                    <button class="special">Call to action</button>
+                </div>
 
-<%- include ('partials/footer.ejs') %> 
+            </div>
+            <div class="slide2">
+                <h2>Promotions</h2>
+                <div class="s12 m6 l4">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus molestias numquam vel quas
+                        sapiente incidunt?</p>
+                    <button class="special">Call to action</button>
+                </div>
+            </div>
+            <div class="slide3">
+                <h2>Slide</h2>
+                <div class="s12 m6 l4">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus molestias numquam vel quas
+                        sapiente incidunt?</p>
+                    <button class="special">Call to action</button>
+                </div>
+            </div>
+        </section>
+        <section class="angle maxwidth">
+            <h2>Our best selling <span class="small">gems</span></h2>
+            <div class="slick-1234">
+                <% locals.homeproducts.forEach(product=> { %>
+                    <%- include('./partials/miniatures/product-slide.ejs',{product}) %>
+                        <% }) %>
+            </div>
+
+
+        </section>
+        <section class="nano padh maxwidth angle dark">
+            <div class="s12 m6 l8">
+                <h2>Lorem ipsum dolor sit.</h2>
+                <div class="txt-center">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="/img/animations/people-with-gem.json" background="transparent" speed="1"
+                        style="width: 50%; height: auto; max-width:500px;" loop autoplay direction="1"
+                        mode="normal"></lottie-player>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum iusto similique ratione.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium magni quos numquam optio
+                        cupiditate!</p>
+                </div>
+
+            </div>
+            <div class="s12 m6 l4">
+                <%- include('partials/rassurance') %>
+                    <a href="/login" class="btn special">create your account now !</a>
+            </div>
+        </section>
+        <section class="nano padh gap angle">
+            <div class="s12 m4 l4 text-center">
+                <img src="https://placehold.co/300x200/000000/FFF?text=Promotion" alt="banner" width="300" height="300">
+            </div>
+            <div class="s12 m4 l4">
+                <img src="https://placehold.co/300x200/000000/FFF?text=Promotion" alt="banner" width="300" height="300">
+            </div>
+            <div class="s12 m4 l4">
+                <img src="https://placehold.co/300x200/000000/FFF?text=Promotion" alt="banner" width="300" height="300">
+            </div>
+        </section>
+        <section class="nano padh maxwidth angle bright">
+            <h2>Delivery information</h2>
+            <div class="s12 m6 pad">
+
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://lottie.host/baae8436-50d6-4fbf-ae47-8b64c78728a6/R3RYNqmjVy.json"
+                    background="transparent" speed="1" style="width: 50%; height: auto" loop autoplay direction="1"
+                    mode="normal"></lottie-player>
+            </div>
+            <div class="s12 m6 pad">
+                <h3>Additionnal <span>delivery</span> information</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione ullam illo recusandae
+                    <strong>commodi eligendi</strong> id, eveniet tenetur libero ab quidem provident, necessitatibus,
+                    maxime saepe ad eius officia accusantium amet? Nobis.
+                </p>
+                <button class="special">Call to action</button>
+            </div>
+        </section>
+        <section class="nano padh gap maxwidth angle">
+            <h2>Latest news</h2>
+            <div class="s2 m6 l3 pad">
+                <h3>Blog post title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In pariatur fugit, nemo rerum accusamus
+                    commodi?
+                    Tempore quae ipsa magnam ipsum, sapiente earum officia soluta aut molestiae recusandae dolor,
+                    impedit
+                    omnis.</p>
+            </div>
+            <div class="s2 m6 l3 pad">
+                <h3>Blog post title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In pariatur fugit, nemo rerum accusamus
+                    commodi?
+                    Tempore quae ipsa magnam ipsum, sapiente earum officia soluta aut molestiae recusandae dolor,
+                    impedit
+                    omnis.</p>
+            </div>
+            <div class="s2 m6 l3 pad">
+                <h3>Blog post title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In pariatur fugit, nemo rerum accusamus
+                    commodi?
+                    Tempore quae ipsa magnam ipsum, sapiente earum officia soluta aut molestiae recusandae dolor,
+                    impedit
+                    omnis.</p>
+            </div>
+
+        </section>
+
+        <%- include ('partials/footer.ejs') %>

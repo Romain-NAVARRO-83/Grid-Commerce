@@ -1,67 +1,60 @@
 <%- include ('partials/header.ejs') %>
-    <main label="Checkout">
-        <div class="tabPanel">
-            <nav>
-                <ul>
-                    <li><button>1</button></li>
-                    <li><button>2</button></li>
-                    <li><button>3</button></li>
-                </ul>
-            </nav>
-            <div aria-label="Your account" aria-hidden="false">Account</div>
-            <div aria-label="Sign in" aria-hidden="true">Sign in</div>
-            <div aria-label="Sign up" aria-hidden="true">Sign Up</div>
-        </div>
+    <main class="nano">
 
-        <form action="">
-            <section>
-                <div>
-                    <a href="index.html" title="Retour accueil"><img src="assets/img/logo-gridcommerce-light.svg"
-                            alt="Grid Commerce logo" width="50" height="50"></a>
+        <h1 class="pad">Finalise your order</h1>
+
+
+
+        <section id="checkout-panel1" class="l3">
+            <div class="padh">
+                <nav>
+                    <button class="tabnav active" data-target="tabPanelForms" data-panel="signin">Sign in</button>
+                    <button class="tabnav" data-target="tabPanelForms" data-panel="signup">Sign up</button>
+                </nav>
+                <div id="tabPanelForms" class="tabContainer noflex padv">
+
+                    <%- include('./partials/forms/signIn') %>
+                        <%- include('./partials/forms/signUp') %>
+
+
 
                 </div>
-                <h1>Place order</h1>
+            </div>
 
+        </section>
+        <form action="/place-order" class="l9 nano ">
+            <section id="checkout-panel2" class="l8">
+                <fieldset class="nano padh">
+                    <legend>Select a shipping method</legend>
+                    <label for="fedex" class="s4">
+                        <input type="radio" id="fedex" name="carrier" value="fedex" />
+                        FedEx</label>
+                    <label for="DHL" class="s4">
+                        <input type="radio" id="DHL" name="carrier" value="DHL" />
+                        DHL</label>
+                    <label for="store" class="s4">
+                        <input type="radio" id="store" name="carrier" value="store" />
+                        Store pickup</label>
+                </fieldset>
+                <fieldset id="address" class="nano padh gap">
+                    <legend>Enter shipping address</legend>
+                    <%- include('./partials/forms/address') %>
+                </fieldset>
+                <fieldset class="nano padh gap">
+                    <legend>Select a payment method</legend>
+                    <label for="credtircard" class="m4">
+                        <input type="radio" id="credtircard" name="payment-method" value="credtircard" />
+                        Credit card</label>
+                    <label for="paypal" class="m4">
+                        <input type="radio" id="paypal" name="payment-method" value="paypal" />
+                        Paypal</label>
+                    <label for="cash" class="m4">
+                        <input type="radio" id="cash" name="payment-method" value="cash" />
+                        Cash in store</label>
+                </fieldset>
             </section>
-            <fieldset>
-                <legend>User acount</legend>
-                <label for="email">email
-                    <input type="email" name="email" id="email"></label>
-                <label for="password">password
-                    <input type="password" name="password" id="password"></label>
-                <button>Login</button>
-                <a href="#">Create acount</a>
-                <a href="#">Forgot password ?</a>
-                <a href="category.html" title="Resume shopping">Resume shopping</a>
-            </fieldset>
-
-            <fieldset>
-                <legend>Select a shipping method</legend>
-                <label for="fedex">
-                    <input type="radio" id="fedex" name="carrier" value="fedex" />
-                    FedEx</label>
-                <label for="DHL">
-                    <input type="radio" id="DHL" name="carrier" value="DHL" />
-                    DHL</label>
-                <label for="store">
-                    <input type="radio" id="store" name="carrier" value="store" />
-                    Store pickup</label>
-            </fieldset>
-            <fieldset>
-                <legend>Select a payment method</legend>
-                <label for="credtircard">
-                    <input type="radio" id="credtircard" name="payment-method" value="credtircard" />
-                    Credit card</label>
-                <label for="paypal">
-                    <input type="radio" id="paypal" name="payment-method" value="paypal" />
-                    Paypal</label>
-                <label for="cash">
-                    <input type="radio" id="cash" name="payment-method" value="cash" />
-                    Cash in store</label>
-            </fieldset>
-
-            <section>
-                <fieldset>
+            <section id="checkout-panel3" class="nano l4 pad">
+                <fieldset class="padh">
                     <legend>Your cart (X items)</legend>
                     <table>
                         <tr>
@@ -120,7 +113,7 @@
                         </tr>
                     </table>
                 </fieldset>
-                <input type="number" name="" id="">
+
                 <fieldset>
                     <legend>Terms & conditions</legend>
 
@@ -130,7 +123,7 @@
                         *</label>
 
                 </fieldset>
-                <button>Place order</button>
+                <button type="submit" class="valid">Place order</button>
             </section>
         </form>
-    <%- include ('partials/footer.ejs') %>
+        <%- include ('partials/footer.ejs') %>

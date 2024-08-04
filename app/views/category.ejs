@@ -1,25 +1,38 @@
-<%- include ('partials/header.ejs') %> 
+<%- include ('partials/header.ejs') %>
 
-<main class="gap">
-    
-    <section class="gap pad s12 m12 l12">
-        <h1><%= locals.category.name %></h1>
-        <h2>SEO subtitle</h2>
+    <main class="nano gap">
 
-        <div class="noflex l12">
-            <%- locals.category.text_top %>
+        <section class="nanogap pad maxwidth">
+            <h1>
+                <%= locals.category.name %>
+            </h1>
+            <h2>SEO subtitle</h2>
+
+            <div class="noflex l12">
+                <%- locals.category.text_top %>
+            </div>
+        </section>
+        <div class="sidebar shidden mhidden l2 padh">
+            <a href="#"><img src="https://placehold.co/300x200/000000/FFF?text=Promotion" alt="banner" width="300"
+                    height="300"></a>
         </div>
-    </section>
-    <aside class="shidden mhidden l2 padh">lef column</aside>
-   
-    <section class="s12 m12 l10 pad">
-<% locals.products.forEach((product) => { %>
-<%- include ('partials/miniatures/product.ejs', {product : product }) %>
-<% }) %>
-</section>
-<section class="l12 pad noflex">
-   <%- locals.category.text_bottom %>
-</section>
+
+        <section class="nano s12 m12 l10 pad">
+            <% locals.products.forEach((product)=> { %>
+                <%- include ('partials/miniatures/product.ejs', {product : product }) %>
+                    <% }) %>
+
+                        <% locals.products.forEach((product)=> { %>
+                            <%- include ('partials/miniatures/product.ejs', {product : product }) %>
+                                <% }) %>
+
+                                    <% locals.products.forEach((product)=> { %>
+                                        <%- include ('partials/miniatures/product.ejs', {product : product }) %>
+                                            <% }) %>
+        </section>
+        <section class="l12 pad noflex">
+            <%- locals.category.text_bottom %>
+        </section>
 
 
-<%- include ('partials/footer.ejs') %>  
+        <%- include ('partials/footer.ejs') %>

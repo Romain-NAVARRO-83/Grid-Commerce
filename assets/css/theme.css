@@ -1,0 +1,98 @@
+.site-name {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+.site-name span {
+    color: var(--color2);
+}
+
+.valid {
+    color: var(--colorValid)
+}
+
+button,
+.btn {
+    border: 0;
+    font-size: 1.2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: calc(var(--mainpadding) / 3) calc(var(--mainpadding) / 2)
+}
+
+button:not([disabled="disabled"]) {
+    cursor: pointer;
+}
+
+button.valid,
+.btn.valid {
+    color: #fff;
+    background-color: var(--colorValid);
+}
+
+button.special,
+.btn.special {
+    color: #fff;
+    background-color: var(--color2);
+}
+
+.angle {
+    position: relative;
+}
+
+* .angle:not(:last-of-type):after {
+    display: block;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 87px;
+    transform: skewY(2deg);
+    transform-origin: left;
+    -webkit-box-shadow: 0px -18px 18px -20px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px -18px 18px -20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px -18px 18px -20px rgba(0, 0, 0, 0.12);
+}
+
+* .angle:nth-of-type(even):after {
+    transform: skewY(-2deg);
+    transform-origin: right;
+}
+
+.angle.dark {
+    background: radial-gradient(ellipse at right bottom, #202020 0%, #454545 60%);
+    color: #fff;
+}
+
+.angle.dark h2,
+.angle.dark h3 {
+    color: var(--color2);
+}
+
+.angle:has(+ .angle.dark)::after {
+    background-color: var(--color1);
+}
+
+.angle.bright {
+    background: radial-gradient(ellipse at right bottom, #df3400 0%, #ff6600 60%);
+    /* color: #fff; */
+}
+
+.bright .special {
+    background-color: #fff;
+    color: var(--color2)
+}
+
+.angle.bright h2,
+.angle.bright h3 {
+    color: #fff;
+}
+
+.angle:has(+ .angle.bright)::after {
+    background-color: var(--color2);
+}

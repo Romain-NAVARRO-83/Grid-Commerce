@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grid commerce <% if(locals.pageTitle){%>
-            <%= locals.pageTitle %>
+            <%= pageTitle %>
                 <%} %>
     </title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
-<!-- // Add the new slick-theme.css if you want the default styling
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+    <!-- // Add the new slick-theme.css if you want the default styling
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
     <link rel="stylesheet" href="/css/nanocss.css">
     <link rel="stylesheet" href="/css/style.css">
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
@@ -28,8 +28,14 @@
 
 <body class="<%= !locals.pageType  ? 'default' :  locals.pageType  %>">
     <header>
-        <a href="/" title="Retour accueil"><img src="/img/logo-gridcommerce-light.svg" alt="Grid Commerce logo"
-                width="50" height="50"></a>
+        <a href="/" title="Retour accueil">
+            <!-- <img src="/img/logo-gridcommerce-light.svg" alt="Grid Commerce logo" width="50" height="50"> -->
+            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"></script><dotlottie-player src="/img/animations/spinning-gem.json"
+                background="transparent" speed="1" style="width: 100px; height: 100px; display:inline-block;"
+                direction="1" playMode="normal" loop autoplay></dotlottie-player><span
+                class="site-name">Gem<span>store</span></span>
+        </a>
         <form class="flexrow">
             <label for="search">
                 <span>Search product</span>
@@ -81,3 +87,29 @@
             <% } %>
 
     </header>
+    <% if (pageType !=="home" && pageType!=="checkout" ){%>
+        <ol id="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/">
+                    <span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1" />
+            </li>
+
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemscope itemtype="https://schema.org/WebPage" itemprop="item"
+                    itemid="https://example.com/books/sciencefiction" href="/category/Beryl-Family">
+                    <span itemprop="name">Parent category</span></a>
+                <meta itemprop="position" content="2" />
+            </li>
+
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">
+                    <% if (locals.category){%>
+                        <%= locals.category.name%>
+                            <% } %>
+
+                </span>
+                <meta itemprop="position" content="3" />
+            </li>
+        </ol>
+        <%}%>

@@ -1,21 +1,83 @@
 :root {
-    --mainpadding: 20px;
+    /* Breakpoints */
+    --mediumBreakpoint: 800px;
+    --largeBreakpoint: 1200px;
+
+    /* UI colors */
+    /* Hues */
+    --validHue: 120;
+    --errorHue: 0;
+    --infoHue: 240;
+    --dangerHue: 41;
+    /* colors */
+    --validColor: hsl(var(--validHue), 62%, 23%);
+    --errorColor: hsl(var(--errorHue), 62%, 23%);
+    --infoColor: hsl(var(--infoHue), 62%, 23%);
+    --dangerColor: hsl(var(--dangerHue), 80%, 37%);
+    /* Light colors */
+    --validColorLight: hsl(var(--validHue), 62%, 60%);
+    --errorColorLight: hsl(var(--errorHue), 62%, 60%);
+    --infoColorLight: hsl(var(--infoHue), 62%, 60%);
+    --dangerColorLight: hsl(var(--dangerHue), 80%, 97%);
+
+    /* Theme variables */
+    --mainradius: 3px;
+
+    /* Animation variables */
+    --animation-duration: .3s;
+
 }
 
+* {
+    box-sizing: border-box;
+}
+
+/* section:not(.noflex), div:not(.noflex), main:not(.noflex) */
 .nano {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: relative;
+    container-type: inline-size;
+
 }
+
+
 
 .nano>* {
-    flex-basis: 100%;
     flex-grow: 2;
-    box-sizing: border-box;
+    flex-basis: 100%;
+
+
 }
 
-.strict {
-    flex-grow: 0;
+.flexcol,
+article,
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+/* .flexrow {
+    flex-direction: row
+}
+
+.flexrow>* {
+    flex-grow: 2;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    flex-basis: 100%;
+}
+
+*.flexcol>* {
+    flex-basis: auto
 }
 
 /* Classes .sX */
@@ -168,14 +230,12 @@
 }
 
 
-
 .gap {
-    gap: var(--mainpadding);
+    gap: var(--mainpadding)
 }
 
-
 .pad {
-    padding: var(--mainpadding);
+    padding: var(--mainpadding)
 }
 
 .padh {
@@ -188,25 +248,97 @@
     padding-bottom: var(--mainpadding);
 }
 
-*:has(>.maxwidth) {
-    container-type: inline-size;
-}
+@container (min-width: 1200px) {
 
-@container (width >=1400px) {
-    .maxwidth {
-        padding-left: 150px;
-        padding-right: 150px;
+    /* .pad > *, .padh > * {
+      padding-left:100px;
+      padding-right:100px;
+    } */
+    .pad:not(.forcefull),
+    .padh:not(.forcefull) {
+        padding-left: 10%;
+        padding-right: 10%;
     }
 }
 
-.txt-left {
-    text-align: left;
+.valid {
+    color: var(--validColor)
 }
 
-.txt-center {
+button {
+    border: 0;
+}
+
+button:not([disabled="disabled"]) {
+    cursor: pointer;
+}
+
+button.valid {
+    color: #fff;
+    background-color: var(--validColor);
+}
+
+button.special {
+    color: #fff;
+    background-color: var(--color2);
+}
+
+.txtcenter {
     text-align: center;
+}
+
+.txtright {
+    text-align: right;
+}
+
+.slate {
+    /* padding:var(--mainpadding); */
+    border: solid 1px rgba(0, 0, 0, .2);
+    border-radius: 3px
+}
+
+.alert {
+    padding: var(--mainpadding);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--mainradius);
+}
+
+.alert.valid {
+    border-color: var(--validColor);
+    background-color: var(--validColorLight);
+}
+
+.alert.danger {
+    border-color: var(--dangerColor);
+    background-color: var(--dangerColorLight);
+}
+
+.small {
+    font-size: .8em;
 }
 
 .txt-right {
     text-align: right;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mainpadding);
+    text-align: left;
+}
+
+
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
 }

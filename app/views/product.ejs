@@ -1,61 +1,59 @@
-<%- include ('partials/header.ejs') %> 
+<%- include ('partials/header.ejs') %>
 
-<main>
-  <section class="forcefull pad">
-    <figure class="l4 m4">
-      <img src="https://placehold.co/400x400?text=<%= product.name %> picture" alt="<%= product.name %> packshot">
-      <!-- <img
-        src="/img/-500W.jpg"
-        alt=""
-        width="500"
-        height="500"
-      /> -->
-      <!-- <figcaption>Product name</figcaption> -->
-    </figure>
-    <div class="l5 m4 flexcol">
-      <h1><%= product.name %></h1>
-      <p>
-        <%= product.description_short %>
-      </p>
-      <ul>
-        <li>
-          <button><i class="fa fa-print"></i></button>Print
-        </li>
-        <li>
-          <button><i class="fa fa-share-alt"></i></button>Share
-        </li>
-        <li>
-          <button><i class="fa fa-heart"></i></button>Favorites
-        </li>
-      </ul>
-    </div>
-    <div class="l3 gap">
-      <div class="txtright">
-       
-        
-      <span>Regular price</span>
-      <span itemprop="price" content="<%= product.price %>"><%= product.price %>€</span>
-      <% if (product.stock > 2) { %>
-        <span class="valid"><i class="fa fa-check"></i> In stock</span>
-      <% }else if (product.stock > 0){%>
-        <span class="danger">Only a few in stock</span>
-      <% }else{%>
-        <span class="error">Depleted</span>
-        <%}%>
+  <main class="nano">
+    <section class="nano pad gap">
+      <figure class="l4 m4">
+        <img src="/img/products/<%= product.picture_url %>.jpg" alt="<%= product.name %> packshot">
+
+      </figure>
+      <div class="nano l5 m4 flexcol gap">
+        <h1>
+          <%= product.name %>
+        </h1>
+        <p>
+          <%= product.description_short %>
+        </p>
+        <ul class="nano">
+          <li class="s4">
+            <button><i class="fa fa-print"></i>Print</button>
+          </li>
+          <li class="s4">
+            <button><i class="fa fa-share-alt"></i>Share</button>
+          </li>
+          <li class="s4">
+            <button><i class="fa fa-heart"></i>Favorites</button>
+          </li>
+        </ul>
       </div>
+      <div class="nano flexcol l3 gap pad">
+        <div class="nano flexcol">
 
-      <!-- <form action="/cart" class="flexrow">
+
+          <!-- <span>Regular price</span> -->
+          <span itemprop="price" content="<%= product.price %>" class="txt-right price">
+            <%= product.price %>€
+          </span>
+          <% if (product.stock> 2) { %>
+            <span class="valid txt-right"><i class="fa fa-check"></i> In stock</span>
+            <% }else if (product.stock> 0){%>
+              <span class="danger txt-right">Only a few in stock</span>
+              <% }else{%>
+                <span class="error txt-right">Depleted</span>
+                <%}%>
+        </div>
+
+        <!-- <form action="/cart" class="flexrow">
         <input type="hidden" name="product-id" />
         <input type="number" name="product-qty" id="product-qty" value="1" class="txtcenter"/>
         <button class="valid l6 m6 s6">Add to cart</button>
       </form> -->
-      <%- include('partials/addToCart') %>
-      <%- include('partials/rassurance.ejs') %>
-    </div>
-  </section>
-    
-    <section >
-      <aside class="l2">
+        <%- include('partials/addToCart') %>
+          <%- include('partials/rassurance.ejs') %>
+      </div>
+    </section>
+
+    <section class="nano">
+      <div class="l2">
         <nav id="anchor-nav">
           <ul>
             <li><a href="#description">Description</a></li>
@@ -66,14 +64,14 @@
             <li><a href="#relatedproducts">Related products</a></li>
           </ul>
         </nav>
-      </aside>
+      </div>
       <div id="product-detail" class="l10 padh">
-        <section id="description">
+        <section id="description" class="angle">
           <h2>Description</h2>
           <%- product.description_long %>
         </section>
-        <section id="technicaldata">
-          <h2 >Technical data</h2>
+        <section id="technicaldata" class="angle">
+          <h2>Technical data</h2>
           <dl>
             <dt>Lorem, ipsum dolor.</dt>
             <dd>Lorem, ipsum.</dd>
@@ -107,8 +105,8 @@
             <dd>Lorem, ipsum.</dd>
           </dl>
         </section>
-        <section id="documentation">
-          <h2 >Documentation</h2>
+        <section id="documentation" class="angle">
+          <h2>Documentation</h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
             sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
@@ -125,8 +123,8 @@
             saepe inventore vero debitis.
           </p>
         </section>
-        <section id="reviews">
-          <h2 >Reviews</h2>
+        <section id="reviews" class="angle">
+          <h2>Reviews</h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
             sapiente ut explicabo cupiditate accusamus. Nemo laboriosam
@@ -143,21 +141,21 @@
             saepe inventore vero debitis.
           </p>
         </section>
-        <section id="relatedproducts">
-          <h2 >Related products</h2>
+        <section id="relatedproducts" class="angle">
+          <h2>Related products</h2>
           <div aria-label="Liste d'articles" role="region">
             <article w3-include-html="partials/article.html"></article>
             <article w3-include-html="partials/article2.html"></article>
             <article w3-include-html="partials/article4.html"></article>
             <article w3-include-html="partials/article.html"></article>
-        </div>
+          </div>
         </section>
       </div>
     </section>
-    
-  </section>
-  <!-- Microdata -->
-  <script type="application/ld+json">
+
+    </section>
+    <!-- Microdata -->
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Product",
@@ -205,4 +203,4 @@
       ]
     }
     </script>
-<%- include ('partials/footer.ejs') %>  
+    <%- include ('partials/footer.ejs') %>

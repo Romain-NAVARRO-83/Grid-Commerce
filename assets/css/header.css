@@ -1,4 +1,3 @@
-
 header {
     background-color: var(--color1);
     padding: calc(var(--mainpadding) / 2);
@@ -6,71 +5,121 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    position:sticky;
-    top:-75px;
+    position: sticky;
+    top: -75px;
     z-index: 9;
     /* grid-row: 1/2; */
     grid-column: 1/-1;
+    /* -webkit-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.5); */
 }
-header > *{
+
+header>* {
     background-color: var(--color1);
 }
-header a{
-    color:#fff;
+
+header a {
+    color: #fff;
 }
-header > ul{
-    display:flex;
+
+header>ul {
+    display: flex;
     gap: calc(var(--mainpadding) / 2);
-    color:#fff;
+    color: #fff;
 }
-header a[href="index.html"]:first-of-type{
+
+header a[href="index.html"]:first-of-type {
     display: flex;
     gap: calc(var(--mainpadding) / 2);
     justify-content: space-between;
     align-items: center;
 }
+
 header a[href="index.html"]:first-of-type::after {
     content: "Grid Commerce";
     font-size: var(--siteTitleFontSize);
 
 }
-header > form > input{
+
+header>form>input {
     display: var(--searcFormDisplay);
 }
-header nav{
+
+header nav {
     flex-basis: 100%;
     text-align: center;
 }
-header nav > ul{
-    display:flex;
+
+header nav>ul {
+    display: flex;
     flex-direction: var(--headerNavDirection);
     justify-content: center;
 }
-header nav > ul > li {
+
+header nav>ul>li {
     background-color: var(--color1);
     overflow: hidden;
-    min-height:50px;
+
 }
-header nav > ul > li > a{
-    padding:calc(var(--mainpadding) / 2)
+
+header nav>ul>li>a {
+    padding: calc(var(--mainpadding) / 2) var(--mainpadding);
+    line-height: 1;
+    display: block;
 }
-header nav > ul > li > ul{
-    position: var(--subnavPosition);
-    margin-top:-100%;
+
+header nav>ul>li>ul {
+    position: absolute;
+    margin-top: -100%;
     z-index: -1;
-    left:0;
-    width:100%;
+    left: 0;
+    width: 100%;
     background-color: var(--color1);
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    padding-top:30px;
+    padding-top: 30px;
     padding-bottom: 60px;
-} 
-header nav > ul > li:hover > ul{
-    margin-top:0;
+}
+
+header nav>ul>li:hover>ul {
+    margin-top: 0;
     z-index: 1;
-} 
-header nav>ul>li>ul::after {
+}
+
+header dotlottie-player {
+    margin-top: -30px;
+}
+
+header a:has(.site-name) {
+    display: flex;
+    align-items: center;
+}
+
+#breadcrumb {
+    display: flex;
+    position: relative;
+    z-index: -1;
+}
+
+#breadcrumb li {
+    padding: 5px 10px;
+    background-color: #ddd;
+}
+
+#breadcrumb::after {
+    content: "";
+
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 26px 26px 0 0;
+    border-color: #ddd transparent transparent transparent;
+    transform: rotate(0deg);
+
+}
+
+/* header nav>ul>li>ul::after {
     content: " ";
     display: var(--subnavAfterDisplay);
     background-color: inherit;
@@ -106,21 +155,23 @@ header nav>ul>li:nth-of-type(odd):hover>ul:after {
     -ms-transform: skew(0deg, -2deg);
     transform: skew(0deg, -2deg);
     transition: var(--transition);
+} */
+
+header .cart-toggler {
+    position: relative;
 }
 
-header .cart-toggler{
-    position:relative;
-}
-#cart-token{
+#cart-token {
     position: absolute;
     right: 0;
     top: 0;
     font-size: 12px;
-    border-radius:50%;
+    border-radius: 50%;
     text-align: center;
-    padding:5px;
+    padding: 5px;
     background-color: var(--color2);
 }
+
 /* 
 
 

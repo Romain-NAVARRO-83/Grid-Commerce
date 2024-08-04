@@ -1,0 +1,59 @@
+#homeslider .slick-slide {
+    background-color: var(--color2);
+
+    background-size: cover;
+    margin: 0;
+    background-blend-mode: luminosity;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-position: center;
+    padding: var(--mainpadding)
+}
+
+#homeslider .slide1 {
+    background-image: url('../img/backgrounds/gem-and-coal.webp');
+}
+
+#homeslider .slide2 {
+    background-image: url('../img/backgrounds/gems.webp');
+}
+
+#homeslider .slide3 {
+    background-image: url('../img/backgrounds/gems-2.webp');
+}
+
+#homeslider {
+    padding-bottom: 0;
+}
+
+#homeslider .slick-track,
+#homeslider .slick-list {
+    height: 100%;
+}
+
+#homeslider h1,
+#homeslider h2 {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000000;
+    font-size: 2.8em
+}
+
+#homeslider .slick-slide>div {
+    background-color: #000000b0;
+    transform: skewY(5deg) skewX(10deg);
+    color: #fff;
+    text-align: center;
+    padding: calc(var(--mainpadding) * 2);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+#homeslider .slick-slide>div>* {
+    transform: skewY(-5deg) skewX(-10deg);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
