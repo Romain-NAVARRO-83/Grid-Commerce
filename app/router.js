@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const dataMapper = require('./data_mapper.js');
 
-const homeController = require ('./controllers/homeController');
+const homeController = require('./controllers/homeController');
 const productController = require('./controllers/productController');
 const categoryController = require('./controllers/categoryController');
 const checkoutController = require('./controllers/checkoutController');
@@ -14,51 +14,51 @@ const getCategoriesMiddleware = require('./middlewares/getCategoriesMiddleware.j
 router.get('/', homeController.homePage);
 
 // const categories = require("./")
-router.get('/category/:categoryName',getCategoriesMiddleware.frontCategories, categoryController.categoryPage);
+router.get('/category/:id', getCategoriesMiddleware.frontCategories, categoryController.categoryPage);
 router.get('/product/:id', productController.productPage);
 router.get('/login', customerController.loginPage);
 router.post('/login', customerController.loginAttempt);
 router.post('/signup', customerController.signUp);
 router.get('/checkout', checkoutController.checkoutPage);
 
-router.get('/cart',checkoutController.getCart);
+router.get('/cart', checkoutController.getCart);
 router.post('/cart', checkoutController.addToCart);
 
 
 // Admin routes
 // Base redirection
-router.get('/admin',(req,res,next)=>{
-    if (req.session.adminCredentials === true){
+router.get('/admin', (req, res, next) => {
+    if (req.session.adminCredentials === true) {
 
         res.redirect('/admin/dashboard');
 
-    }else if (req.originalUrl != '/admin/login'){
+    } else if (req.originalUrl != '/admin/login') {
         // console.log(req.originalUrl);
         res.redirect('/admin/login');
-   
+
 
     }
     next();
 });
 // credentials checking
-router.get('/admin/*',(req,res,next)=>{
+router.get('/admin/*', (req, res, next) => {
     // if (req.session.adminCredentials === true){
-        
+
     // }else if (req.originalUrl != '/admin/login'){
     //     console.log(req.originalUrl);
     //     res.redirect('/admin/login');
-   
+
 
     // }
     next();
 })
-router.post('/admin/login',(req,res,next)=>{
+router.post('/admin/login', (req, res, next) => {
     req.session.adminCredentials = true;
-    res.cookie('adminCredentials',true);
+    res.cookie('adminCredentials', true);
     res.redirect('/admin/dashboard');
     // next();
 });
-router.get('/admin/logout',(req,res,next)=>{
+router.get('/admin/logout', (req, res, next) => {
     req.session.adminCredentials = false;
     res.redirect('/admin/login');
 })

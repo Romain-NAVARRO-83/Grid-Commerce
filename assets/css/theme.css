@@ -41,6 +41,8 @@ button.special,
 
 .angle {
     position: relative;
+    padding-bottom: 120px;
+    overflow: hidden;
 }
 
 * .angle:not(:last-of-type):after {
@@ -95,4 +97,31 @@ button.special,
 
 .angle:has(+ .angle.bright)::after {
     background-color: var(--color2);
+}
+
+.danger {
+    color: var(--colorDanger);
+}
+
+
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+textarea {
+    border: outset solid 2px var(--dark);
+    padding: calc(var(--mainpadding) / 3);
+    background-color: #ddd;
+}
+
+.card {
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 15px 0px;
+}
+
+.minipad {
+    padding: 5px;
 }

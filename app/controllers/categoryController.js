@@ -1,18 +1,15 @@
 // const dataMapper = require('../data_mapper.js');
-const {Category,Product} = require('../model/associations.js');
+const { Category, Product } = require('../model/associations.js');
 
 categoryController = {
   categoryPage: async (req, res) => {
-    const categoryName = req.params['categoryName'].replace("-"," ");
+    const idCategory = parseInt(req.params['id']);
     try {
       // const categories = await dataMapper.getAllCategories();
       const categories = await Category.findAll();
-      const category = await Category.findOne({
-        where : {
-          name : categoryName
-        },
-        include : "products"
-      })
+      const category = await Category.findByPk(idCategory, {
+        include: "products",
+      });
       // const category = categories.find((category) => category.name.replace(" ", "-") === categoryName);
       // const products = await dataMapper.getCategoryProducts(category.id);
 
@@ -20,9 +17,8 @@ categoryController = {
       res.render('category', {
         category: category,
         categories: categories,
-        products: category.products,
         pageType: "category",
-        cart : req.session.cart
+        cart: req.session.cart
       })
     } catch (error) {
       console.error(error);

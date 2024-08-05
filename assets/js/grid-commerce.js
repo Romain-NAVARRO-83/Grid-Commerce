@@ -85,9 +85,9 @@ async function populateMinicart(cartContent) {
     const template = document.querySelector('#cart-line');
     const clone = template.content.cloneNode(true);
     clone.querySelector('[slot="name"]').textContent = cartLine.productName;
-    clone.querySelector('img').setAttribute('src', `/img/products/${cartLine.productName.replace(" ", "-").toLowerCase()}.jpg`);
+    clone.querySelector('img').setAttribute('src', `/img/products/gem${cartLine.productId}.jpg`);
     console.log(cartLine);
-    clone.querySelector('[slot="quantity"]').textContent = "x" + cartLine.quantity;
+    clone.querySelector('[slot="quantity"]').value = cartLine.quantity;
     clone.querySelector('[slot="total"]').textContent = ` ${cartLine.quantity * cartLine.unitPrice}€`;
     cartTotal += cartLine.quantity * cartLine.unitPrice;
 
@@ -207,7 +207,7 @@ $('.slick-1').slick({
 $('.slick-1234').slick({
   autoplay: true,
   autoplaySpeed: 4000,
-  dots: false,
+  dots: true,
   infinite: true,
   speed: 300,
   slidesToShow: 5,

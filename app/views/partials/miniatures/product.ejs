@@ -1,6 +1,5 @@
-<article class="l3 strict card">
-    <a href="/product/<%= locals.product.id %> "><img src="/img/products/<%= product.picture_url %>.jpg" width="200"
-            alt="<%=
+<article class="l3 strict card pad nano gap">
+    <a href="/product/<%= locals.product.id %> "><img src="/img/products/gem<%= product.id %>.jpg" width="200" alt="<%=
             locals.product.name %>"></a>
     <h2><a href="/product/<%= locals.product.id %> ">
             <%= locals.product.name %>
@@ -10,8 +9,8 @@
     </p>
     <%- include('../addToCart') %>
 
-        <span class="valid"><i class="fa fa-check"></i> <span class="small">In stock</span></span>
-        <span>
+        <span class="valid s6"><i class="fa fa-check"></i> <span class="small">In stock</span></span>
+        <span class="s6 txt-right">
             <%= locals.product.price %> €
         </span>
 </article>

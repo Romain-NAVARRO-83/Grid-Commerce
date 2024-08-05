@@ -40,9 +40,9 @@ th {
     content: "";
     flex-basis: 49%;
     background-color: var(--color2);
-    background-image: url('../img/office-background.jpg');
+    background-image: url('../img/backgrounds/gems-2.webp');
     background-size: cover;
-    background-blend-mode: multiply;
+    background-blend-mode: luminosity;
 }
 
 /* MINICART */
@@ -71,13 +71,34 @@ body.noscroll {
     border-left: solid 2px var(--color1);
     transform: translateX(100%);
     transition: all ease-out .3s;
-    display: none;
+    /* display: none; */
 }
 
 #minicart.active {
     transform: translateX(0);
     transition: all ease-out .3s;
-    display: block;
+    /* display: block; */
+}
+
+#minicart #cart-content div:has(>input) {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#cart-content input {
+    flex-basis: 50px;
+    flex-grow: 0;
+    width: 50px;
+}
+
+#cart-content .card {
+    align-items: center;
+}
+
+#cart-content .card button {
+    align-self: stretch;
 }
 
 #overlay {
@@ -97,4 +118,9 @@ body.noscroll {
 
 body.noscroll #overlay {
     display: block;
+}
+
+.readmore {
+    max-height: 80vh;
+    overflow: hidden;
 }

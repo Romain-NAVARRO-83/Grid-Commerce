@@ -1,7 +1,9 @@
-body.login main{
-    text-align:center;
-    grid-column: 1 / -1;
+body.login main {
+    text-align: center;
+    container-type: inline-size;
+    /* grid-column: 1 / -1; */
 }
+
 body.login main form {
     display: flex;
     flex-direction: column;

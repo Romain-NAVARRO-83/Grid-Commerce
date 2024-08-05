@@ -3,7 +3,7 @@
   <main class="nano">
     <section class="nano pad gap">
       <figure class="l4 m4">
-        <img src="/img/products/<%= product.picture_url %>.jpg" alt="<%= product.name %> packshot">
+        <img src="/img/products/gem<%= product.id %>.jpg" alt="<%= product.name %> packshot" width="400" height="400">
 
       </figure>
       <div class="nano l5 m4 flexcol gap">
@@ -53,7 +53,7 @@
     </section>
 
     <section class="nano">
-      <div class="l2">
+      <div class="l2 sidebar">
         <nav id="anchor-nav">
           <ul>
             <li><a href="#description">Description</a></li>
@@ -65,12 +65,12 @@
           </ul>
         </nav>
       </div>
-      <div id="product-detail" class="l10 padh">
-        <section id="description" class="angle">
+      <div id="product-detail" class="l10 padh nano">
+        <section id="description" class="angle readmore">
           <h2>Description</h2>
           <%- product.description_long %>
         </section>
-        <section id="technicaldata" class="angle">
+        <section id="technicaldata" class="angle dark padh">
           <h2>Technical data</h2>
           <dl>
             <dt>Lorem, ipsum dolor.</dt>
@@ -105,7 +105,7 @@
             <dd>Lorem, ipsum.</dd>
           </dl>
         </section>
-        <section id="documentation" class="angle">
+        <section id="documentation" class="angle padh">
           <h2>Documentation</h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
@@ -123,7 +123,7 @@
             saepe inventore vero debitis.
           </p>
         </section>
-        <section id="reviews" class="angle">
+        <section id="reviews" class="angle dark padh">
           <h2>Reviews</h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. In facilis
@@ -141,7 +141,7 @@
             saepe inventore vero debitis.
           </p>
         </section>
-        <section id="relatedproducts" class="angle">
+        <section id="relatedproducts" class="angle padh">
           <h2>Related products</h2>
           <div aria-label="Liste d'articles" role="region">
             <article w3-include-html="partials/article.html"></article>

@@ -1,6 +1,6 @@
 <%- include ('partials/header.ejs') %>
 
-    <main class="nano gap">
+    <main class="nano">
 
         <section class="nanogap pad maxwidth">
             <h1>
@@ -10,6 +10,11 @@
 
             <div class="noflex l12">
                 <%- locals.category.text_top %>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores aperiam esse officiis, aliquid
+                        eligendi dolor dignissimos tenetur quae eum fugiat incidunt dolorum nemo nulla, quasi voluptas
+                        beatae doloremque asperiores alias?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sed vero harum adipisci. Animi
+                        ipsum at aut error distinctio placeat architecto dolor ratione eius cum!</p>
             </div>
         </section>
         <div class="sidebar shidden mhidden l2 padh">
@@ -17,21 +22,51 @@
                     height="300"></a>
         </div>
 
-        <section class="nano s12 m12 l10 pad">
-            <% locals.products.forEach((product)=> { %>
+        <section class="nano s12 m12 l10 pad gap">
+            <% locals.category.products.forEach((product)=> { %>
                 <%- include ('partials/miniatures/product.ejs', {product : product }) %>
                     <% }) %>
-
-                        <% locals.products.forEach((product)=> { %>
+                        <!-- REDO -->
+                        <% locals.category.products.forEach((product)=> { %>
                             <%- include ('partials/miniatures/product.ejs', {product : product }) %>
                                 <% }) %>
-
-                                    <% locals.products.forEach((product)=> { %>
+                                    <!-- REDO -->
+                                    <% locals.category.products.forEach((product)=> { %>
                                         <%- include ('partials/miniatures/product.ejs', {product : product }) %>
                                             <% }) %>
+                                                <!-- REDO -->
+                                                <% locals.category.products.forEach((product)=> { %>
+                                                    <%- include ('partials/miniatures/product.ejs', {product : product
+                                                        }) %>
+                                                        <% }) %>
+
         </section>
-        <section class="l12 pad noflex">
+        <section class="nano s12 pad maxwidth angle">
+            <h2>More SEO subtitle</h2>
             <%- locals.category.text_bottom %>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores aperiam esse officiis, aliquid
+                    eligendi dolor dignissimos tenetur quae eum fugiat incidunt dolorum nemo nulla, quasi voluptas
+                    beatae doloremque asperiores alias?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sed vero harum adipisci. Animi
+                    ipsum at aut error distinctio placeat architecto dolor ratione eius cum!</p>
+        </section>
+        <section class="nano padh maxwidth angle bright">
+            <h2>Delivery information</h2>
+            <div class="s12 m6 pad">
+
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://lottie.host/baae8436-50d6-4fbf-ae47-8b64c78728a6/R3RYNqmjVy.json"
+                    background="transparent" speed="1" style="width: 50%; height: auto" loop="" autoplay=""
+                    direction="1" mode="normal"></lottie-player>
+            </div>
+            <div class="s12 m6 pad">
+                <h3>Additionnal <span>delivery</span> information</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione ullam illo recusandae
+                    <strong>commodi eligendi</strong> id, eveniet tenetur libero ab quidem provident, necessitatibus,
+                    maxime saepe ad eius officia accusantium amet? Nobis.
+                </p>
+                <button class="special">Call to action</button>
+            </div>
         </section>
 
 

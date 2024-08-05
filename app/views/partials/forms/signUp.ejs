@@ -1,27 +1,28 @@
 <form action="/signup" method="POST" id="signup">
     <h2>Create your account</h2>
-    <fieldset>
+    <fieldset class="nano">
         <label for="firstname">Firstname</label>
-    <input type="text" name="firstname" id="firstname">
+        <input type="text" name="firstname" id="firstname">
     </fieldset>
-    <fieldset>
+    <fieldset class="nano">
         <label for="lastname">Lastname</label>
-    <input type="text" name="lastname" id="lastname">
+        <input type="text" name="lastname" id="lastname">
     </fieldset>
-    <fieldset>
+    <fieldset class="nano">
         <label for="emailsignup">email</label>
-    <input type="email" name="emailsignup" id="emailsignup" required>
+        <input type="email" name="emailsignup" id="emailsignup" required>
     </fieldset>
-    <fieldset>
+    <fieldset class="nano">
         <label for="passwordsignup">Password</label>
-    <input type="password" name="passwordsignup" id="passwordsignup" required>
-    <label for="confirmPassword">Confirm password</label>
-    <input type="password" name="confirmPassword" id="confirmPassword" required>
-    <p class="small">Password muste be at least <strong>12 characters </strong>long, with at least <strong>1 uppercase</strong>, <strong>1 lowercase</strong> and <strong>1 special character</strong>.</p>
-</fieldset>
-    <fieldset>
+        <input type="password" name="passwordsignup" id="passwordsignup" required>
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" required>
+        <p class="small">Password muste be at least <strong>12 characters </strong>long, with at least <strong>1
+                uppercase</strong>, <strong>1 lowercase</strong> and <strong>1 special character</strong>.</p>
+    </fieldset>
+    <fieldset class="nano">
         <label for="conditions">Accept terms and conditions</label>
-    <input type="checkbox" name="conditions" id="conditions" required>
+        <input type="checkbox" name="conditions" id="conditions" required>
     </fieldset>
     <button class="valid">Create account</button>
 </form>

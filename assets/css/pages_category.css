@@ -1,3 +1,8 @@
 body.category .sidebar {
-    border-right: solid 1px var(--color1);
+    /* border-right: solid 1px var(--color1); */
+    box-shadow: 20px 0 18px -20px rgba(0, 0, 0, 0.12)
+}
+
+body.category main>.maxwidth {
+    padding-top: 50px;
 }

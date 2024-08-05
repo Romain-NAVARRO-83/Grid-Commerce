@@ -57,3 +57,8 @@
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
 }
+
+.slick-1234 .slick-next::before,
+.slick-1234 .slick-prev::before {
+    color: #000;
+}

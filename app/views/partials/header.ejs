@@ -62,7 +62,7 @@
             <nav>
                 <ul>
                     <% locals.categories.forEach((category)=>{ if (category.depth == 1){%>
-                        <li><a href="/category/<%= category.name.replace(' ','-') %>">
+                        <li><a href="/category/<%= category.id %>">
                                 <%= category.name %>
                             </a>
 
@@ -73,7 +73,7 @@
                                     <% subcategories.forEach(subcategory=> {
                                         %>
                                         <li "s12 m4 l3 txtcenter">
-                                            <a href="/category/<%= subcategory.name.replace(' ','-') %>">
+                                            <a href="/category/<%= subcategory.id %>">
                                                 <%= subcategory.name %>
                                             </a>
                                         </li>

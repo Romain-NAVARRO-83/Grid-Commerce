@@ -108,15 +108,6 @@ main nav:last-of-type:before {
     grid-row: 1;
 } */
 
-input[type="text"],
-input[type="number"],
-input[type="tel"],
-input[type="password"],
-textarea {
-    border: outset solid 2px var(--dark);
-    padding: calc(var(--mainpadding) / 3);
-    background-color: #ddd;
-}
 
 label[for="search"] {
     position: absolute;
