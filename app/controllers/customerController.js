@@ -62,15 +62,15 @@ const customerController = {
             })
             // Validation email
             if (!validator.validate(userEmail)) {
-                res.render('login', { pageType: "login", pageTitle: "Login", alert: ["danger", "The email provided doesn't have the right format"] });
+                res.render('login', { pageType: "login", pageTitle: "Login", alert: ["danger", "The email provided doesn't have the right format"], csrf: req.csrfToken() });
             };
             // Validation password
             if (!validPassword(userPassword)) {
-                res.render('login', { pageType: "login", pageTitle: "Login", alert: ["danger", "password format incorrect"] });
+                res.render('login', { pageType: "login", pageTitle: "Login", alert: ["danger", "password format incorrect"], csrf: req.csrfToken() });
             }
             // Validation user exist
             if (testUserExist) {
-                res.render('login', { pageType: "login", pageTitle: "Login", alert: ["danger", "An account already exist with this email, you shoul try signing in instead"] });
+                res.render('login', { pageType: "login", pageTitle: "Login", alert: ["danger", "An account already exist with this email, you shoul try signing in instead"], csrf: req.csrfToken() });
             } else {
 
                 try {
@@ -83,10 +83,10 @@ const customerController = {
                     })
                     // console.log(createCustomer);
 
-                    res.render('login', { pageType: "login", pageTitle: "Login", alert: ["valid", "Good ! Your account is created, you can now log in."] })
+                    res.render('login', { pageType: "login", pageTitle: "Login", alert: ["valid", "Good ! Your account is created, you can now log in."], csrf: req.csrfToken() })
                 } catch (error) {
                     console.error(error);
-                    res.render('login', { pageType: "login", pageTitle: "Login", alert: ["danger", "An error occured, please try again"] })
+                    res.render('login', { pageType: "login", pageTitle: "Login", alert: ["danger", "An error occured, please try again"], csrf: req.csrfToken() })
                 }
             }
 

@@ -2,11 +2,12 @@
     <input type="hidden" name="_csrf" value="<%= csrf %>">
     <fieldset class="nano">
         <label for="email">email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            title="Veuillez entrer une adresse email valide">
     </fieldset>
     <fieldset class="nano">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
 
     </fieldset>
 

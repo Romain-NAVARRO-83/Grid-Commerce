@@ -1,28 +1,36 @@
 <form action="/signup" method="POST" id="signup">
     <h2>Create your account</h2>
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
     <fieldset class="nano">
         <label for="firstname">Firstname</label>
-        <input type="text" name="firstname" id="firstname">
+        <input type="text" name="firstname" id="firstname" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,}$"
+            title="Le prénom doit contenir uniquement des lettres, apostrophes ou traits d'union et doit faire au moins 2 caractères de long">
     </fieldset>
     <fieldset class="nano">
         <label for="lastname">Lastname</label>
-        <input type="text" name="lastname" id="lastname">
+        <input type="text" name="lastname" id="lastname" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,}$"
+            title="Le nom doit contenir uniquement des lettres, apostrophes ou traits d'union et doit faire au moins 2 caractères de long">
     </fieldset>
     <fieldset class="nano">
         <label for="emailsignup">email</label>
-        <input type="email" name="emailsignup" id="emailsignup" required>
+        <input type="email" name="emailsignup" id="emailsignup" required
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Veuillez entrer une adresse email valide">
     </fieldset>
     <fieldset class="nano gap">
         <label for="passwordsignup">Password</label>
-        <input type="password" name="passwordsignup" id="passwordsignup" required>
+        <input type="password" name="passwordsignup" id="passwordsignup" required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$"
+            title="Le mot de passe doit comporter au moins 12 caractères, avec au moins 1 lettre majuscule, 1 lettre minuscule, 1 chiffre et 1 caractère spécial.">
         <label for="confirmPassword">Confirm password</label>
-        <input type="password" name="confirmPassword" id="confirmPassword" required>
-        <p class="small">Password muste be at least <strong>12 characters </strong>long, with at least <strong>1
+        <input type="password" name="confirmPassword" id="confirmPassword" required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$"
+            title="Le mot de passe doit comporter au moins 12 caractères, avec au moins 1 lettre majuscule, 1 lettre minuscule, 1 chiffre et 1 caractère spécial.">
+        <p class="small">Password must be at least <strong>12 characters </strong>long, with at least <strong>1
                 uppercase</strong>, <strong>1 lowercase</strong> and <strong>1 special character</strong>.</p>
     </fieldset>
     <fieldset class="nano">
         <label for="conditions">Accept terms and conditions</label>
-        <input type="checkbox" name="conditions" id="conditions" required>
+        <input type="checkbox" name="conditions" id="conditions" required title="Vous devez accepter les conditions">
     </fieldset>
     <button class="valid">Create account</button>
 </form>

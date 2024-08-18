@@ -21,7 +21,7 @@ router.get('/category/:id', getCategoriesMiddleware.frontCategories, categoryCon
 router.get('/product/:id', productController.productPage);
 router.get('/login', csrfProtection, customerController.loginPage);
 router.post('/login', csrfProtection, customerController.loginAttempt);
-router.post('/signup', customerController.signUp);
+router.post('/signup', csrfProtection, customerController.signUp);
 router.get('/checkout', checkoutController.checkoutPage);
 
 router.get('/cart', checkoutController.getCart);
