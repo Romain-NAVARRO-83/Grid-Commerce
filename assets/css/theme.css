@@ -120,8 +120,85 @@ textarea {
     border: solid 1px #ddd;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 15px 0px;
+    overflow: hidden;
+}
+
+.card-header {
+    background: radial-gradient(ellipse at right bottom, #df3400 0%, #ff6600 60%);
+    padding: var(--mainpadding);
+    margin: -20px -20px 20px -20px;
+    color: #fff;
 }
 
 .minipad {
     padding: 5px;
+}
+
+footer {
+    color: #fff;
+    justify-content: space-around;
+    background-color: var(--color1);
+}
+
+footer ul {
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+footer address {
+    line-height: 1.5
+}
+
+footer>div:first-child>a {
+    display: flex;
+    align-items: center;
+}
+
+footer>div:first-child>a dotlottie-player {
+    margin-top: -10px;
+}
+
+footer>div:last-child {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.banner {
+    /* width: 300px; */
+    max-width: 100%;
+    height: 200px;
+    text-align: right;
+    background-color: var(--color2);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: var(--mainpadding);
+    background-blend-mode: luminosity;
+    margin: auto;
+    color: #fff;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    align-items: center;
+    justify-content: right;
+    text-shadow: 2px 2px 2px #000;
+    /* border: solid 4px var(--color1); */
+}
+
+.sidebar .banner {
+    height: auto;
+    margin-bottom: var(--mainpadding);
+}
+
+.banner1 {
+    background-image: url('../img/backgrounds/banner1.jpeg');
+}
+
+.banner2 {
+    background-image: url('../img/backgrounds/banner2.jpeg');
+}
+
+.banner3 {
+    background-image: url('../img/backgrounds/banner3.jpeg');
 }

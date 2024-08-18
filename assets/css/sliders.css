@@ -62,3 +62,16 @@
 .slick-1234 .slick-prev::before {
     color: #000;
 }
+
+.slick-1234 h3 {
+    text-align: center;
+}
+
+.slick-1234:not(.slick-initialized) {
+    display: none;
+}
+
+.slick-1234 .slick-track {
+    display: flex;
+    justify-items: stretch;
+}

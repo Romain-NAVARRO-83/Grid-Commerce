@@ -1,5 +1,5 @@
 <!-- <div> -->
-<article class="card">
+<article class="card nano">
     <a href="/product/<%= locals.product.id %> ">
 
         <img src="/img/products/gem<%= product.id %>.jpg" width="100" alt="<%=
@@ -8,8 +8,8 @@
     <h3><a href="/product/<%= locals.product.id %> ">
             <%= product.name %>
         </a></h3>
-    <span>
-        <%= product.price %> €
-    </span>
+    <div class="txt-right">
+        <%= product.price.toFixed(2) %> €
+    </div>
 </article>
 <!-- </div> -->

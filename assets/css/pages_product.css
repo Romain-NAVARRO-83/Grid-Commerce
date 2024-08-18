@@ -13,6 +13,32 @@ body.product main {
     container-type: inline-size;
 }
 
+body.product main>section:first-child {
+    min-height: 70vh;
+}
+
 .sidebar {
     box-shadow: 20px 0 18px -20px rgba(0, 0, 0, 0.12);
+}
+
+#technicaldata dl {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#technicaldata dl>* {
+    padding: 10px;
+    border: solid 2px rgba(255, 255, 255, .1);
+    flex-basis: 20%;
+    margin-bottom: 5px;
+    ;
+}
+
+#technicaldata dl dt {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+#technicaldata dl dd {
+    margin-right: 10%;
 }

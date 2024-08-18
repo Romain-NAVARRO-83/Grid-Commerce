@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const dataMapper = require('./data_mapper.js');
+// CSRF protection middleware
+const csrf = require('csurf');
+const csrfProtection = csrf({ cookie: true });
 
 const homeController = require('./controllers/homeController');
 const productController = require('./controllers/productController');
@@ -16,8 +19,8 @@ router.get('/', homeController.homePage);
 // const categories = require("./")
 router.get('/category/:id', getCategoriesMiddleware.frontCategories, categoryController.categoryPage);
 router.get('/product/:id', productController.productPage);
-router.get('/login', customerController.loginPage);
-router.post('/login', customerController.loginAttempt);
+router.get('/login', csrfProtection, customerController.loginPage);
+router.post('/login', csrfProtection, customerController.loginAttempt);
 router.post('/signup', customerController.signUp);
 router.get('/checkout', checkoutController.checkoutPage);
 

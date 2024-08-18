@@ -102,7 +102,7 @@ async function populateMinicart(cartContent) {
   const cartBottom = template.content.cloneNode(true);
   const totalSpan = document.createElement('div');
   totalSpan.classList.add('noflex', 'txtright');
-  totalSpan.textContent = `Total : ${cartTotal} €`;
+  totalSpan.textContent = `Total : ${cartTotal.toFixed(2)} €`;
   const totalContainer = cartBottom.querySelector('button').parentNode;
   console.log(totalContainer);
   totalContainer.prepend(totalSpan);
@@ -134,18 +134,19 @@ async function cartToken() {
   const totalQuantity = cart.reduce((sum, product) => sum + parseInt(product.quantity), 0);
 
   const container = document.querySelector('.cart-toggler');
-  const previousSpan = container.querySelector('span');
-  if (previousSpan) {
-    previousSpan.remove();
-  }
-  if (cart.length > 0) {
-    const token = document.createElement('span');
-    token.id = 'cart-token';
-    token.textContent = totalQuantity;
-    container.appendChild(token);
-  }
+  if (container) {
+    const previousSpan = container.querySelector('span');
+    if (previousSpan) {
+      previousSpan.remove();
+    }
+    if (cart.length > 0 && container) {
+      const token = document.createElement('span');
+      token.id = 'cart-token';
+      token.textContent = totalQuantity;
+      container.appendChild(token);
+    }
 
-
+  }
 }
 document.addEventListener("DOMContentLoaded", (event) => {
   cartToken()
@@ -237,4 +238,34 @@ $('.slick-1234').slick({
       }
     }
   ]
+});
+
+// Populate checkout cart-content
+async function populateCheckoutCart() {
+  let cartTotal = 0
+  const cart = await getCart();
+  const container = document.querySelector('#cart-content');
+  // container.innerHTML = '';
+  // if (cartContent.length < 1){
+
+  // }else{
+  cart.forEach((cartLine) => {
+    const template = document.querySelector('#cart-line');
+    const clone = template.content.cloneNode(true);
+    clone.querySelector('[slot="name"]').textContent = cartLine.productName;
+    clone.querySelector('img').setAttribute('src', `/img/products/gem${cartLine.productId}.jpg`);
+    console.log(cartLine);
+    clone.querySelector('[slot="quantity"]').value = cartLine.quantity;
+    clone.querySelector('[slot="total"]').textContent = ` ${cartLine.quantity * cartLine.unitPrice}€`;
+    cartTotal += cartLine.quantity * cartLine.unitPrice;
+
+    container.appendChild(clone);
+  })
+
+
+}
+document.addEventListener("DOMContentLoaded", (event) => {
+  if (document.querySelector('body.checkout')) {
+    populateCheckoutCart()
+  }
 });

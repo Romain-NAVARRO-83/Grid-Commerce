@@ -8,3 +8,11 @@ fieldset legend {
 fieldset {
     margin-bottom: 50px;
 }
+
+body.checkout section:first-of-type {
+    box-shadow: 20px 0 18px -20px rgba(0, 0, 0, 0.12);
+}
+
+body.checkout main {
+    container-type: inline-size;
+}

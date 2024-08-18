@@ -16,7 +16,7 @@ iframe[name="cartReturn"] {
     z-index: 9;
 }
 
-footer {
+/* footer {
     background-color: var(--color1);
     display: flex;
     grid-column: 1 / -1;
@@ -24,7 +24,7 @@ footer {
     justify-content: space-evenly;
     gap: var(--mainpadding);
     padding: calc(var(--mainpadding) * 2) var(--mainpadding);
-}
+} */
 
 td,
 th {
@@ -123,4 +123,24 @@ body.noscroll #overlay {
 .readmore {
     max-height: 80vh;
     overflow: hidden;
+    ransition: all ease-out .3s;
+}
+
+.readmore.active {
+    max-height: none;
+    ransition: all ease-out .3s;
+}
+
+.readmore-button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 50px 20px 75px 20px;
+    background: #fff;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 42%, rgba(255, 255, 255, 0) 98%);
+}
+
+.readmore-button svg {
+    vertical-align: middle;
 }

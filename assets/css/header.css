@@ -20,6 +20,12 @@ header>* {
     background-color: var(--color1);
 }
 
+header h1 {
+    color: #fff;
+    flex-grow: 2;
+    text-align: center;
+}
+
 header a {
     color: #fff;
 }
@@ -45,16 +51,22 @@ header a[href="index.html"]:first-of-type::after {
 
 header>form>input {
     display: var(--searcFormDisplay);
+    border-radius: 5px 0 0 5px;
 }
 
 header>form {
-    flex-grow: 2;
+    /* flex-grow: 2; */
     text-align: center;
+    display: flex;
 }
 
 header nav {
     flex-basis: 100%;
     text-align: center;
+}
+
+header nav a {
+    text-transform: uppercase;
 }
 
 header nav>ul {

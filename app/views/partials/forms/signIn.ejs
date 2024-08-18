@@ -1,5 +1,5 @@
 <form action="/login" method="POST" id="signin" class="active">
-
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
     <fieldset class="nano">
         <label for="email">email</label>
         <input type="email" name="email" id="email">

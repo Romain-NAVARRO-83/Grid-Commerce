@@ -1,32 +1,48 @@
-<%- include('miniCart') %>
-</main>
-<footer>
-    <address>
-        <!-- <img src="assets/img/logo-gridcommerce-light.svg" alt="Grid Commerce Logo" width="50" height="50"> -->
-        Grid Commerce<br>
-        boilerplate ecommerce layout<br>
-        42 Archibald Tuttle Blvd.<br>
-        80085 Zaphod-Beeblebrox<br>
-        <a href="mailto:@contact@gridcommerce.com" title="send us an email">contact@gridcommerce.fake</a><br>
-        <a href="tel:+33555555555">05 555 555</a>
-    </address>
-    <ul>
-        <% if (locals.customer) { %>
-            <li><a href="#">Your account</a></li>
-        <% } %>
-        <li><a href="">Lorem, ipsum dolor.</a></li>
-        <li><a href="">Enim, sunt fuga.</a></li>
-        <li><a href="">Ipsam, fugit aliquam?</a></li>
-        <li><a href="">Est, numquam praesentium!</a></li>
-    </ul>
-    <ul>
-        <li><a href="">Lorem, ipsum dolor.</a></li>
-        <li><a href="">Aspernatur, expedita pariatur?</a></li>
-        <li><a href="">Enim, sunt fuga</a></li>
-        <li><img src="/img/W3C_valid.svg.png" alt="W3C Validated" width="75"></li>
-    </ul>
-</footer>
-<script src="/js/grid-commerce.js"></script>
-<script src="/js/nano.js"></script>
-</body>
-</html>
+<% if (locals.pageType !="checkout" ) { %>
+    <%- include('miniCart') %>
+        <% }%>
+
+            </main>
+            <footer class="nano gap">
+                <div class="s12 m4 l4 pad">
+                    <a href="/" title="Retour accueil" class="padv">
+
+                        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                            type="module"></script><dotlottie-player src="/img/animations/spinning-gem.json"
+                            background="transparent" speed="1" style="width: 75px; height: 75px; display:inline-block;"
+                            direction="1" playmode="normal" loop="" autoplay=""></dotlottie-player><span
+                            class="site-name">Gem<span>store</span></span>
+                    </a>
+                    <address>
+                        42 Archibald Tuttle Blvd.<br>
+                        80085 Zaphod-Beeblebrox<br>
+                        <a href="mailto:@contact@gridcommerce.com"
+                            title="send us an email">contact@gridcommerce.fake</a><br>
+                        <a href="tel:+33555555555">05 555 555</a>
+                    </address>
+                </div>
+
+                <ul class="s12 m4 l4 pad">
+                    <% if (locals.customer) { %>
+                        <li><a href="#">Your account</a></li>
+                        <% } %>
+                            <li><a href="">Lorem, ipsum dolor.</a></li>
+                            <li><a href="">Enim, sunt fuga.</a></li>
+                            <li><a href="">Ipsam, fugit aliquam?</a></li>
+                            <li><a href="">Est, numquam praesentium!</a></li>
+                </ul>
+                <ul class="s12 m4 l4 pad">
+                    <li><a href="">Lorem, ipsum dolor.</a></li>
+                    <li><a href="">Aspernatur, expedita pariatur?</a></li>
+                    <li><a href="">Enim, sunt fuga</a></li>
+                    <li><img src="/img/W3C_valid.svg.png" alt="W3C Validated" width="75"></li>
+                </ul>
+                <div class="txt-center pad">&copy; <%= new Date().getFullYear() %> - Gemstore is a fake webshop made by
+                        <a href="https://github.com/Romain-NAVARRO-83" target="_blank">Romain Navarro</a>
+                </div>
+            </footer>
+            <script src="/js/grid-commerce.js"></script>
+            <script src="/js/nano.js"></script>
+            </body>
+
+            </html>

@@ -6,7 +6,7 @@ const customerController = {
     loginPage: async (req, res) => {
         try {
             // const categories = await dataMapper.getAllCategories();
-            res.render("login", { pageType: "login", pageTitle: "Login" });
+            res.render("login", { pageType: "login", pageTitle: "Login", csrf: req.csrfToken() });
         } catch (error) {
             console.error(error);
             res.send("error");
@@ -23,16 +23,16 @@ const customerController = {
             })
             if (!foundCustomer || !compare(foundCustomer.password, userPassword)) {
                 res.render('login', {
-                    pageType: "login", pageTitle: "Login", alert: ["danger", "Incorrect user email or password"]
+                    pageType: "login", pageTitle: "Login", alert: ["danger", "Incorrect user email or password"], csrf: req.csrfToken()
                 });
             } else {
                 req.session.customerId = foundCustomer.id;
                 res.render('home', {
-                    
+
                     pageTitle: "Home",
                     cart: req.session.cart,
                     alert: ["valid", `You are now connected as ${foundCustomer.first_name} ${foundCustomer.last_name}`],
-                    customer: foundCustomer
+                    customer: foundCustomer, csrf: req.csrfToken()
 
 
                 });

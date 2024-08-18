@@ -341,6 +341,7 @@ body.home main .sectionarticle h3:after {
 
 .slick-1234 .slick-slide {
     padding: var(--mainpadding);
+    height: 225px;
 }
 
 /* div.slick-track,

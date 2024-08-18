@@ -36,55 +36,60 @@
                 direction="1" playMode="normal" loop autoplay></dotlottie-player><span
                 class="site-name">Gem<span>store</span></span>
         </a>
-        <form class="flexrow">
-            <label for="search">
-                <span>Search product</span>
-            </label>
-            <input id="search" type="text" placeholder="Search product">
-            <button class="ghost"><i class="fa fa-search"></i></button>
-        </form>
-        <ul>
-            <li>
-                <% if (! locals.customer) { %>
-                    <a href="/login" title="Connexion"><i class="fa fa-user fa-large"></i></a>
-                    <% }else{ %>
-                        <a href="/account" title="Your account (<%= customer.first_name%>)"><i
-                                class="fa-solid fa-house-user fa2x"></i></a>
-                        <% }%>
-
-            </li>
-            <li class="cart-toggler padh"><i class="fa fa-shopping-cart"></i>
-
-            </li>
-        </ul>
-        <!-- </div> -->
         <% if (locals.pageType !="checkout" ) { %>
-            <nav>
-                <ul>
-                    <% locals.categories.forEach((category)=>{ if (category.depth == 1){%>
-                        <li><a href="/category/<%= category.id %>">
-                                <%= category.name %>
-                            </a>
+            <form class="flexrow">
+                <label for="search">
+                    <span>Search product</span>
+                </label>
+                <input id="search" type="text" placeholder="Search product">
+                <button class="ghost"><i class="fa fa-search"></i></button>
+            </form>
+            <ul>
+                <li>
+                    <% if (! locals.customer) { %>
+                        <a href="/login" title="Connexion"><i class="fa fa-user fa-large"></i></a>
+                        <% }else{ %>
+                            <a href="/account" title="Your account (<%= customer.first_name%>)"><i
+                                    class="fa-solid fa-house-user fa2x"></i></a>
+                            <% }%>
 
-                            <% const subcategories=categories.filter((subcategory)=> subcategory.id_parent ==
-                                category.id);
-                                if(subcategories.length){%>
-                                <ul class="padh">
-                                    <% subcategories.forEach(subcategory=> {
-                                        %>
-                                        <li "s12 m4 l3 txtcenter">
-                                            <a href="/category/<%= subcategory.id %>">
-                                                <%= subcategory.name %>
-                                            </a>
-                                        </li>
-                                        <% }) }%>
-                                </ul>
-                        </li>
+                </li>
+                <li class="cart-toggler padh"><i class="fa fa-shopping-cart"></i>
 
-                        <%}})%>
-                </ul>
-            </nav>
-            <% } %>
+                </li>
+            </ul>
+            <% }else{%>
+                <h1>Finalize your order</h1>
+                <%}%>
+                    <!-- </div> -->
+                    <% if (locals.pageType !="checkout" ) { %>
+                        <nav>
+                            <ul>
+                                <% locals.categories.forEach((category)=>{ if (category.depth == 1){%>
+                                    <li><a href="/category/<%= category.id %>">
+                                            <%= category.name %>
+                                        </a>
+
+                                        <% const subcategories=categories.filter((subcategory)=> subcategory.id_parent
+                                            ==
+                                            category.id);
+                                            if(subcategories.length){%>
+                                            <ul class="padh">
+                                                <% subcategories.forEach(subcategory=> {
+                                                    %>
+                                                    <li "s12 m4 l3 txtcenter">
+                                                        <a href="/category/<%= subcategory.id %>">
+                                                            <%= subcategory.name %>
+                                                        </a>
+                                                    </li>
+                                                    <% }) }%>
+                                            </ul>
+                                    </li>
+
+                                    <%}})%>
+                            </ul>
+                        </nav>
+                        <% } %>
 
     </header>
     <% if (pageType !=="home" && pageType!=="checkout" ){%>

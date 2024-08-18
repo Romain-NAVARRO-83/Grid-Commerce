@@ -1,15 +1,11 @@
 <%- include ('partials/header.ejs') %>
     <main class="nano">
 
-        <h1 class="pad">Finalise your order</h1>
-
-
-
-        <section id="checkout-panel1" class="l3">
-            <div class="padh">
-                <nav>
-                    <button class="tabnav active" data-target="tabPanelForms" data-panel="signin">Sign in</button>
-                    <button class="tabnav" data-target="tabPanelForms" data-panel="signup">Sign up</button>
+        <section id="checkout-panel1" class="l3 pad">
+            <div>
+                <nav class="nano">
+                    <button class="tabnav active s6" data-target="tabPanelForms" data-panel="signin">Sign in</button>
+                    <button class="tabnav s6" data-target="tabPanelForms" data-panel="signup">Sign up</button>
                 </nav>
                 <div id="tabPanelForms" class="tabContainer noflex padv">
 
@@ -20,10 +16,10 @@
 
                 </div>
             </div>
-
+            <a href="/" class="btn"><i class="fa-solid fa-angles-left"></i> Resume shopping</a>
         </section>
         <form action="/place-order" class="l9 nano ">
-            <section id="checkout-panel2" class="l8">
+            <section id="checkout-panel2" class="l8 pad">
                 <fieldset class="nano padh gap">
                     <legend>Select a shipping method</legend>
                     <label for="fedex" class="s4 card pad">
@@ -54,64 +50,11 @@
                 </fieldset>
             </section>
             <section id="checkout-panel3" class="nano l4 pad">
-                <fieldset class="padh">
+                <fieldset id="cart-content" class="padh nano gap">
                     <legend>Your cart (X items)</legend>
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="#" alt="Item name" width="50" height="50">
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="#" alt="Item name" width="50" height="50">
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="#" alt="Item name" width="50" height="50">
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="#" alt="Item name" width="50" height="50">
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="#" alt="Item name" width="50" height="50">
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="#" alt="Item name" width="50" height="50">
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
+                    <% if (locals.cart){ cart.forEach((cartLine)=>{%>
+                        <div>cart content</div>
+                        <% }) } %>
                 </fieldset>
 
                 <fieldset>
@@ -126,4 +69,23 @@
                 <button type="submit" class="valid">Place order</button>
             </section>
         </form>
+
+        <template id="cart-line">
+            <div class="card nano">
+                <figure class="s2">
+                    <img slot="img" src="/img/-200W.jpg" alt="alt" width="50" height="50">
+                </figure>
+                <div class="s9">
+                    <div slot="name" class="minipad">
+                        product
+                    </div>
+                    <div class="minipad">
+                        <input name="quantity" type="number" slot="quantity" value="1" />
+                        <span slot="total">TOTAL-LINE</span>
+                    </div>
+                </div>
+                <button class="s1" slot="remove-product" data-idProduct="idprod" aria-label="remove from cart"><i
+                        class="fa-regular fa-trash-can danger"></i></button>
+            </div>
+        </template>
         <%- include ('partials/footer.ejs') %>
