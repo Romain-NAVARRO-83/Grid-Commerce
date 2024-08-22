@@ -269,3 +269,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     populateCheckoutCart()
   }
 });
+if (document.querySelector('.demo-credentials')) {
+  document.querySelector('.demo-credentials').addEventListener('click', () => {
+    document.querySelector('#email').value = 'customer1@fakemail.com';
+    document.querySelector('#password').value = '12345678$Aa$';
+  })
+}

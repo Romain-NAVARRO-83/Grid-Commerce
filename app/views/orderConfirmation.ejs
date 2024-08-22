@@ -1,0 +1,36 @@
+<%- include ('partials/header.ejs') %>
+    <main class="nano pad">
+        <h1 class="txt-center">Votre commande est validée !</h1>
+        <div class="nano">
+            <h2>En voici les détails :</h2>
+            <ul class="m6">
+                <li>Référence : <%= locals.orderData.reference %>
+                </li>
+                <li>
+                    Date de commande : <%= locals.orderData.date %>
+                </li>
+                <li>Date de livraison <strong>estimée</strong> : <%= locals.orderData.deliveryDate %>
+                </li>
+            </ul>
+            <table class="m6">
+                <caption>Articles dans votre commande</caption>
+                <% locals.orderData.orderDetails.forEach(orderLine=> { %>
+                    <tr>
+                        <td>
+                            <%= orderLine.id_product %>
+                        </td>
+                        <td> x <%= orderLine.quantity %>
+                        </td>
+                        <td>
+                            <%= orderLine.quantity * orderLine.unit_price %> €
+                        </td>
+                    </tr>
+                    <% }) %>
+
+            </table>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, fugiat rerum. Harum laboriosam deleniti
+                et assumenda impedit consequuntur tempore praesentium minus illo minima quibusdam ipsum, atque repellat
+                tempora? Optio, molestias!</p>
+        </div>
+
+        <%- include ('partials/footer.ejs') %>

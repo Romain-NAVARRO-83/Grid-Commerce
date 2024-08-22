@@ -30,9 +30,9 @@
         <section class="angle maxwidth padh">
             <h2>Our best selling <span class="small">gems</span></h2>
             <div class="slick-1234">
-                <% locals.homeproducts.forEach(product=> { %>
+                <% if (locals.homeproducts){locals.homeproducts.forEach(product=> { %>
                     <%- include('./partials/miniatures/product-slide.ejs',{product}) %>
-                        <% }) %>
+                        <% }) }%>
             </div>
 
 

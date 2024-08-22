@@ -2,23 +2,32 @@
     <main class="nano">
 
         <section id="checkout-panel1" class="l3 pad">
-            <div>
-                <nav class="nano">
-                    <button class="tabnav active s6" data-target="tabPanelForms" data-panel="signin">Sign in</button>
-                    <button class="tabnav s6" data-target="tabPanelForms" data-panel="signup">Sign up</button>
-                </nav>
-                <div id="tabPanelForms" class="tabContainer noflex padv">
+            <% if (locals.customer) { %>
+                <p class="txt-center">Vous êtes connecté en tant que <br><strong>
+                        <%= customer.first_name%>
+                            <%= customer.last_name%>
+                    </strong>
+                </p>
+                <% }else{ %>
+                    <div>
+                        <nav class="nano">
+                            <button class="tabnav active s6" data-target="tabPanelForms" data-panel="signin">Sign
+                                in</button>
+                            <button class="tabnav s6" data-target="tabPanelForms" data-panel="signup">Sign up</button>
+                        </nav>
+                        <div id="tabPanelForms" class="tabContainer noflex padv">
 
-                    <%- include('./partials/forms/signIn') %>
-                        <%- include('./partials/forms/signUp') %>
+                            <%- include('./partials/forms/signIn') %>
+                                <%- include('./partials/forms/signUp') %>
 
 
 
-                </div>
-            </div>
-            <a href="/" class="btn"><i class="fa-solid fa-angles-left"></i> Resume shopping</a>
+                        </div>
+                    </div>
+                    <% }%>
+                        <a href="/" class="btn"><i class="fa-solid fa-angles-left"></i> Resume shopping</a>
         </section>
-        <form action="/place-order" class="l9 nano ">
+        <form action="/order" class="l9 nano " method="post">
             <section id="checkout-panel2" class="l8 pad">
                 <fieldset class="nano padh gap">
                     <legend>Select a shipping method</legend>

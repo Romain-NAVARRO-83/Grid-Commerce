@@ -1,26 +1,26 @@
 BEGIN;
 -- create customers
 INSERT INTO "customer" ("first_name", "last_name", "password", "email") VALUES
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer1@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer2@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer3@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer4@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer5@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer6@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer7@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer8@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer9@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer10@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer11@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer12@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer13@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer14@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer15@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer16@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer17@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer18@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer19@fakemail.com'),
-('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$zMiA0IoWcGmOdiahuv3AOw$nI5So2XsuxVEiJXuGYOH6uIFS/FvqRtva7/aRm0zDXMrgLUxFMbmQQ', 'customer20@fakemail.com');
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer1@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer2@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer3@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer4@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer5@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer6@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer7@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer8@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer9@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer10@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer11@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer12@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer13@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer14@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer15@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer16@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer17@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer18@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer19@fakemail.com'),
+('customer', 'fake', '$argon2id$v=19$m=65536,t=3,p=4$usS/q2H/b+BulJ3Ir++HtA$xcrmHj0R4YnCLFsZ/U2bDArlD8NVIfx6EkdV63/xa+iXKfHLzXjkeQ', 'customer20@fakemail.com');
 
 
 -- create categories

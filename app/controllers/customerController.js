@@ -30,6 +30,7 @@ const customerController = {
                 res.render('home', {
 
                     pageTitle: "Home",
+                    pageType: "home",
                     cart: req.session.cart,
                     alert: ["valid", `You are now connected as ${foundCustomer.first_name} ${foundCustomer.last_name}`],
                     customer: foundCustomer, csrf: req.csrfToken()
