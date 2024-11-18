@@ -1,6 +1,6 @@
 <%- include ('partials/header.ejs') %>
 
-    <main class="nano">
+    <main id="main-content" class="nano">
 
         <section class="nanogap pad maxwidth angle">
             <h1>
@@ -27,19 +27,15 @@
             <% locals.category.products.forEach((product)=> { %>
                 <%- include ('partials/miniatures/product.ejs', {product : product }) %>
                     <% }) %>
-                        <!-- REDO -->
-                        <% locals.category.products.forEach((product)=> { %>
-                            <%- include ('partials/miniatures/product.ejs', {product : product }) %>
-                                <% }) %>
-                                    <!-- REDO -->
-                                    <% locals.category.products.forEach((product)=> { %>
-                                        <%- include ('partials/miniatures/product.ejs', {product : product }) %>
-                                            <% }) %>
-                                                <!-- REDO -->
-                                                <% locals.category.products.forEach((product)=> { %>
-                                                    <%- include ('partials/miniatures/product.ejs', {product : product
-                                                        }) %>
-                                                        <% }) %>
+                        <% locals.subCategories.forEach(subcategory=> { %>
+                            <h2>
+                                <%= subcategory.name %>
+                            </h2>
+                            <% subcategory.products.forEach(product=> { %>
+                                <%- include ('partials/miniatures/product.ejs', {product : product }) %>
+                                    <% }) %>
+
+                                        <% }) %>
 
         </section>
         <section class="nano s12 pad maxwidth angle">

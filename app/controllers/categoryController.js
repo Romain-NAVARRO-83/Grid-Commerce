@@ -5,18 +5,20 @@ categoryController = {
   categoryPage: async (req, res) => {
     const idCategory = parseInt(req.params['id']);
     try {
-      // const categories = await dataMapper.getAllCategories();
-      const categories = await Category.findAll();
       const category = await Category.findByPk(idCategory, {
-        include: "products",
+        include: "products"
       });
-      // const category = categories.find((category) => category.name.replace(" ", "-") === categoryName);
-      // const products = await dataMapper.getCategoryProducts(category.id);
+      const subCategories = await Category.findAll({
+        where: {
+          id_parent: idCategory
+        },
+        include: "products"
+      });
+      console.log(subCategories);
 
-      // console.log(products);
       res.render('category', {
         category: category,
-        categories: categories,
+        subCategories: subCategories,
         pageType: "category",
         cart: req.session.cart
       })

@@ -1,0 +1,7 @@
+# Allow all web crawlers to access the entire site
+User-agent: *
+Disallow:
+
+
+# Specify the location of the sitemap
+Sitemap: https://example.com/sitemap.xml
