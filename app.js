@@ -10,22 +10,12 @@ const router = require('./app/router');
 app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 app.use(express.static('assets'));
-// app.use(express.json());
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const csrfErrorHandler = require("./app/middlewares/csrfErrorHandler.js");
 const loadLoggedCustomer = require("./app/middlewares/loadLoggedCustomer.js");
 const { frontCategories } = require('./app/middlewares/getCategoriesMiddleware.js');
 const sessionMidleware = require("./app/middlewares/sessionMiddleware.js");
-
-// Cookies 
-// app.use(session({
-//   secret: 'harrytuttle',
-//   resave: true,
-//   saveUninitialized: true,
-//   cookie: { secure: false}
-// }));
-
 app.use(sessionMidleware);
 app.use(loadLoggedCustomer);
 app.use(frontCategories);
