@@ -8,7 +8,8 @@
     justify-content: space-around;
     align-items: center;
     background-position: center;
-    padding: var(--mainpadding)
+    padding: var(--mainpadding);
+    flex-wrap:wrap;
 }
 
 #homeslider .slide1 {

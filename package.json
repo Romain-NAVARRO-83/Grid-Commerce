@@ -28,6 +28,7 @@
     "@amcharts/amcharts5": "^5.9.11",
     "argon2": "^0.40.3",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "dayjs": "^1.11.11",
     "dotenv": "^16.4.5",

@@ -23,3 +23,8 @@ p{
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
+@media (width < 800px){
+    header nav {
+        display:none!important;
+    }
+}
