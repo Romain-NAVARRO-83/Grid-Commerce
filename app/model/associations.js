@@ -8,58 +8,52 @@ const Category = require("./Category.js");
 // Customer <-> Answer (One-To-Many)
 Customer.hasMany(Order, {
   foreignKey: "id_customer",
-  as: "orders"
+  as: "orders",
 });
 Order.belongsTo(Customer, {
   foreignKey: "id_customer",
-  as: "customer"
+  as: "customer",
 });
-
 
 // Order <-> OrderDetail (One-To-Many)
 Order.hasMany(OrderDetail, {
   foreignKey: "id_order",
-  as: "orderDetail"
+  as: "orderDetail",
 });
 OrderDetail.belongsTo(Order, {
   foreignKey: "id_order",
-  as: "order"
+  as: "order",
 });
 // Product <-> OrderDetail (One-To-Many)
 Product.hasMany(OrderDetail, {
   foreignKey: "id_product",
-  as: "orderDetail"
+  as: "orderDetail",
 });
 OrderDetail.belongsTo(Product, {
   foreignKey: "id_product",
-  as: "product"
+  as: "product",
 });
 // Order <-> Answer (One-To-Many)
 Order.hasMany(Shipment, {
   foreignKey: "id_order",
-  as: "shipments"
+  as: "shipments",
 });
 Shipment.belongsTo(Order, {
   foreignKey: "id_order",
-  as: "order"
+  as: "order",
 });
-// Product <-> Tag (Many-to-Many)
-// const categoryProducts = sequelize.define('notes_tags', {
-
-// }, {
-//   timestamps: false
-// })
+// Product <-> category (Many-to-Many)
 Product.belongsToMany(Category, {
-  through: "category_product", // nom de la table de liaison
-  foreignKey: "id_product", // nom de la clé étrangère dans la table SOURCE
+  through: "category_product",
+  foreignKey: "id_product",
   as: "categories",
-  timestamps: false
+  timestamps: false,
 });
 Category.belongsToMany(Product, {
   through: "category_product",
   foreignKey: "id_category",
   as: "products",
-  timestamps: false
+  timestamps: false,
 });
 
-module.exports = { Customer, Order, Product, OrderDetail, Shipment, Category }
+module.exports = { Customer, Order, Product, OrderDetail, Shipment, Category };

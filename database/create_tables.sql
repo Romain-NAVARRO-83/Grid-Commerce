@@ -1,95 +1,88 @@
 BEGIN;
+
+DROP TABLE IF EXISTS "shipment_details" CASCADE;
+DROP TABLE IF EXISTS "shipments" CASCADE;
 DROP TABLE IF EXISTS "order_detail" CASCADE;
 DROP TABLE IF EXISTS "order" CASCADE;
 DROP TABLE IF EXISTS "customer" CASCADE;
 DROP TABLE IF EXISTS "category_product" CASCADE;
 DROP TABLE IF EXISTS "category" CASCADE;
 DROP TABLE IF EXISTS "product" CASCADE;
-DROP TABLE IF EXISTS "shipments" CASCADE;
-DROP TABLE IF EXISTS "shipment_details" CASCADE;
-
-
+DROP TABLE IF EXISTS "employee" CASCADE;
 
 CREATE TABLE IF NOT EXISTS "product" (
-	"id" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
-	"name" varchar(250),
-	"reference" varchar(255) NOT NULL UNIQUE,
-	"description_short" varchar(255),
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR(250),
+	"reference" VARCHAR(255) NOT NULL UNIQUE,
+	"description_short" VARCHAR(255),
 	"description_long" TEXT,
-	"price" FLOAT DEFAULT '0',
-	"picture_url" varchar(255),
-	"stock" bigint NOT NULL,
-	PRIMARY KEY ("id")
+	"price" NUMERIC(10, 2) DEFAULT 0,
+	"picture_url" VARCHAR(255),
+	"stock" INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS "category" (
-	"id" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
-	"name" varchar(250) NOT NULL,
-	"depth" INTEGER DEFAULT '0',
-	"id_parent" bigint,
-	"text_top" varchar(2000),
-	"text_bottom" varchar(2000),
-	PRIMARY KEY ("id")
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR(250) NOT NULL,
+	"depth" INTEGER DEFAULT 0,
+	"id_parent" INTEGER REFERENCES "category"("id") ON DELETE SET NULL,
+	"text_top" VARCHAR(2000),
+	"text_bottom" VARCHAR(2000)
 );
 
 CREATE TABLE IF NOT EXISTS "category_product" (
-	"id" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
-	"id_product" bigint NOT NULL,
-	"id_category" bigint NOT NULL,
-	PRIMARY KEY ("id")
+	"id" SERIAL PRIMARY KEY,
+	"id_product" INTEGER NOT NULL REFERENCES "product"("id") ON DELETE CASCADE,
+	"id_category" INTEGER NOT NULL REFERENCES "category"("id") ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS "customer" (
-	"id" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
-	"first_name" varchar(255) NOT NULL,
-	"last_name" varchar(255) NOT NULL,
-	"password" text NOT NULL,
-	"email" varchar(255) NOT NULL UNIQUE,
-	PRIMARY KEY ("id")
+	"id" SERIAL PRIMARY KEY,
+	"first_name" VARCHAR(255) NOT NULL,
+	"last_name" VARCHAR(255) NOT NULL,
+	"password" TEXT NOT NULL,
+	"email" VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS "order" (
-	"id" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
-	"reference" varchar(250) NOT NULL UNIQUE,
-	"id_customer" bigint NOT NULL,
-	"state" smallint NOT NULL,
-	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-	PRIMARY KEY ("id")
+	"id" SERIAL PRIMARY KEY,
+	"reference" VARCHAR(250) NOT NULL UNIQUE,
+	"id_customer" INTEGER NOT NULL REFERENCES "customer"("id") ON DELETE CASCADE,
+	"state" SMALLINT NOT NULL DEFAULT 0,
+	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS "order_detail" (
-	"id" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
-	"id_order" smallint NOT NULL,
-	"id_product" smallint NOT NULL,
-	"quantity" smallint NOT NULL,
-	"unit_price" numeric(10,0) NOT NULL,
-	PRIMARY KEY ("id")
-);
-CREATE TABLE IF NOT EXISTS "shipments"(
-	"id" SERIAL NOT NULL UNIQUE,
-	"id_order" INTEGER NOT NULL,
-	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-	PRIMARY KEY ("id")
-);
-CREATE TABLE IF NOT EXISTS "shipment_details"(
-	"id" SERIAL NOT NULL UNIQUE,
-	"id_shipment" INTEGER NOT NULL,
-	"quantity" INTEGER NOT NULL,
-	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-	PRIMARY KEY ("id")
+	"id" SERIAL PRIMARY KEY,
+	"id_order" INTEGER NOT NULL REFERENCES "order"("id") ON DELETE CASCADE,
+	"id_product" INTEGER NOT NULL REFERENCES "product"("id") ON DELETE CASCADE,
+	"quantity" INTEGER NOT NULL DEFAULT 1,
+	"unit_price" NUMERIC(10, 2) NOT NULL DEFAULT 0
 );
 
-ALTER TABLE "category_product" ADD CONSTRAINT "category_product_fk1" FOREIGN KEY ("id_product") REFERENCES "product"("id");
+CREATE TABLE IF NOT EXISTS "employee" (
+	"id" SERIAL PRIMARY KEY,
+	"first_name" VARCHAR(255) NOT NULL,
+	"last_name" VARCHAR(255) NOT NULL,
+	"email" VARCHAR(255) NOT NULL UNIQUE,
+	"password" TEXT NOT NULL,
+	"role" VARCHAR(100),
+	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 
-ALTER TABLE "category_product" ADD CONSTRAINT "category_product_fk2" FOREIGN KEY ("id_category") REFERENCES "category"("id");
+CREATE TABLE IF NOT EXISTS "shipments" (
+	"id" SERIAL PRIMARY KEY,
+	"id_order" INTEGER NOT NULL REFERENCES "order"("id") ON DELETE CASCADE,
+	"id_employee" INTEGER NOT NULL REFERENCES "employee"("id") ON DELETE SET NULL,
+	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 
-ALTER TABLE "order" ADD CONSTRAINT "order_fk2" FOREIGN KEY ("id_customer") REFERENCES "customer"("id");
-ALTER TABLE "order_detail" ADD CONSTRAINT "order_detail_fk1" FOREIGN KEY ("id_order") REFERENCES "order"("id");
-
-ALTER TABLE "order_detail" ADD CONSTRAINT "order_detail_fk2" FOREIGN KEY ("id_product") REFERENCES "product"("id");
-
-ALTER TABLE "shipments" ADD CONSTRAINT "shipments_fk1" FOREIGN KEY ("id_order") REFERENCES "order"("id");
-
-ALTER TABLE "shipment_details" ADD CONSTRAINT "shipments_details_fk1" FOREIGN KEY ("id_shipment") REFERENCES "shipments"("id");
+CREATE TABLE IF NOT EXISTS "shipment_details" (
+	"id" SERIAL PRIMARY KEY,
+	"id_shipment" INTEGER NOT NULL REFERENCES "shipments"("id") ON DELETE CASCADE,
+	"id_product" INTEGER NOT NULL REFERENCES "product"("id") ON DELETE CASCADE,
+	"quantity" INTEGER NOT NULL DEFAULT 1,
+	"date_creation" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 
 COMMIT;
